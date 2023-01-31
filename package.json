@@ -2,23 +2,36 @@
   "name": "spartak-ui",
   "version": "0.1.0",
   "description": "A react component library",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
+  "author": "Sergei Cherniaev <sergei@cherniaev.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/shdq/spartak-ui#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shdq/spartak-ui.git"
   },
-  "author": "Sergei Cherniaev <sergei@cherniaev.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shdq/spartak-ui/issues"
   },
-  "homepage": "https://github.com/shdq/spartak-ui#readme",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup --config",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist/index.*"
+  ],
+  "types": "dist/index.d.ts",
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.20.12",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -31,6 +44,9 @@
     "babel-loader": "^8.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup": "^3.12.0",
+    "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook-dark-mode": "^2.0.5",
     "typescript": "^4.9.4"
   }
