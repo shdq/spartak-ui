@@ -15,8 +15,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup --config",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
+    "test-storybook": "test-storybook",
     "build-storybook": "build-storybook"
   },
   "main": "dist/index.cjs.js",
@@ -25,7 +25,6 @@
     "dist/index.*"
   ],
   "types": "dist/index.d.ts",
-  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@rollup/plugin-commonjs": "^24.0.1",
@@ -37,8 +36,10 @@
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
     "@storybook/builder-webpack4": "^6.5.16",
+    "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack4": "^6.5.16",
     "@storybook/react": "^6.5.16",
+    "@storybook/test-runner": "^0.9.4",
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.27",
     "babel-loader": "^8.3.0",
