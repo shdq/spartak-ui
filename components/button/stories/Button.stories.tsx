@@ -1,4 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { within, fireEvent } from "@storybook/testing-library";
+import { jest, expect } from "@storybook/jest";
 
 import { Button } from "../Button";
 
@@ -6,11 +8,8 @@ export default {
   title: "Components/Button",
   component: Button,
   argTypes: {
-    children: {
-      name: "label",
-    },
     variant: {
-      options: ["filled", "toned", "outlined", "text"],
+      options: ["filled", "tinted", "outlined", "text"],
       control: { type: "select" },
     },
     color: {
@@ -32,10 +31,10 @@ FilledButton.args = {
   disabled: false,
 };
 
-export const TonedButton = Template.bind({});
-TonedButton.args = {
-  children: "Toned",
-  variant: "toned",
+export const TintedButton = Template.bind({});
+TintedButton.args = {
+  children: "Tinted",
+  variant: "tinted",
   color: "red",
   disabled: false,
 };
@@ -56,3 +55,45 @@ TextButton.args = {
   disabled: false,
 };
 
+export const LinkButton = Template.bind({});
+LinkButton.args = {
+  children: "Text",
+  variant: "text",
+  color: "red",
+  href: "https://example.com",
+  as: "a",
+};
+
+// Button with "a" and "href" props should be rendered as <a> element
+LinkButton.play = async ({ canvasElement }) => {
+  // Prepare
+  const canvas = within(canvasElement);
+
+  // Act
+  const link = canvas.getByRole("link");
+
+  // Assess
+  expect(link).toBeInTheDocument();
+};
+
+export const TestButtonClick = Template.bind({});
+const onClickSpy = jest.fn();
+TestButtonClick.args = {
+  children: "Click me!",
+  variant: "filled",
+  color: "red",
+  disabled: false,
+  onClick: onClickSpy,
+};
+
+// "Click on button should call the function"
+TestButtonClick.play = async ({ canvasElement }) => {
+  // Prepare
+  const canvas = within(canvasElement);
+
+  // Act
+  await fireEvent.click(canvas.getByRole("button"));
+
+  // Assess
+  expect(onClickSpy).toHaveBeenCalled();
+};

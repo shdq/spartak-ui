@@ -1,13 +1,26 @@
 import { styled } from "../stitches.config";
 
-export const Button = styled("button", {
+const ButtonComponent = styled("button", {
+  all: "unset",
   border: "1px solid transparent",
-  borderRadius: "3px",
+  borderRadius: "$3",
   cursor: "pointer",
-  fontSize: "14px",
-  fontWeight: "400",
-  padding: "8px 16px",
+  textDecoration: "none",
+  fontFamily: "$system",
+  fontSize: "$default",
+  fontWeight: "$normal",
+
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  minWidth: "32px",
+  height: "32px",
+  padding: "0 16px",
+
+  whiteSpace: "nowrap",
   transition: "200ms",
+  userSelect: "none",
   "&:hover": {
     transition: "200ms",
   },
@@ -17,6 +30,10 @@ export const Button = styled("button", {
   },
   "&:disabled": {
     cursor: "not-allowed",
+  },
+  "&:focus-visible": {
+    transition: "none",
+    outline: "3px solid $focus",
   },
 
   variants: {
@@ -59,7 +76,7 @@ export const Button = styled("button", {
           opacity: 0.6,
         },
       },
-      toned: {
+      tinted: {
         color: "$$color600",
         backgroundColor: "$$color000",
         "&:hover": {
@@ -102,3 +119,16 @@ export const Button = styled("button", {
     color: "red",
   },
 });
+
+export interface ButtonProps
+  extends React.ComponentProps<typeof ButtonComponent> {
+  as?: React.ElementType;
+  href?: string;
+}
+
+export const Button = (props: ButtonProps) => {
+  if (!props?.as && !props?.href && !props?.type) {
+    return <ButtonComponent type="button" {...props} />;
+  }
+  return <ButtonComponent {...props} />;
+};
