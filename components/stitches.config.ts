@@ -26,17 +26,27 @@ export const { styled } = createStitches({
       blue900: "#003DB8",
 
       white: "#ffffff",
+      focus: "#70C4E5"
     },
     space: {},
-    fontSizes: {},
-    fonts: {},
-    fontWeights: {},
+    fontSizes: {
+      default: "14px",
+    },
+    fonts: {
+      system:
+        "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+    },
+    fontWeights: {
+      normal: 400,
+    },
     lineHeights: {},
     letterSpacings: {},
     sizes: {},
     borderWidths: {},
     borderStyles: {},
-    radii: {},
+    radii: {
+      3: "3px",
+    },
     shadows: {},
     zIndices: {},
     transitions: {},
