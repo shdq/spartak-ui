@@ -16,7 +16,6 @@ const ButtonComponent = styled("button", {
 
   minWidth: "32px",
   height: "32px",
-  padding: "0 16px",
 
   whiteSpace: "nowrap",
   transition: "200ms",
@@ -124,11 +123,34 @@ export interface ButtonProps
   extends React.ComponentProps<typeof ButtonComponent> {
   as?: React.ElementType;
   href?: string;
+  icon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 }
 
-export const Button = (props: ButtonProps) => {
-  if (!props?.as && !props?.href && !props?.type) {
-    return <ButtonComponent type="button" {...props} />;
-  }
-  return <ButtonComponent {...props} />;
+export const Button = ({
+  icon,
+  endIcon,
+  children,
+  ...props
+}: ButtonProps) => {
+  const Wrapper = styled("span", {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 4,
+    paddingLeft: children ? "16px" : 0,
+    paddingRight: children ? "16px" : 0,
+  });
+
+  const htmlType = !props?.as && !props?.href && !props?.type ? "button" : null;
+
+  return (
+    <ButtonComponent type={htmlType} {...props}>
+      <Wrapper>
+        {icon}
+        {children}
+        {!icon && endIcon}
+      </Wrapper>
+    </ButtonComponent>
+  );
 };
