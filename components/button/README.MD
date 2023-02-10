@@ -8,9 +8,7 @@ Polymorphic React component, use it as a button or a link.
 import { Button } from "spartak-ui";
 
 function App() {
-  return (
-    <Button>Click me!</Button>
-  );
+  return <Button>Click me!</Button>;
 }
 ```
 
@@ -28,7 +26,11 @@ If you don't specify `variant` prop, default variant will be used.
 ### Usage
 
 ```typescript
-<Button variant="outlined">Outlined</Button>
+import { Button } from "spartak-ui";
+
+function App() {
+  return <Button variant="outlined">Outlined</Button>;
+}
 ```
 
 ## Colors
@@ -43,7 +45,39 @@ If you don't specify `color` prop, default variant will be used.
 ### Usage
 
 ```typescript
-<Button color="blue">Blue</Button>
+import { Button } from "spartak-ui";
+
+function App() {
+  return <Button color="blue">Blue</Button>;
+}
+```
+
+## Icons
+
+There are `icon` and `endIcon` properties to place icon before and after `Button` label.
+
+**NB:** `icon` property has a priority, if you use both properties, only one icon from `icon` will be rendered.
+
+### Usage
+
+```typescript
+import { Button } from "spartak-ui";
+import { IconBell } from "@tabler/icons-react";
+
+function App() {
+  return <Button icon={<IconBell size={18} />}>Notifications</Button>;
+}
+```
+
+Button with `icon` property and without children renders and square button with icon.
+
+```typescript
+import { Button } from "spartak-ui";
+import { IconSun } from "@tabler/icons-react";
+
+function App() {
+  return <Button icon={<IconSun size={18} variant="tinted" />} />;
+}
 ```
 
 ## Disabled
@@ -53,7 +87,11 @@ You can disable `Button` by specifying `disabled` property.
 ### Usage
 
 ```typescript
-<Button disabled>Submit</Button>
+import { Button } from "spartak-ui";
+
+function App() {
+  return <Button disabled>Submit</Button>;
+}
 ```
 
 ## Button as a link
@@ -63,7 +101,15 @@ Provide HTML element name `a` to `as` property and `href` with path or URL to re
 ### Usage
 
 ```typescript
-<Button variant="text" as="a" href="https://example.com">This is a link</Button>
+import { Button } from "spartak-ui";
+
+function App() {
+  return (
+    <Button variant="text" as="a" href="https://example.com">
+      This is a link
+    </Button>
+  );
+}
 ```
 
 ## Combined style
@@ -73,5 +119,7 @@ You can combine variants. Example below will render blue tinted button.
 ### Usage
 
 ```typescript
-<Button variant="tinted" color="blue">Combined style</Button>
+<Button variant="tinted" color="blue">
+  Combined style
+</Button>
 ```
