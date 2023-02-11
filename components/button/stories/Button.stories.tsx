@@ -1,6 +1,10 @@
+import { PropsWithChildren } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { within, fireEvent } from "@storybook/testing-library";
 import { jest, expect } from "@storybook/jest";
+import { useDarkMode } from "storybook-dark-mode";
+import { darkTheme } from "../../stitches.config";
+import { Button } from "../Button";
 import {
   IconBell,
   IconExternalLink,
@@ -12,9 +16,6 @@ import {
   IconMoon,
 } from "@tabler/icons-react";
 
-import { Button } from "../Button";
-import { PropsWithChildren } from "react";
-
 const icons = {
   Empty: undefined,
   Email: <IconMail size={18} />,
@@ -25,6 +26,13 @@ const icons = {
 
 export default {
   title: "Components/Button",
+  decorators: [
+    (Story) => (
+      <div className={useDarkMode() ? darkTheme.className : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
   component: Button,
   argTypes: {
     variant: {
