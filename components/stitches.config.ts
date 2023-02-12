@@ -18,7 +18,7 @@ const redDark = {
   red000: "#490D0D",
   // tinted hover background
   red100: "#570F0F",
-  // text color for tinted
+  // text color for tinted and hovered text variant
   red400: "#E36464",
   // common primary color between light and dark
   red500: "#DE4D4D",
@@ -31,7 +31,7 @@ const blue = {
   blue000: "#EBF1FF",
   // tinted hover background
   blue100: "#C2D6FF",
-  // tinted text color
+  // tinted text color and hovered text variant
   blue400: "#0A5CFF",
   // common colors between light and dark
   blue500: "#3377FF",
@@ -43,7 +43,7 @@ const blueDark = {
   blue000: "#112B5F",
   // tinted hover background
   blue100: "#14326D",
-  // color for tinted
+  // color for tinted and hovered text variant
   blue400: "#5C92FF",
   // common primary color between light and dark
   blue500: "#3377FF",

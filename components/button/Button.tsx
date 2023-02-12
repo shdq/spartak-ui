@@ -93,9 +93,11 @@ const ButtonComponent = styled("button", {
         borderColor: "transparent",
         backgroundColor: "transparent",
         "&:hover": {
+          color: "$$color400",
           backgroundColor: "$$color000",
         },
         "&:disabled": {
+          color: "$$color600",
           backgroundColor: "transparent",
           opacity: 0.6,
         },
