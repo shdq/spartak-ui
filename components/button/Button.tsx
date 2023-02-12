@@ -40,26 +40,16 @@ const ButtonComponent = styled("button", {
       red: {
         $$color000: "$colors$red000",
         $$color100: "$colors$red100",
-        $$color200: "$colors$red200",
-        $$color300: "$colors$red300",
         $$color400: "$colors$red400",
         $$color500: "$colors$red500",
         $$color600: "$colors$red600",
-        $$color700: "$colors$red700",
-        $$color800: "$colors$red800",
-        $$color900: "$colors$red900",
       },
       blue: {
-        $$color100: "$colors$blue100",
         $$color000: "$colors$blue000",
-        $$color200: "$colors$blue200",
-        $$color300: "$colors$blue300",
+        $$color100: "$colors$blue100",
         $$color400: "$colors$blue400",
         $$color500: "$colors$blue500",
         $$color600: "$colors$blue600",
-        $$color700: "$colors$blue700",
-        $$color800: "$colors$blue800",
-        $$color900: "$colors$blue900",
       },
     },
 
@@ -76,7 +66,7 @@ const ButtonComponent = styled("button", {
         },
       },
       tinted: {
-        color: "$$color600",
+        color: "$$color400",
         backgroundColor: "$$color000",
         "&:hover": {
           backgroundColor: "$$color100",
@@ -103,9 +93,11 @@ const ButtonComponent = styled("button", {
         borderColor: "transparent",
         backgroundColor: "transparent",
         "&:hover": {
+          color: "$$color400",
           backgroundColor: "$$color000",
         },
         "&:disabled": {
+          color: "$$color600",
           backgroundColor: "transparent",
           opacity: 0.6,
         },
