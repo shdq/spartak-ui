@@ -51,13 +51,15 @@ const blueDark = {
   blue600: "#1F69FF",
 };
 
-export const { styled } = createStitches({
+export const { theme, styled, globalCss } = createStitches({
   theme: {
     colors: {
       ...red,
       ...blue,
       white: "#ffffff",
       focus: "#70C4E5",
+      background: "#ffffff",
+      foreground: "#222222",
     },
     space: {},
     fontSizes: {
@@ -88,5 +90,14 @@ export const darkTheme = createTheme({
   colors: {
     ...redDark,
     ...blueDark,
+    background: "#232425",
+    foreground: "#ffffff",
+  },
+});
+
+export const GlobalStyles = globalCss({
+  "body": {
+    backgroundColor: "$background",
+    color: "$foreground",
   },
 });
