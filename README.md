@@ -2,6 +2,10 @@
 
 A React Components Library
 
+## Components
+
+- [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
+
 ## Dark theme
 
 There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component into `ThemeProvider`.
