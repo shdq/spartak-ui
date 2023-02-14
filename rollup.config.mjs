@@ -26,7 +26,7 @@ export default [
       resolve(),
       typescript({
         module: "ESNext",
-        exclude: ["components/**/stories/*.tsx"],
+        exclude: ["components/**/stories/*.tsx", "components/**/*.test.tsx", "jest.config.ts"],
       }),
       terser(),
     ],
