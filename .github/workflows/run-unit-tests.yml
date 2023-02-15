@@ -1,13 +1,16 @@
 name: 'Run unit tests for components'
 on:
   push:
-    branches: [$default-branch]
+    branches:
+      - main
     paths:
       - components/**
   pull_request:
-    branches: [$default-branch]
+    branches:
+      - main
     paths:
       - components/**
+  workflow_dispatch:
 
 jobs:
   test:
