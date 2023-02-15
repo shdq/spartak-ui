@@ -1,0 +1,26 @@
+name: 'Run unit tests for components'
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - components/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - components/**
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Run unit tests
+        run: npm run test
