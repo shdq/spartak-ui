@@ -81,9 +81,11 @@ const ButtonComponent = styled("button", {
         borderColor: "$$color600",
         backgroundColor: "transparent",
         "&:hover": {
+          color: "$$color400",
           backgroundColor: "$$color000",
         },
         "&:disabled": {
+          color: "$$color600",
           backgroundColor: "transparent",
           opacity: 0.6,
         },
@@ -119,12 +121,7 @@ export interface ButtonProps
   endIcon?: React.ReactNode;
 }
 
-export const Button = ({
-  icon,
-  endIcon,
-  children,
-  ...props
-}: ButtonProps) => {
+export const Button = ({ icon, endIcon, children, ...props }: ButtonProps) => {
   const Wrapper = styled("span", {
     display: "flex",
     alignItems: "center",
@@ -134,10 +131,17 @@ export const Button = ({
     paddingRight: children ? "16px" : 0,
   });
 
-  const htmlType = !props?.as && !props?.href && !props?.type ? "button" : null;
+  // it's button when "as" and "href"
+  const buttonType =
+    (props?.as && props?.href) || props?.type || props?.as ? null : "button";
+
+  // ignore href prop if "as" element isn't present
+  if (!props?.as && props?.href) {
+    props.href = undefined;
+  }
 
   return (
-    <ButtonComponent type={htmlType} {...props}>
+    <ButtonComponent type={buttonType} href={props.href} {...props}>
       <Wrapper>
         {icon}
         {children}

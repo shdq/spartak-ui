@@ -1,7 +1,8 @@
 import type { Config } from "jest";
 
 const config: Config = {
-  rootDir: './components',
+  rootDir: "./components",
+  coverageDirectory: "../coverage",
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
