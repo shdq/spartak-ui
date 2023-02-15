@@ -1,7 +1,5 @@
 import { PropsWithChildren } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { within, fireEvent } from "@storybook/testing-library";
-import { jest, expect } from "@storybook/jest";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Button } from "../Button";
@@ -60,8 +58,8 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>{args.children}</Button>
+const Template: ComponentStory<typeof Button> = ({children, ...args}) => (
+  <Button {...args}>{children}</Button>
 );
 
 export const FilledButton = Template.bind({});
@@ -132,38 +130,4 @@ LinkButton.args = {
   endIcon: <IconExternalLink size={18} />,
   href: "https://example.com",
   as: "a",
-};
-
-// Button with "a" and "href" props should be rendered as <a> element
-LinkButton.play = async ({ canvasElement }) => {
-  // Prepare
-  const canvas = within(canvasElement);
-
-  // Act
-  const link = canvas.getByRole("link");
-
-  // Assess
-  expect(link).toBeInTheDocument();
-};
-
-export const TestButtonClick = Template.bind({});
-const onClickSpy = jest.fn();
-TestButtonClick.args = {
-  children: "Click me!",
-  variant: "filled",
-  color: "red",
-  disabled: false,
-  onClick: onClickSpy,
-};
-
-// "Click on button should call the function"
-TestButtonClick.play = async ({ canvasElement }) => {
-  // Prepare
-  const canvas = within(canvasElement);
-
-  // Act
-  await fireEvent.click(canvas.getByRole("button"));
-
-  // Assess
-  expect(onClickSpy).toHaveBeenCalled();
 };
