@@ -76,7 +76,7 @@ import { Button } from "spartak-ui";
 import { IconSun } from "@tabler/icons-react";
 
 function App() {
-  return <Button icon={<IconSun size={18} variant="tinted" />} />;
+  return <Button icon={<IconSun size={18} />} variant="tinted" />;
 }
 ```
 
@@ -96,7 +96,7 @@ function App() {
 
 ## Button as a link
 
-Provide HTML element name `a` to `as` property and `href` with path or URL to render `Button` component as a link.
+Provide HTML element name `a` to `as` property and `href` with path or URL to render `Button` component as a link. If you provider only `href` it will be ignored.
 
 ### Usage
 
