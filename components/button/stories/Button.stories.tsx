@@ -37,6 +37,10 @@ export default {
       options: ["filled", "tinted", "outlined", "text"],
       control: { type: "select" },
     },
+    size: {
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "radio" },
+    },
     color: {
       options: ["red", "blue"],
       control: { type: "radio" },
@@ -67,6 +71,7 @@ FilledButton.args = {
   children: "Filled",
   variant: "filled",
   color: "red",
+  size: "sm",
   disabled: false,
 };
 
@@ -75,6 +80,7 @@ TintedButton.args = {
   children: "Tinted",
   variant: "tinted",
   color: "red",
+  size: "sm",
   disabled: false,
 };
 
@@ -83,6 +89,7 @@ OutlinedButton.args = {
   children: "Outlined",
   variant: "outlined",
   color: "red",
+  size: "sm",
   disabled: false,
 };
 
@@ -91,6 +98,7 @@ TextButton.args = {
   children: "Text",
   variant: "text",
   color: "red",
+  size: "sm",
   disabled: false,
 };
 
@@ -100,6 +108,7 @@ IconButton.args = {
   icon: <IconBell size={18} />,
   variant: "filled",
   color: "red",
+  size: "md",
   disabled: false,
 };
 

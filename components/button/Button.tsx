@@ -7,15 +7,11 @@ const ButtonComponent = styled("button", {
   cursor: "pointer",
   textDecoration: "none",
   fontFamily: "$system",
-  fontSize: "$default",
   fontWeight: "$normal",
 
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-
-  minWidth: "32px",
-  height: "32px",
 
   whiteSpace: "nowrap",
   transition: "200ms",
@@ -105,11 +101,38 @@ const ButtonComponent = styled("button", {
         },
       },
     },
+    size: {
+      xs: {
+        fontSize: "$xs",
+        minWidth: "$sizes$xs",
+        height: "$sizes$xs",
+        $$wrapperPadding: "13px",
+      },
+      sm: {
+        fontSize: "$sm",
+        minWidth: "$sizes$sm",
+        height: "$sizes$sm",
+        $$wrapperPadding: "16px",
+      },
+      md: {
+        fontSize: "$md",
+        minWidth: "$sizes$md",
+        height: "$sizes$md",
+        $$wrapperPadding: "20px",
+      },
+      lg: {
+        fontSize: "$lg",
+        minWidth: "$sizes$lg",
+        height: "$sizes$lg",
+        $$wrapperPadding: "24px",
+      },
+    },
   },
 
   defaultVariants: {
     variant: "filled",
     color: "red",
+    size: "sm",
   },
 });
 
@@ -127,8 +150,8 @@ export const Button = ({ icon, endIcon, children, ...props }: ButtonProps) => {
     alignItems: "center",
     justifyContent: "center",
     gap: 4,
-    paddingLeft: children ? "16px" : 0,
-    paddingRight: children ? "16px" : 0,
+    paddingLeft: children ? "$$wrapperPadding" : 0,
+    paddingRight: children ? "$$wrapperPadding" : 0,
   });
 
   // it's button when "as" and "href"

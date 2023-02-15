@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "./Button";
 import { IconSun } from "@tabler/icons-react";
+import { theme } from "../stitches.config";
 
 describe("Button", () => {
   test("should renders", () => {
@@ -40,6 +41,17 @@ describe("Button", () => {
     expect(onClickSpy).toHaveBeenCalled();
   });
 
+  test("should be disabled", () => {
+    // Arrange
+    render(<Button disabled>Button</Button>);
+
+    // Act
+    const button = screen.getByRole("button");
+
+    // Assert
+    expect(button).toBeDisabled();
+  });
+
   describe("with variant", () => {
     test("should renders with default variant when variant isn't present", () => {
       // Arrange
@@ -67,6 +79,40 @@ describe("Button", () => {
 
       // Assess
       expect(isClassPresent).toBe(true);
+    });
+  });
+
+  describe("with size", () => {
+    test("should renders with default size when size isn't present", () => {
+      // Arrange
+      render(<Button>Default size</Button>);
+
+      //Act
+      const button = screen.getByRole("button");
+      const isClassPresent = [...button.classList].some((className) =>
+        className.endsWith("size-sm")
+      );
+
+      // Assess
+      expect(isClassPresent).toBe(true);
+    });
+
+    const themeSizes = theme.sizes;
+    Object.keys(themeSizes).map((size) => {
+      const label = themeSizes[size as keyof typeof themeSizes].token;
+
+      test(`should renders in ${label} size`, () => {
+        // Arrange
+        render(<Button size={label}>{label} size</Button>);
+
+        //Act
+        const button = screen.getByRole("button");
+
+        // Assess
+        expect(button).toHaveStyle(
+          `height: ${themeSizes[label]}, min-width: ${themeSizes[label]}`
+        );
+      });
     });
   });
 
@@ -181,18 +227,9 @@ describe("Button", () => {
       expect(endIcon).toBeNull();
     });
   });
+});
 
-  test("should be disabled", () => {
-    // Arrange
-    render(<Button disabled>Button</Button>);
-
-    // Act
-    const button = screen.getByRole("button");
-
-    // Assert
-    expect(button).toBeDisabled();
-  });
-
+describe("as link", () => {
   test("should renders as link when href and as props are present", () => {
     // Arrange
     render(
