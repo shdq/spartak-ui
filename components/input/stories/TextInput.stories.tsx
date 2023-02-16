@@ -1,22 +1,31 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { useDarkMode } from "storybook-dark-mode";
 
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
-import { Input } from "../Input";
+import { darkTheme } from "../../stitches.config";
+import { TextInput } from "../TextInput";
 
 export default {
   title: "Components/Input",
-  component: Input,
+  component: TextInput,
+  decorators: [
+    (Story) => (
+      <div className={useDarkMode() ? darkTheme.className : undefined}>
+        <Story />
+      </div>
+    ),
+  ],
   argTypes: {
     type: {
       options: ["text", "password"],
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Input>;
+} as ComponentMeta<typeof TextInput>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input data-testid="input" {...args} />;
+const Template: ComponentStory<typeof TextInput> = (args) => <TextInput data-testid="input" {...args} />;
 
 export const Empty = Template.bind({});
 Empty.args = {
