@@ -62,54 +62,52 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = ({children, ...args}) => (
+const Template: ComponentStory<typeof Button> = ({ children, ...args }) => (
   <Button {...args}>{children}</Button>
 );
 
-export const FilledButton = Template.bind({});
-FilledButton.args = {
-  children: "Filled",
-  variant: "filled",
+const Default = Template.bind({});
+
+Default.args = {
   color: "red",
   size: "sm",
   disabled: false,
+};
+
+export const FilledButton = Template.bind({});
+FilledButton.args = {
+  ...Default.args,
+  children: "Filled",
+  variant: "filled",
 };
 
 export const TintedButton = Template.bind({});
 TintedButton.args = {
+  ...Default.args,
   children: "Tinted",
   variant: "tinted",
-  color: "red",
-  size: "sm",
-  disabled: false,
 };
 
 export const OutlinedButton = Template.bind({});
 OutlinedButton.args = {
+  ...Default.args,
   children: "Outlined",
   variant: "outlined",
-  color: "red",
-  size: "sm",
-  disabled: false,
 };
 
 export const TextButton = Template.bind({});
 TextButton.args = {
+  ...Default.args,
   children: "Text",
   variant: "text",
-  color: "red",
-  size: "sm",
-  disabled: false,
 };
 
 export const IconButton = Template.bind({});
 IconButton.args = {
+  ...Default.args,
   children: "Notifications",
   icon: <IconBell size={18} />,
   variant: "filled",
-  color: "red",
-  size: "md",
-  disabled: false,
 };
 
 export const SquareIconButtons = (args: PropsWithChildren) => {
@@ -125,17 +123,15 @@ export const SquareIconButtons = (args: PropsWithChildren) => {
   );
 };
 SquareIconButtons.args = {
+  ...Default.args,
   variant: "tinted",
-  color: "red",
-  disabled: false,
 };
 
 export const LinkButton = Template.bind({});
 LinkButton.args = {
+  ...Default.args,
   children: "Open link",
   variant: "text",
-  color: "red",
-  disabled: false,
   endIcon: <IconExternalLink size={18} />,
   href: "https://example.com",
   as: "a",
