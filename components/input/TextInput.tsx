@@ -8,13 +8,16 @@ const InputComponent = styled("input", {
   fontWeight: "$normal",
   color: "$grey700",
 
+  "&:disabled": {
+    cursor: "not-allowed",
+    opacity: 0.6,
+  },
   "&::placeholder": {
     color: "$grey500",
-    opacity: 0.7,
+    opacity: 0.6,
   },
   "&:focus-visible": {
-    backgroundColor: "transparent",
-    outline: "3px solid $focus",
+    borderColor: "$grey400",
   },
 
   variants: {

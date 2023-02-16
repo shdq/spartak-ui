@@ -1,9 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 
-import { within, userEvent } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
-
 import { darkTheme } from "../../stitches.config";
 import { TextInput } from "../TextInput";
 
@@ -18,6 +15,10 @@ export default {
     ),
   ],
   argTypes: {
+    size: {
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "radio" },
+    },
     type: {
       options: ["text", "password"],
       control: { type: "radio" },
@@ -25,27 +26,27 @@ export default {
   },
 } as ComponentMeta<typeof TextInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args) => <TextInput data-testid="input" {...args} />;
+const Template: ComponentStory<typeof TextInput> = (args) => (
+  <TextInput {...args} />
+);
 
-export const Empty = Template.bind({});
-Empty.args = {
-  type: "text",
+const Default = Template.bind({});
+Default.args = {
+  variant: "filled",
+  size: "sm",
   disabled: false,
+  placeholder: "Text input",
 };
 
-export const FilledInput = Template.bind({});
-Empty.args = {
+export const Filled = Template.bind({});
+Filled.args = {
+  ...Default.args,
   type: "text",
-  disabled: false,
 };
-FilledInput.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
 
-  // Simulate interactions with the component
-  await userEvent.type(canvas.getByTestId('input'), 'some value');
-
-  // Assert DOM structure
-  await expect(
-    canvas.getByTestId('input')
-  ).toBeInTheDocument();
+export const DisabledWithValue = Template.bind({});
+DisabledWithValue.args = {
+  ...Default.args,
+  disabled: true,
+  value: "Disabled with value",
 };

@@ -41,9 +41,11 @@ describe("TextInput", () => {
 
     // Act
     const input = screen.getByRole("textbox");
+    input.focus();
 
     // Assert
     expect(input).toBeDisabled();
+    expect(input).not.toHaveFocus();
   });
 
   describe("with size", () => {

@@ -7,7 +7,7 @@ const grey = {
   grey500: "#5c5c5c",
   grey600: "#171717",
   // text color
-  grey700: "#161616",
+  grey700: "#333333",
 };
 
 const greyDark = {
@@ -17,7 +17,7 @@ const greyDark = {
   grey500: "#6f6f6f",
   grey600: "#171717",
   // text color
-  grey700: "#ededed",
+  grey700: "#ebebeb",
 };
 
 const red = {
