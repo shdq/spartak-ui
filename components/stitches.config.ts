@@ -63,7 +63,10 @@ export const { theme, styled, globalCss } = createStitches({
     },
     space: {},
     fontSizes: {
-      default: "14px",
+      xs: "12px",
+      sm: "14px",
+      md: "16px",
+      lg: "18px",
     },
     fonts: {
       system:
@@ -74,7 +77,12 @@ export const { theme, styled, globalCss } = createStitches({
     },
     lineHeights: {},
     letterSpacings: {},
-    sizes: {},
+    sizes: {
+      xs: "26px",
+      sm: "32px",
+      md: "40px",
+      lg: "48px",
+    },
     borderWidths: {},
     borderStyles: {},
     radii: {
@@ -96,7 +104,7 @@ export const darkTheme = createTheme({
 });
 
 export const GlobalStyles = globalCss({
-  "body": {
+  body: {
     backgroundColor: "$background",
     color: "$foreground",
   },

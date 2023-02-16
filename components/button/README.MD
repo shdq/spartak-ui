@@ -52,6 +52,27 @@ function App() {
 }
 ```
 
+## Sizes
+
+There are four different sizes of `Button`:
+
+- `xs` – extra small sized button
+- `sm` (default) – small sized button
+- `md` – medium sized button
+- `lg` – large size button
+
+If you don't specify `size` prop, default size will be used.
+
+### Usage
+
+```typescript
+import { Button } from "spartak-ui";
+
+function App() {
+  return <Button size="lg">Large</Button>;
+}
+```
+
 ## Icons
 
 There are `icon` and `endIcon` properties to place icon before and after `Button` label.
