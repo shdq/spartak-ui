@@ -48,6 +48,36 @@ describe("TextInput", () => {
     expect(input).not.toHaveFocus();
   });
 
+  describe("with variant", () => {
+    test("should renders with default variant when variant isn't present", () => {
+      // Arrange
+      render(<TextInput />);
+
+      //Act
+      const input = screen.getByRole("textbox");
+      const isClassPresent = [...input.classList].some((className) =>
+        className.endsWith("variant-filled")
+      );
+
+      // Assess
+      expect(isClassPresent).toBe(true);
+    });
+
+    test("should renders with provided variant", () => {
+      // Arrange
+      render(<TextInput variant="outlined" />);
+
+      //Act
+      const input = screen.getByRole("textbox");
+      const isClassPresent = [...input.classList].some((className) =>
+        className.endsWith("variant-outlined")
+      );
+
+      // Assess
+      expect(isClassPresent).toBe(true);
+    });
+  });
+
   describe("with size", () => {
     test("should renders with default size when size isn't present", () => {
       // Arrange

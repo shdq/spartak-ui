@@ -2,20 +2,14 @@ import { createStitches, createTheme } from "@stitches/react";
 
 const grey = {
   grey000: "#ededed",
-  grey100: "#c7c7c7",
-  grey400: "#8f8f8f",
-  grey500: "#5c5c5c",
-  grey600: "#171717",
+  grey500: "#999999",
   // text color
   grey700: "#333333",
 };
 
 const greyDark = {
   grey000: "#232323",
-  grey100: "#3e3e3e",
-  grey400: "#707070",
-  grey500: "#6f6f6f",
-  grey600: "#171717",
+  grey500: "#8f8f8f",
   // text color
   grey700: "#ebebeb",
 };

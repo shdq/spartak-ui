@@ -44,6 +44,12 @@ Filled.args = {
   type: "text",
 };
 
+export const Outlined = Template.bind({});
+Outlined.args = {
+  ...Default.args,
+  variant: "outlined",
+};
+
 export const DisabledWithValue = Template.bind({});
 DisabledWithValue.args = {
   ...Default.args,

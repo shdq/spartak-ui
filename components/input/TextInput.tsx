@@ -2,7 +2,7 @@ import { styled } from "../stitches.config";
 
 const InputComponent = styled("input", {
   all: "unset",
-  border: "1px solid transparent",
+  border: "$borderWidths$1 solid transparent",
   borderRadius: "$3",
   fontFamily: "$system",
   fontWeight: "$normal",
@@ -17,13 +17,20 @@ const InputComponent = styled("input", {
     opacity: 0.6,
   },
   "&:focus-visible": {
-    borderColor: "$grey400",
+    borderColor: "$focus",
   },
 
   variants: {
     variant: {
       filled: {
         backgroundColor: "$grey000",
+      },
+      outlined: {
+        backgroundColor: "transparent",
+        borderColor: "$grey500",
+        "&:focus-visible": {
+          borderColor: "$focus",
+        },
       },
     },
     size: {
