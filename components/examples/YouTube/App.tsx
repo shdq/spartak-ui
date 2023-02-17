@@ -15,11 +15,19 @@ import {
   IconThumbUp,
 } from "@tabler/icons-react";
 
-const Switch = () => {
+type Sizes = "xs" | "sm" | "md" | "lg";
+type Colors = "red" | "blue";
+
+type SwitchProps = {
+  color: Colors;
+};
+
+const Switch = ({ color }: SwitchProps) => {
   const { theme, setTheme } = useTheme();
   const isThemeDark = theme === "dark";
   return (
     <Button
+      color={color}
       onClick={() => setTheme(isThemeDark ? "light" : "dark")}
       icon={isThemeDark ? <IconSun /> : <IconMoon />}
       variant="text"
@@ -28,7 +36,11 @@ const Switch = () => {
   );
 };
 
-const Header = () => {
+type HeaderProps = {
+  color: Colors;
+};
+
+const Header = ({ color }: HeaderProps) => {
   const { theme } = useTheme();
   const isThemeDark = theme === "dark";
   const logoColor = isThemeDark ? "white" : "black";
@@ -42,7 +54,7 @@ const Header = () => {
   };
   return (
     <div style={headerStyles}>
-      <Button size="md" variant="text" icon={<IconMenu2 />} />
+      <Button color={color} size="md" variant="text" icon={<IconMenu2 />} />
       <svg
         viewBox="0 0 90 20"
         preserveAspectRatio="xMidYMid meet"
@@ -74,7 +86,7 @@ const Header = () => {
           </g>
         </g>
       </svg>
-      <Switch />
+      <Switch color={color} />
     </div>
   );
 };
@@ -89,7 +101,12 @@ const menuItems = [
   { title: "Liked videos", icon: <IconThumbUp size={18} /> },
 ];
 
-const SideMenu = () => {
+type SideMenuProps = {
+  color: Colors;
+  size: Sizes;
+};
+
+const SideMenu = ({ color, size }: SideMenuProps) => {
   const [active, setActive] = useState("Home");
   const containerStyles: React.CSSProperties = {
     display: "flex",
@@ -109,7 +126,8 @@ const SideMenu = () => {
         href="#"
         icon={icon}
         variant={variant}
-        size="md"
+        color={color}
+        size={size}
         onClick={(e) => {
           e.preventDefault();
           const element = e.target as HTMLElement;
@@ -125,18 +143,23 @@ const SideMenu = () => {
 
   return (
     <div style={containerStyles}>
-      <Header />
+      <Header color={color} />
       {buttons}
     </div>
   );
 };
 
-function App() {
+type AppProps = {
+  color: Colors;
+  size: Sizes;
+};
+
+const App = ({ color, size }: AppProps) => {
   return (
     <ThemeProvider>
-      <SideMenu />
+      <SideMenu color={color} size={size} />
     </ThemeProvider>
   );
-}
+};
 
 export default App;
