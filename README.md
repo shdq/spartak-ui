@@ -6,6 +6,10 @@ A React Components Library
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
 
+## Examples build with Spartak UI
+
+- [YouTube Side Menu](https://shdq.github.io/spartak-ui/?path=/story/examples--youtube) with `Button` component
+
 ## Dark theme
 
 There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component into `ThemeProvider`.
