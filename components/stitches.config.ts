@@ -62,9 +62,13 @@ export const { theme, styled, globalCss } = createStitches({
       foreground: "#222222",
     },
     space: {
+      iconGapXS: "4px",
       paddingXS: '12px',
+      iconGapSM: "6px",
       paddingSM: '14px',
+      iconGapMD: "8px",
       paddingMD: '16px',
+      iconGapLG: "10px",
       paddingLG: '18px',
     },
     fontSizes: {
