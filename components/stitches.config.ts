@@ -57,11 +57,16 @@ export const { theme, styled, globalCss } = createStitches({
       ...red,
       ...blue,
       white: "#ffffff",
-      focus: "#70C4E5",
+      focus: "#53B7DF",
       background: "#ffffff",
       foreground: "#222222",
     },
-    space: {},
+    space: {
+      paddingXS: '12px',
+      paddingSM: '14px',
+      paddingMD: '16px',
+      paddingLG: '18px',
+    },
     fontSizes: {
       xs: "12px",
       sm: "14px",
@@ -83,7 +88,10 @@ export const { theme, styled, globalCss } = createStitches({
       md: "40px",
       lg: "48px",
     },
-    borderWidths: {},
+    borderWidths: {
+      1: "1px",
+      2: "2px"
+    },
     borderStyles: {},
     radii: {
       3: "3px",
@@ -98,6 +106,7 @@ export const darkTheme = createTheme({
   colors: {
     ...redDark,
     ...blueDark,
+    focus: "#70C4E5",
     background: "#232425",
     foreground: "#ffffff",
   },

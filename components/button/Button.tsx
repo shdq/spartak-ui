@@ -2,7 +2,7 @@ import { styled } from "../stitches.config";
 
 const ButtonComponent = styled("button", {
   all: "unset",
-  border: "1px solid transparent",
+  border: "$borderWidths$1 solid transparent",
   borderRadius: "$3",
   cursor: "pointer",
   textDecoration: "none",
@@ -13,7 +13,11 @@ const ButtonComponent = styled("button", {
   alignItems: "center",
   justifyContent: "center",
 
+  boxSizing: "border-box",
+  width: "auto",
+
   whiteSpace: "nowrap",
+  textAlign: "left",
   transition: "200ms",
   userSelect: "none",
   "&:hover": {
@@ -25,10 +29,12 @@ const ButtonComponent = styled("button", {
   },
   "&:disabled": {
     cursor: "not-allowed",
+    opacity: 0.6,
   },
   "&:focus-visible": {
     transition: "none",
-    outline: "3px solid $focus",
+    // TODO: fix safari outline radius bug
+    outline: "1px solid $focus",
   },
 
   variants: {
@@ -58,7 +64,6 @@ const ButtonComponent = styled("button", {
         },
         "&:disabled": {
           backgroundColor: "$$color500",
-          opacity: 0.6,
         },
       },
       tinted: {
@@ -69,7 +74,6 @@ const ButtonComponent = styled("button", {
         },
         "&:disabled": {
           backgroundColor: "$$color000",
-          opacity: 0.6,
         },
       },
       outlined: {
@@ -83,7 +87,6 @@ const ButtonComponent = styled("button", {
         "&:disabled": {
           color: "$$color600",
           backgroundColor: "transparent",
-          opacity: 0.6,
         },
       },
       text: {
@@ -97,7 +100,6 @@ const ButtonComponent = styled("button", {
         "&:disabled": {
           color: "$$color600",
           backgroundColor: "transparent",
-          opacity: 0.6,
         },
       },
     },
@@ -106,25 +108,25 @@ const ButtonComponent = styled("button", {
         fontSize: "$xs",
         minWidth: "$sizes$xs",
         height: "$sizes$xs",
-        $$wrapperPadding: "13px",
+        $$wrapperPadding: "$space$paddingXS",
       },
       sm: {
         fontSize: "$sm",
         minWidth: "$sizes$sm",
         height: "$sizes$sm",
-        $$wrapperPadding: "16px",
+        $$wrapperPadding: "$space$paddingSM",
       },
       md: {
         fontSize: "$md",
         minWidth: "$sizes$md",
         height: "$sizes$md",
-        $$wrapperPadding: "20px",
+        $$wrapperPadding: "$space$paddingMD",
       },
       lg: {
         fontSize: "$lg",
         minWidth: "$sizes$lg",
         height: "$sizes$lg",
-        $$wrapperPadding: "24px",
+        $$wrapperPadding: "$space$paddingLG",
       },
     },
   },
@@ -149,7 +151,7 @@ export const Button = ({ icon, endIcon, children, ...props }: ButtonProps) => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: 4,
+    gap: "4px",
     paddingLeft: children ? "$$wrapperPadding" : 0,
     paddingRight: children ? "$$wrapperPadding" : 0,
   });
