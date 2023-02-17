@@ -2,11 +2,15 @@ import { styled } from "../stitches.config";
 
 const InputComponent = styled("input", {
   all: "unset",
+  cursor: "text",
   border: "$borderWidths$1 solid transparent",
   borderRadius: "$3",
   fontFamily: "$system",
   fontWeight: "$normal",
+  textAlign: "left",
   color: "$grey700",
+  width: "100%",
+  boxSizing: "border-box",
 
   "&:disabled": {
     cursor: "not-allowed",

@@ -8,7 +8,7 @@ const grey = {
 };
 
 const greyDark = {
-  grey000: "#232323",
+  grey000: "#3d3d3d",
   grey500: "#8f8f8f",
   // text color
   grey700: "#ebebeb",
