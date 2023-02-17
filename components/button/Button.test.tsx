@@ -47,9 +47,11 @@ describe("Button", () => {
 
     // Act
     const button = screen.getByRole("button");
+    button.focus();
 
     // Assert
     expect(button).toBeDisabled();
+    expect(button).not.toHaveFocus();
   });
 
   describe("with variant", () => {
