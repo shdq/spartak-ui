@@ -6,7 +6,11 @@ A React Components Library
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
 
+<<<<<<< HEAD
 ## Examples built with Spartak UI
+=======
+## Examples build with Spartak UI
+>>>>>>> main
 
 - [YouTube Side Menu](https://shdq.github.io/spartak-ui/?path=/story/examples--youtube) with `Button` component
 
