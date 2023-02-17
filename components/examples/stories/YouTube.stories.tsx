@@ -3,7 +3,6 @@ import App from "../YouTube/App";
 
 export default {
   title: "Examples",
-<<<<<<< HEAD
   argTypes: {
     size: {
       options: ["xs", "sm", "md", "lg"],
@@ -25,14 +24,3 @@ Youtube.args = {
   color: "red",
   size: "md"
 }
-=======
-
-  component: App,
-} as ComponentMeta<typeof App>;
-
-const Template: ComponentStory<typeof App> = () => (
-  <App />
-);
-
-export const Youtube = Template.bind({});
->>>>>>> main
