@@ -49,81 +49,6 @@ describe("TextInput", () => {
     expect(input).not.toHaveFocus();
   });
 
-  test("should have label associated with input", () => {
-    // Arrange
-    render(<TextInput label="My label" />);
-
-    // Act
-    const input = screen.getByRole("textbox");
-    const label = screen.getByText("My label");
-
-    // Assert
-    expect(label).toBeInTheDocument();
-    expect(label).toHaveAttribute("for");
-    expect(input).toHaveAttribute("id");
-    expect(input.getAttribute("id")).toEqual(label.getAttribute("for"));
-  });
-
-  test("should have required label", () => {
-    // Arrange
-    render(<TextInput label="My label" required />);
-
-    // Act
-    const label = screen.getByText("My label");
-    const asterisk = screen.getByText("*");
-
-    // Assert
-    expect(label).toBeInTheDocument();
-    expect(asterisk).toBeInTheDocument();
-  });
-
-  test("should have ignore required prop is label is not present", () => {
-    // Arrange
-    render(<TextInput required />);
-
-    // Act
-    const asterisk = screen.queryByText("*");
-
-    // Assert
-    expect(asterisk).toBeNull();
-  });
-
-  test("should have labels and inputs with unique for/id", () => {
-    // Arrange
-    render(
-      <>
-        <TextInput label="First label" />
-        <TextInput label="Second label" />
-      </>
-    );
-
-    // Act
-    const firstLabel = screen.getByText("First label");
-    const firstInput = screen.getByLabelText("First label");
-    const secondLabel = screen.getByText("Second label");
-    const secondInput = screen.getByLabelText("Second label");
-
-    // Assert
-    expect(firstInput.getAttribute("id")).toEqual(firstLabel.getAttribute("for"));
-    expect(secondInput.getAttribute("id")).toEqual(secondLabel.getAttribute("for"));
-    expect(firstLabel.getAttribute("for")).not.toEqual(secondLabel.getAttribute("for"));
-    expect(firstInput.getAttribute("id")).not.toEqual(secondInput.getAttribute("id"));
-  });
-
-  test("should be in focus after click on label", async () => {
-    // Arrange
-    const user = userEvent.setup();
-    render(<TextInput label="My label" />);
-
-    // Act
-    const label = screen.getByText("My label");
-    const input = screen.getByLabelText("My label");
-    await user.click(label);
-
-    // Assert
-    expect(input).toHaveFocus();
-  });
-
   test("should have a description", () => {
     // Arrange
     render(<TextInput description="My description" />);
@@ -133,6 +58,122 @@ describe("TextInput", () => {
 
     // Assert
     expect(description).toBeInTheDocument();
+  });
+
+  describe("with label", () => {
+    test("should have label associated with input", () => {
+      // Arrange
+      render(<TextInput label="My label" />);
+
+      // Act
+      const input = screen.getByRole("textbox");
+      const label = screen.getByText("My label");
+
+      // Assert
+      expect(label).toBeInTheDocument();
+      expect(label).toHaveAttribute("for");
+      expect(input).toHaveAttribute("id");
+      expect(input.getAttribute("id")).toEqual(label.getAttribute("for"));
+    });
+
+    test("should have required label", () => {
+      // Arrange
+      render(<TextInput label="My label" required />);
+
+      // Act
+      const label = screen.getByText("My label");
+      const asterisk = screen.getByText("*");
+
+      // Assert
+      expect(label).toBeInTheDocument();
+      expect(asterisk).toBeInTheDocument();
+    });
+
+    test("should have ignore required prop is label is not present", () => {
+      // Arrange
+      render(<TextInput required />);
+
+      // Act
+      const asterisk = screen.queryByText("*");
+
+      // Assert
+      expect(asterisk).toBeNull();
+    });
+
+    test("should have labels and inputs with unique for/id", () => {
+      // Arrange
+      render(
+        <>
+          <TextInput label="First label" />
+          <TextInput label="Second label" />
+        </>
+      );
+
+      // Act
+      const firstLabel = screen.getByText("First label");
+      const firstInput = screen.getByLabelText("First label");
+      const secondLabel = screen.getByText("Second label");
+      const secondInput = screen.getByLabelText("Second label");
+
+      // Assert
+      expect(firstInput.getAttribute("id")).toEqual(
+        firstLabel.getAttribute("for")
+      );
+      expect(secondInput.getAttribute("id")).toEqual(
+        secondLabel.getAttribute("for")
+      );
+      expect(firstLabel.getAttribute("for")).not.toEqual(
+        secondLabel.getAttribute("for")
+      );
+      expect(firstInput.getAttribute("id")).not.toEqual(
+        secondInput.getAttribute("id")
+      );
+    });
+
+    test("should be in focus after click on label", async () => {
+      // Arrange
+      const user = userEvent.setup();
+      render(<TextInput label="My label" />);
+
+      // Act
+      const label = screen.getByText("My label");
+      const input = screen.getByLabelText("My label");
+      await user.click(label);
+
+      // Assert
+      expect(input).toHaveFocus();
+    });
+  });
+
+  describe("with error", () => {
+    test("should be invalid with error message", () => {
+      // Arrange
+      render(<TextInput error="Invalid value" />);
+
+      // Act
+      const error = screen.getByText("Invalid value");
+      const input = screen.getByRole("textbox");
+      const isClassPresent = [...input.classList].some((className) =>
+        className.endsWith("isInvalid-true")
+      );
+
+      // Assess
+      expect(error).toBeInTheDocument();
+      expect(isClassPresent).toBe(true);
+    });
+
+    test("should show error not description", () => {
+      // Arrange
+      render(<TextInput description="My description" error="Invalid value" />);
+
+      // Act
+      const description = screen.queryByText("My description");
+      const error = screen.getByText("Invalid value");
+
+      // Assert
+      expect(error).toBeInTheDocument();
+      expect(description).toBeNull();
+    });
   });
 
   describe("with variant", () => {

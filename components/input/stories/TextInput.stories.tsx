@@ -64,7 +64,7 @@ DisabledWithValue.args = {
 export const WithLabel = Template.bind({});
 WithLabel.args = {
   ...Default.args,
-  label: "Login",
+  label: "Label text",
 };
 
 export const WithRequiredLabel = Template.bind({});
@@ -80,10 +80,25 @@ WithDescription.args = {
   description: "Description text",
 };
 
+export const WithError = Template.bind({});
+WithError.args = {
+  ...Default.args,
+  error: "Error message",
+};
+
 export const RequiredLabelAndDescription = Template.bind({});
 RequiredLabelAndDescription.args = {
   ...Default.args,
   label: "Label text",
   description: "Description text",
+  required: true,
+};
+
+export const RequiredLabelWithErrorAndDescription = Template.bind({});
+RequiredLabelWithErrorAndDescription.args = {
+  ...Default.args,
+  label: "Label text",
+  description: "Description text",
+  error: "Error message",
   required: true,
 };

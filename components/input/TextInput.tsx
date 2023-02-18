@@ -60,6 +60,14 @@ const InputComponent = styled("input", {
         padding: "0 $paddingLG",
       },
     },
+    isInvalid: {
+      true: {
+        borderColor: "$red500 !important",
+        "&:focus-visible": {
+          borderColor: "$focus !important",
+        },
+      },
+    },
   },
   defaultVariants: {
     variant: "filled",
@@ -67,14 +75,7 @@ const InputComponent = styled("input", {
   },
 });
 
-export interface TextInputProps
-  extends React.ComponentProps<typeof InputComponent> {
-  label?: string;
-  description?: string;
-  required?: boolean;
-}
-
-const Wrapper = styled("div", {
+const InputWrapper = styled("div", {
   fontFamily: "$system",
   fontWeight: "$normal",
   textAlign: "left",
@@ -104,9 +105,16 @@ const Label = styled("label", {
   marginBottom: "3px",
   userSelect: "none",
 });
-const Description = styled("span", {
-  color: "$grey500",
+const SupportingText = styled("span", {
   variants: {
+    variant: {
+      error: {
+        color: "$red500",
+      },
+      description: {
+        color: "$grey500",
+      },
+    },
     size: {
       xs: {
         fontSize: "$xxs",
@@ -134,25 +142,39 @@ const Asterisk = () => {
   return <AsteriskContainer>&nbsp;*</AsteriskContainer>;
 };
 
+export interface TextInputProps
+  extends React.ComponentProps<typeof InputComponent> {
+  description?: string;
+  error?: string;
+  label?: string;
+  required?: boolean;
+}
+
 export const TextInput = ({
   children,
   description,
+  error,
   label,
   required,
   size,
   ...props
 }: TextInputProps) => {
   const id = useId();
+  const isInvalid = !!error; // if error change border color
   return (
-    <Wrapper size={size}>
+    <InputWrapper size={size}>
       {label && (
         <Label htmlFor={id}>
           {label}
           {required && <Asterisk />}
         </Label>
       )}
-      <InputComponent id={id} size={size} {...props} />
-      {description && <Description size={size}>{description}</Description>}
-    </Wrapper>
+      <InputComponent isInvalid={isInvalid} id={id} size={size} {...props} />
+      {(description || error) && (
+        <SupportingText variant={error ? "error" : "description"} size={size}>
+          {error ? error : description}
+        </SupportingText>
+      )}
+    </InputWrapper>
   );
 };
