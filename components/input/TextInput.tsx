@@ -70,19 +70,36 @@ const InputComponent = styled("input", {
 export interface TextInputProps
   extends React.ComponentProps<typeof InputComponent> {
   label?: string;
+  description?: string;
+  required?: boolean;
 }
 
-export const TextInput = ({ label, children, ...props }: TextInputProps) => {
-  const Wrapper = styled("div", {});
-  const Label = styled("label", {});
-  if (label) {
-    const id = useId();
-    return (
-      <Wrapper>
-        <Label htmlFor={id}>{label}</Label>
-        <InputComponent id={id} {...props} />
-      </Wrapper>
-    );
-  }
-  return <InputComponent {...props} />;
+const Wrapper = styled("div", {});
+const Label = styled("label", {});
+const Description = styled("span", {});
+const AsteriskContainer = styled("span", {});
+const Asterisk = () => {
+  return <AsteriskContainer>*</AsteriskContainer>;
+};
+
+export const TextInput = ({
+  children,
+  description,
+  label,
+  required,
+  ...props
+}: TextInputProps) => {
+  const id = useId();
+  return (
+    <Wrapper>
+      {label && (
+        <Label htmlFor={id}>
+          {label}
+          {required && <Asterisk />}
+        </Label>
+      )}
+      <InputComponent id={id} {...props} />
+      {description && <Description>{description}</Description>}
+    </Wrapper>
+  );
 };

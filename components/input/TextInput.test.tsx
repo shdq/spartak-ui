@@ -63,6 +63,30 @@ describe("TextInput", () => {
     expect(input.getAttribute("id")).toEqual(label.getAttribute("for"));
   });
 
+  test("should have required label", () => {
+    // Arrange
+    render(<TextInput label="My label" required />);
+
+    // Act
+    const label = screen.getByText("My label");
+    const asterisk = screen.getByText("*");
+
+    // Assert
+    expect(label).toBeInTheDocument();
+    expect(asterisk).toBeInTheDocument();
+  });
+
+  test("should have ignore required prop is label is not present", () => {
+    // Arrange
+    render(<TextInput required />);
+
+    // Act
+    const asterisk = screen.queryByText("*");
+
+    // Assert
+    expect(asterisk).toBeNull();
+  });
+
   test("should have labels and inputs with unique for/id", () => {
     // Arrange
     render(
@@ -83,6 +107,17 @@ describe("TextInput", () => {
     expect(secondInput.getAttribute("id")).toEqual(secondLabel.getAttribute("for"));
     expect(firstLabel.getAttribute("for")).not.toEqual(secondLabel.getAttribute("for"));
     expect(firstInput.getAttribute("id")).not.toEqual(secondInput.getAttribute("id"));
+  });
+
+  test("should have a description", () => {
+    // Arrange
+    render(<TextInput description="My description" />);
+
+    // Act
+    const description = screen.getByText("My description");
+
+    // Assert
+    expect(description).toBeInTheDocument();
   });
 
   describe("with variant", () => {
