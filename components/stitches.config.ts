@@ -1,5 +1,19 @@
 import { createStitches, createTheme } from "@stitches/react";
 
+const grey = {
+  grey000: "#ededed",
+  grey500: "#999999",
+  // text color
+  grey700: "#333333",
+};
+
+const greyDark = {
+  grey000: "#3d3d3d",
+  grey500: "#8f8f8f",
+  // text color
+  grey700: "#ebebeb",
+};
+
 const red = {
   // tinted background
   red000: "#FAE6E6",
@@ -56,6 +70,7 @@ export const { theme, styled, globalCss } = createStitches({
     colors: {
       ...red,
       ...blue,
+      ...grey,
       white: "#ffffff",
       focus: "#53B7DF",
       background: "#ffffff",
@@ -72,6 +87,7 @@ export const { theme, styled, globalCss } = createStitches({
       paddingLG: '18px',
     },
     fontSizes: {
+      xxs: "10px",
       xs: "12px",
       sm: "14px",
       md: "16px",
@@ -110,6 +126,7 @@ export const darkTheme = createTheme({
   colors: {
     ...redDark,
     ...blueDark,
+    ...greyDark,
     focus: "#70C4E5",
     background: "#232425",
     foreground: "#ffffff",
