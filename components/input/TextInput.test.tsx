@@ -1,4 +1,5 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { TextInput } from "./TextInput";
 import { theme } from "../stitches.config";
 
@@ -107,6 +108,20 @@ describe("TextInput", () => {
     expect(secondInput.getAttribute("id")).toEqual(secondLabel.getAttribute("for"));
     expect(firstLabel.getAttribute("for")).not.toEqual(secondLabel.getAttribute("for"));
     expect(firstInput.getAttribute("id")).not.toEqual(secondInput.getAttribute("id"));
+  });
+
+  test("should be in focus after click on label", async () => {
+    // Arrange
+    const user = userEvent.setup();
+    render(<TextInput label="My label" />);
+
+    // Act
+    const label = screen.getByText("My label");
+    const input = screen.getByLabelText("My label");
+    await user.click(label);
+
+    // Assert
+    expect(input).toHaveFocus();
   });
 
   test("should have a description", () => {

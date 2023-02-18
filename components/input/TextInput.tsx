@@ -74,12 +74,63 @@ export interface TextInputProps
   required?: boolean;
 }
 
-const Wrapper = styled("div", {});
-const Label = styled("label", {});
-const Description = styled("span", {});
-const AsteriskContainer = styled("span", {});
+const Wrapper = styled("div", {
+  fontFamily: "$system",
+  fontWeight: "$normal",
+  textAlign: "left",
+  color: "$grey500",
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xs",
+      },
+      sm: {
+        fontSize: "$sm",
+      },
+      md: {
+        fontSize: "$md",
+      },
+      lg: {
+        fontSize: "$lg",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "sm",
+  },
+});
+const Label = styled("label", {
+  display: "block",
+  marginBottom: "3px",
+  userSelect: "none",
+});
+const Description = styled("span", {
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xxs",
+      },
+      sm: {
+        fontSize: "$xs",
+      },
+      md: {
+        fontSize: "$sm",
+      },
+      lg: {
+        fontSize: "$md",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "sm",
+  },
+});
+const AsteriskContainer = styled("span", {
+  color: "$red500",
+  userSelect: "none",
+});
 const Asterisk = () => {
-  return <AsteriskContainer>*</AsteriskContainer>;
+  return <AsteriskContainer>&nbsp;*</AsteriskContainer>;
 };
 
 export const TextInput = ({
@@ -87,19 +138,20 @@ export const TextInput = ({
   description,
   label,
   required,
+  size,
   ...props
 }: TextInputProps) => {
   const id = useId();
   return (
-    <Wrapper>
+    <Wrapper size={size}>
       {label && (
         <Label htmlFor={id}>
           {label}
           {required && <Asterisk />}
         </Label>
       )}
-      <InputComponent id={id} {...props} />
-      {description && <Description>{description}</Description>}
+      <InputComponent id={id} size={size} {...props} />
+      {description && <Description size={size}>{description}</Description>}
     </Wrapper>
   );
 };

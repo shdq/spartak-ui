@@ -15,6 +15,10 @@ export default {
     ),
   ],
   argTypes: {
+    variant: {
+      options: ["filled", "outlined"],
+      control: { type: "select" },
+    },
     size: {
       options: ["xs", "sm", "md", "lg"],
       control: { type: "radio" },
@@ -76,9 +80,10 @@ WithDescription.args = {
   description: "Enter username or email",
 };
 
-export const WithLabelAndDescription = Template.bind({});
-WithLabelAndDescription.args = {
+export const RequiredLabelAndDescription = Template.bind({});
+RequiredLabelAndDescription.args = {
   ...Default.args,
   label: "Login",
   description: "Enter username or email",
+  required: true,
 };
