@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TextInput } from "./TextInput";
 import { theme } from "../stitches.config";
+import { IconSearch, IconMicrophone } from "@tabler/icons-react";
 
 describe("TextInput", () => {
   test("should renders", () => {
@@ -241,6 +242,48 @@ describe("TextInput", () => {
           `height: ${themeSizes[label]}, padding: 0 ${themeSpaces[paddingLabel]}`
         );
       });
+    });
+  });
+
+  describe("with icon", () => {
+    test("should renders with icon", () => {
+      // Arrange
+      render(<TextInput icon={<IconSearch data-testid="svg-icon" />} />);
+
+      // Act
+      const icon = screen.getByTestId("svg-icon");
+
+      // Assert
+      expect(icon).toBeInTheDocument();
+    });
+
+    test("should renders with icon in the end", () => {
+      // Arrange
+      render(
+        <TextInput endIcon={<IconMicrophone data-testid="svg-mic-icon" />} />
+      );
+
+      // Act
+      const endIcon = screen.getByTestId("svg-mic-icon");
+
+      // Assert
+      expect(endIcon).toBeInTheDocument();
+    });
+
+    test("should renders with icons on both sides", () => {
+      // Arrange
+      render(<TextInput icon={<IconSearch data-testid="svg-search-icon" />} />);
+      render(
+        <TextInput endIcon={<IconMicrophone data-testid="svg-mic-icon" />} />
+      );
+
+      // Act
+      const icon = screen.getByTestId("svg-search-icon");
+      const endIcon = screen.getByTestId("svg-mic-icon");
+
+      // Assert
+      expect(icon).toBeInTheDocument();
+      expect(endIcon).toBeInTheDocument();
     });
   });
 });

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
-
+import { IconSearch, IconMicrophone, IconEye } from "@tabler/icons-react";
 import { darkTheme } from "../../stitches.config";
 import { TextInput } from "../TextInput";
 
@@ -59,6 +59,29 @@ DisabledWithValue.args = {
   ...Default.args,
   disabled: true,
   value: "Disabled with value",
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  ...Default.args,
+  icon: <IconSearch size={18} />,
+  placeholder: "Search"
+};
+
+export const WithEndIcon = Template.bind({});
+WithEndIcon.args = {
+  ...Default.args,
+  endIcon: <IconEye size={18} />,
+  placeholder: "Your password",
+  type: "password",
+};
+
+export const WithBothIcon = Template.bind({});
+WithBothIcon.args = {
+  ...Default.args,
+  icon: <IconSearch size={18} />,
+  endIcon: <IconMicrophone size={18} />,
+  placeholder: "Search"
 };
 
 export const WithLabel = Template.bind({});

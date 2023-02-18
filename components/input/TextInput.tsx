@@ -68,7 +68,40 @@ const InputComponent = styled("input", {
         },
       },
     },
+    withIcon: {
+      true: {},
+    },
   },
+  compoundVariants: [
+    {
+      withIcon: true,
+      size: "xs",
+      css: {
+        paddingLeft: "$sizes$xs",
+      },
+    },
+    {
+      withIcon: true,
+      size: "sm",
+      css: {
+        paddingLeft: "$sizes$sm",
+      },
+    },
+    {
+      withIcon: true,
+      size: "md",
+      css: {
+        paddingLeft: "$sizes$md",
+      },
+    },
+    {
+      withIcon: true,
+      size: "lg",
+      css: {
+        paddingLeft: "$sizes$lg",
+      },
+    },
+  ],
   defaultVariants: {
     variant: "filled",
     size: "sm",
@@ -76,6 +109,7 @@ const InputComponent = styled("input", {
 });
 
 const InputWrapper = styled("div", {
+  position: "relative",
   fontFamily: "$system",
   fontWeight: "$normal",
   textAlign: "left",
@@ -142,10 +176,56 @@ const Asterisk = () => {
   return <AsteriskContainer>&nbsp;*</AsteriskContainer>;
 };
 
+const IconWrapper = styled("div", {
+  position: "absolute",
+  top: 0,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: "1",
+  color: "$grey500",
+  pointerEvents: "none",
+
+  variants: {
+    position: {
+      start: {
+        left: 0,
+      },
+      end: {
+        right: 0,
+      },
+    },
+    size: {
+      xs: {
+        height: "$sizes$xs",
+        width: "$sizes$xs",
+      },
+      sm: {
+        height: "$sizes$sm",
+        width: "$sizes$sm",
+      },
+      md: {
+        height: "$sizes$md",
+        width: "$sizes$md",
+      },
+      lg: {
+        height: "$sizes$lg",
+        width: "$sizes$lg",
+      },
+    },
+  },
+  defaultVariants: {
+    position: "start",
+    size: "sm",
+  },
+});
+
 export interface TextInputProps
   extends React.ComponentProps<typeof InputComponent> {
   description?: string;
   error?: string;
+  endIcon?: React.ReactNode;
+  icon?: React.ReactNode;
   label?: string;
   required?: boolean;
 }
@@ -154,6 +234,8 @@ export const TextInput = ({
   children,
   description,
   error,
+  endIcon,
+  icon,
   label,
   required,
   size,
@@ -161,6 +243,7 @@ export const TextInput = ({
 }: TextInputProps) => {
   const id = useId();
   const isInvalid = !!error; // if error change border color
+  const withIcon = !!icon; // change left padding to icon container size
   return (
     <InputWrapper size={size}>
       {label && (
@@ -169,7 +252,24 @@ export const TextInput = ({
           {required && <Asterisk />}
         </Label>
       )}
-      <InputComponent isInvalid={isInvalid} id={id} size={size} {...props} />
+      {icon && (
+        <IconWrapper position="start" size={size}>
+          {icon}
+        </IconWrapper>
+      )}
+      <InputComponent
+        withIcon={withIcon}
+        isInvalid={isInvalid}
+        aria-invalid={isInvalid}
+        id={id}
+        size={size}
+        {...props}
+      />
+      {endIcon && (
+        <IconWrapper position="end" size={size}>
+          {endIcon}
+        </IconWrapper>
+      )}
       {(description || error) && (
         <SupportingText variant={error ? "error" : "description"} size={size}>
           {error ? error : description}
