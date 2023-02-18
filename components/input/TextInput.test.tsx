@@ -63,6 +63,28 @@ describe("TextInput", () => {
     expect(input.getAttribute("id")).toEqual(label.getAttribute("for"));
   });
 
+  test("should have labels and inputs with unique for/id", () => {
+    // Arrange
+    render(
+      <>
+        <TextInput label="First label" />
+        <TextInput label="Second label" />
+      </>
+    );
+
+    // Act
+    const firstLabel = screen.getByText("First label");
+    const firstInput = screen.getByLabelText("First label");
+    const secondLabel = screen.getByText("Second label");
+    const secondInput = screen.getByLabelText("Second label");
+
+    // Assert
+    expect(firstInput.getAttribute("id")).toEqual(firstLabel.getAttribute("for"));
+    expect(secondInput.getAttribute("id")).toEqual(secondLabel.getAttribute("for"));
+    expect(firstLabel.getAttribute("for")).not.toEqual(secondLabel.getAttribute("for"));
+    expect(firstInput.getAttribute("id")).not.toEqual(secondInput.getAttribute("id"));
+  });
+
   describe("with variant", () => {
     test("should renders with default variant when variant isn't present", () => {
       // Arrange
