@@ -5,6 +5,7 @@ A React Components Library
 ## Components
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
+- [Input](https://github.com/shdq/spartak-ui/tree/main/components/input#textinput)
 
 ## Examples built with Spartak UI
 
