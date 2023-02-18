@@ -70,20 +70,20 @@ WithLabel.args = {
 export const WithRequiredLabel = Template.bind({});
 WithRequiredLabel.args = {
   ...Default.args,
-  label: "Login",
+  label: "Label text",
   required: true,
 };
 
 export const WithDescription = Template.bind({});
 WithDescription.args = {
   ...Default.args,
-  description: "Enter username or email",
+  description: "Description text",
 };
 
 export const RequiredLabelAndDescription = Template.bind({});
 RequiredLabelAndDescription.args = {
   ...Default.args,
-  label: "Login",
-  description: "Enter username or email",
+  label: "Label text",
+  description: "Description text",
   required: true,
 };

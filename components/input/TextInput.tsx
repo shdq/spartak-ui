@@ -78,7 +78,7 @@ const Wrapper = styled("div", {
   fontFamily: "$system",
   fontWeight: "$normal",
   textAlign: "left",
-  color: "$grey500",
+  color: "$grey700",
   variants: {
     size: {
       xs: {
@@ -105,6 +105,7 @@ const Label = styled("label", {
   userSelect: "none",
 });
 const Description = styled("span", {
+  color: "$grey500",
   variants: {
     size: {
       xs: {
