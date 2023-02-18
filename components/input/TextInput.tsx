@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { styled } from "../stitches.config";
 
 const InputComponent = styled("input", {
@@ -67,8 +68,21 @@ const InputComponent = styled("input", {
 });
 
 export interface TextInputProps
-  extends React.ComponentProps<typeof InputComponent> {}
+  extends React.ComponentProps<typeof InputComponent> {
+  label?: string;
+}
 
-export const TextInput = (props: TextInputProps) => {
+export const TextInput = ({ label, children, ...props }: TextInputProps) => {
+  const Wrapper = styled("div", {});
+  const Label = styled("label", {});
+  if (label) {
+    const id = useId();
+    return (
+      <Wrapper>
+        <Label htmlFor={id}>{label}</Label>
+        <InputComponent id={id} {...props} />
+      </Wrapper>
+    );
+  }
   return <InputComponent {...props} />;
 };

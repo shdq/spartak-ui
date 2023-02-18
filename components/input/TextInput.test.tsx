@@ -48,6 +48,21 @@ describe("TextInput", () => {
     expect(input).not.toHaveFocus();
   });
 
+  test("should have label associated with input", () => {
+    // Arrange
+    render(<TextInput label="My label" />);
+
+    // Act
+    const input = screen.getByRole("textbox");
+    const label = screen.getByText("My label");
+
+    // Assert
+    expect(label).toBeInTheDocument();
+    expect(label).toHaveAttribute("for");
+    expect(input).toHaveAttribute("id");
+    expect(input.getAttribute("id")).toEqual(label.getAttribute("for"));
+  });
+
   describe("with variant", () => {
     test("should renders with default variant when variant isn't present", () => {
       // Arrange

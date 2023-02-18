@@ -56,3 +56,9 @@ DisabledWithValue.args = {
   disabled: true,
   value: "Disabled with value",
 };
+
+export const WithLabel = Template.bind({});
+WithLabel.args = {
+  ...Default.args,
+  label: "Login",
+};
