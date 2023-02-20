@@ -4,8 +4,8 @@ const grey = {
   grey000: "#ededed",
   // card background
   grey300: "#f5f5f5",
-  // card outline border
-  grey400: "#eaeaea",
+  // outline border
+  grey400: "#c2c2c2",
   grey500: "#999999",
   // text color
   grey700: "#333333",
@@ -15,8 +15,8 @@ const greyDark = {
   grey000: "#3d3d3d",
   // card background
   grey300: "#313335",
-  // card outline border
-  grey400: "#333536",
+  // outline border
+  grey400: "#45484a",
   grey500: "#8f8f8f",
   // text color
   grey700: "#ebebeb",

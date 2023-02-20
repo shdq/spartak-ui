@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
+import { Button, TextInput } from "../../index";
 import { Card, CardHeader, CardBody, CardFooter } from "../Card";
 
 export default {
@@ -52,5 +53,50 @@ export const Elevated = Template.bind({});
 Elevated.args = {
   ...Default.args,
   children: <CardBody>Elevated card</CardBody>,
+  variant: "elevated",
+};
+
+const loginForm = (
+  <>
+    <CardHeader
+      css={{
+        textAlign: "center",
+        fontWeight: 600,
+        fontSize: "$lg",
+        color: "$grey700",
+        marginBottom: "8px",
+      }}
+    >
+      Log in
+    </CardHeader>
+    <CardBody css={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <TextInput
+        label="Email"
+        placeholder="Enter your email"
+        // description="e.g. name@example.com"
+      />
+      <TextInput
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+      />
+      <Button>Continue</Button>
+    </CardBody>
+    <CardFooter css={{ textAlign: "center" }}>
+      <Button
+        as="a"
+        href="https://example.com"
+        variant="text"
+      >
+        Forgot your password?
+      </Button>
+    </CardFooter>
+  </>
+);
+
+export const CardWithForm = Template.bind({});
+CardWithForm.args = {
+  ...Default.args,
+  children: loginForm,
   variant: "elevated",
 };
