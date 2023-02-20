@@ -2,6 +2,8 @@ import { createStitches, createTheme } from "@stitches/react";
 
 const grey = {
   grey000: "#ededed",
+  // card background
+  grey400: "#f5f5f5",
   grey500: "#999999",
   // text color
   grey700: "#333333",
@@ -9,6 +11,8 @@ const grey = {
 
 const greyDark = {
   grey000: "#3d3d3d",
+  // card background
+  grey400: "#313335",
   grey500: "#8f8f8f",
   // text color
   grey700: "#ebebeb",
@@ -78,13 +82,13 @@ export const { theme, styled, globalCss } = createStitches({
     },
     space: {
       iconGapXS: "4px",
-      paddingXS: '12px',
+      paddingXS: "12px",
       iconGapSM: "6px",
-      paddingSM: '14px',
+      paddingSM: "14px",
       iconGapMD: "8px",
-      paddingMD: '16px',
+      paddingMD: "16px",
       iconGapLG: "10px",
-      paddingLG: '18px',
+      paddingLG: "18px",
     },
     fontSizes: {
       xxs: "10px",
@@ -92,6 +96,7 @@ export const { theme, styled, globalCss } = createStitches({
       sm: "14px",
       md: "16px",
       lg: "18px",
+      xl: "20px",
     },
     fonts: {
       system:
@@ -110,7 +115,7 @@ export const { theme, styled, globalCss } = createStitches({
     },
     borderWidths: {
       1: "1px",
-      2: "2px"
+      2: "2px",
     },
     borderStyles: {},
     radii: {

@@ -1,26 +1,39 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { useDarkMode } from "storybook-dark-mode";
-import { darkTheme } from "../../stitches.config";
+import { ThemeProvider } from "../../index";
 import { Card, CardHeader, CardBody, CardFooter } from "../Card";
+import { Switch } from "../../provider/Switch";
 
 export default {
   title: "Components/Card",
   component: Card,
   decorators: [
     (Story) => (
-      <div className={useDarkMode() ? darkTheme.className : undefined}>
-        <Story />
-      </div>
+      <ThemeProvider>
+        <Switch />
+        <div
+          style={{
+            width: "200px",
+          }}
+        >
+          <Story />
+        </div>
+      </ThemeProvider>
     ),
   ],
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "radio" },
+    },
+  },
 } as ComponentMeta<typeof Card>;
 
 const Template: ComponentStory<typeof Card> = ({ children, ...args }) => (
   <Card {...args}>{children}</Card>
 );
 
-export const Basic = Template.bind({});
-Basic.args = {
-  children: <CardBody>Basic card</CardBody>,
+export const Filled = Template.bind({});
+Filled.args = {
+  children: <CardBody>Filled card</CardBody>,
+  size: "sm",
 };
