@@ -1,6 +1,9 @@
 import { styled } from "../stitches.config";
 
 export const Card = styled("div", {
+  fontFamily: "$system",
+  fontWeight: "$normal",
+  border: "$borderWidths$1 solid transparent",
   boxSizing: "border-box",
   position: "relative",
   borderRadius: "$3",
@@ -12,21 +15,29 @@ export const Card = styled("div", {
   variants: {
     variant: {
       filled: {
-        backgroundColor: "$grey400",
+        backgroundColor: "$grey300",
+      },
+      outlined: {
+        backgroundColor: "transparent",
+        borderColor: "$grey400",
+      },
+      elevated: {
+        backgroundColor: "$grey300",
+        boxShadow: "$shadows$boxShadow",
       },
     },
     size: {
       xs: {
-        minWidth: "240px",
+        maxWidth: "240px",
       },
       sm: {
-        minWidth: "280px",
+        maxWidth: "280px",
       },
       md: {
-        minWidth: "320px",
+        maxWidth: "320px",
       },
       lg: {
-        minWidth: "360px",
+        maxWidth: "360px",
       },
     },
   },

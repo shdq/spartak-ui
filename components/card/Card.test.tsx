@@ -37,4 +37,24 @@ describe("Card", () => {
       expect(isClassPresent).toBe(true);
     });
   });
+
+  describe("with variant", () => {
+    test("should renders with default variant when variant isn't present", () => {
+      // Arrange
+      render(
+        <Card data-testid="card">
+          <CardBody>Default variant</CardBody>
+        </Card>
+      );
+
+      //Act
+      const card = screen.getByTestId("card");
+      const isClassPresent = [...card.classList].some((className) =>
+        className.endsWith("variant-filled")
+      );
+
+      // Assess
+      expect(isClassPresent).toBe(true);
+    });
+  });
 });
