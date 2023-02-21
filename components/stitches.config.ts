@@ -82,7 +82,7 @@ export const { theme, styled, globalCss } = createStitches({
       white: "#ffffff",
       focus: "#53B7DF",
       background: "#ffffff",
-      foreground: "#222222",
+      foreground: "#333333",
     },
     space: {
       iconGapXS: "4px",
@@ -126,7 +126,7 @@ export const { theme, styled, globalCss } = createStitches({
       3: "3px",
     },
     shadows: {
-      boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 4px"
+      boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 4px",
     },
     zIndices: {},
     transitions: {},
@@ -140,7 +140,7 @@ export const darkTheme = createTheme({
     ...greyDark,
     focus: "#70C4E5",
     background: "#232425",
-    foreground: "#ffffff",
+    foreground: "#f5f5f5",
   },
 });
 

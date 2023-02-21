@@ -3,6 +3,7 @@ import { styled } from "../stitches.config";
 export const Card = styled("section", {
   fontFamily: "$system",
   fontWeight: "$normal",
+  color: "$foreground",
   border: "$borderWidths$1 solid transparent",
   boxSizing: "border-box",
   position: "relative",
@@ -10,7 +11,7 @@ export const Card = styled("section", {
   display: "flex",
   gap: "8px",
   flexDirection: "column",
-  padding: "16px",
+  padding: "$paddingMD",
 
   variants: {
     variant: {
