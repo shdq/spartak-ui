@@ -4,7 +4,7 @@ A React component, intended to get user input
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -27,7 +27,7 @@ If you don't specify `variant` prop, default variant will be used.
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -53,7 +53,7 @@ If you don't specify `size` prop, default size will be used.
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -72,7 +72,7 @@ You can disable `TextInput` by specifying `disabled` property.
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -93,7 +93,7 @@ There are `icon` and `endIcon` properties to place icon at start or end of `Text
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 import { IconSearch, IconMicrophone } from "@tabler/icons-react";
 
@@ -116,7 +116,7 @@ With `label` property `TextInput` renders with proper label. There is optional `
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -137,7 +137,7 @@ function App() {
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -157,7 +157,7 @@ When you validate you form input, you can provide `error` property to add error 
 
 ### Usage
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {
@@ -176,7 +176,7 @@ function App() {
 
 An example of controlled `TextInput` below.
 
-```typescript
+```jsx
 import { TextInput } from "spartak-ui";
 
 function App() {

@@ -4,11 +4,13 @@ Polymorphic React component, use it as a button or a link.
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 
 function App() {
-  return <Button>Click me!</Button>;
+  return (
+    <Button>Click me!</Button>;
+  );
 }
 ```
 
@@ -25,11 +27,15 @@ If you don't specify `variant` prop, default variant will be used.
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 
 function App() {
-  return <Button variant="outlined">Outlined</Button>;
+  return (
+    <Button variant="outlined">
+      Outlined
+    </Button>;
+  );
 }
 ```
 
@@ -44,11 +50,15 @@ If you don't specify `color` prop, default variant will be used.
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 
 function App() {
-  return <Button color="blue">Blue</Button>;
+  return (
+    <Button color="blue">
+      Blue
+    </Button>;
+  );
 }
 ```
 
@@ -65,11 +75,15 @@ If you don't specify `size` prop, default size will be used.
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 
 function App() {
-  return <Button size="lg">Large</Button>;
+  return (
+    <Button size="lg">
+      Large
+    </Button>;
+  );
 }
 ```
 
@@ -81,23 +95,32 @@ There are `icon` and `endIcon` properties to place icon before and after `Button
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 import { IconBell } from "@tabler/icons-react";
 
 function App() {
-  return <Button icon={<IconBell size={18} />}>Notifications</Button>;
+  return (
+    <Button icon={<IconBell size={18}/>}>
+      Notifications
+    </Button>;
+  );
 }
 ```
 
 Button with `icon` property and without children renders and square button with icon.
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 import { IconSun } from "@tabler/icons-react";
 
 function App() {
-  return <Button icon={<IconSun size={18} />} variant="tinted" />;
+  return (
+    <Button
+      icon={<IconSun size={18} />}
+      variant="tinted"
+    />;
+  );
 }
 ```
 
@@ -107,11 +130,13 @@ You can disable `Button` by specifying `disabled` property.
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 
 function App() {
-  return <Button disabled>Submit</Button>;
+  return (
+    <Button disabled>Submit</Button>;
+  );
 }
 ```
 
@@ -121,12 +146,16 @@ Provide HTML element name `a` to `as` property and `href` with path or URL to re
 
 ### Usage
 
-```typescript
+```jsx
 import { Button } from "spartak-ui";
 
 function App() {
   return (
-    <Button variant="text" as="a" href="https://example.com">
+    <Button
+      variant="text"
+      as="a"
+      href="https://example.com"
+    >
       This is a link
     </Button>
   );
@@ -139,7 +168,7 @@ You can combine variants. Example below will render blue tinted button.
 
 ### Usage
 
-```typescript
+```jsx
 <Button variant="tinted" color="blue">
   Combined style
 </Button>

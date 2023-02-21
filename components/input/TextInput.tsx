@@ -32,7 +32,7 @@ const InputComponent = styled("input", {
       },
       outlined: {
         backgroundColor: "transparent",
-        borderColor: "$grey500",
+        borderColor: "$grey400",
         "&:focus-visible": {
           borderColor: "$focus",
         },
