@@ -1,6 +1,6 @@
 import { styled } from "../stitches.config";
 
-export const Card = styled("div", {
+export const Card = styled("section", {
   fontFamily: "$system",
   fontWeight: "$normal",
   border: "$borderWidths$1 solid transparent",
@@ -26,28 +26,13 @@ export const Card = styled("div", {
         boxShadow: "$shadows$boxShadow",
       },
     },
-    size: {
-      xs: {
-        maxWidth: "240px",
-      },
-      sm: {
-        maxWidth: "280px",
-      },
-      md: {
-        maxWidth: "320px",
-      },
-      lg: {
-        maxWidth: "360px",
-      },
-    },
   },
   defaultVariants: {
     variant: "filled",
-    size: "sm",
   },
 });
-export const CardHeader = styled("div", {});
+export const CardHeader = styled("header", {});
 export const CardBody = styled("div", {
   flex: "1 1 auto",
 });
-export const CardFooter = styled("div", {});
+export const CardFooter = styled("footer", {});

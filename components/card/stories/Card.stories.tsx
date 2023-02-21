@@ -19,10 +19,6 @@ export default {
       options: ["filled", "outlined", "elevated"],
       control: { type: "radio" },
     },
-    size: {
-      options: ["xs", "sm", "md", "lg"],
-      control: { type: "radio" },
-    },
   },
 } as ComponentMeta<typeof Card>;
 
@@ -32,7 +28,6 @@ const Template: ComponentStory<typeof Card> = ({ children, ...args }) => (
 
 const Default = Template.bind({});
 Default.args = {
-  size: "sm",
   variant: "filled",
 };
 
@@ -70,11 +65,7 @@ const loginForm = (
       Log in
     </CardHeader>
     <CardBody css={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-      <TextInput
-        label="Email"
-        placeholder="Enter your email"
-        // description="e.g. name@example.com"
-      />
+      <TextInput label="Email" placeholder="Enter your email" />
       <TextInput
         label="Password"
         type="password"
@@ -83,11 +74,7 @@ const loginForm = (
       <Button>Continue</Button>
     </CardBody>
     <CardFooter css={{ textAlign: "center" }}>
-      <Button
-        as="a"
-        href="https://example.com"
-        variant="text"
-      >
+      <Button as="a" href="https://example.com" variant="text">
         Forgot your password?
       </Button>
     </CardFooter>
@@ -99,4 +86,5 @@ CardWithForm.args = {
   ...Default.args,
   children: loginForm,
   variant: "elevated",
+  css: { width: "280px" },
 };
