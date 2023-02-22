@@ -1,6 +1,6 @@
 import { styled } from "../stitches.config";
 
-export const Text = styled("p", {
+export const Text = styled("div", {
   color: "$foreground",
   fontFamily: "$system",
   fontWeight: "$normal",
@@ -8,6 +8,11 @@ export const Text = styled("p", {
   margin: 0,
 
   variants: {
+    secondary: {
+      true: {
+        color: "$grey500",
+      },
+    },
     size: {
       xs: {
         fontSize: "$xs",

@@ -17,19 +17,47 @@ describe("Text", () => {
     expect(text).toBeInTheDocument();
   });
 
-  test("should renders as <p>", () => {
+  test("should renders as <div>", () => {
     // Arrange
     render(<Text>Example of text</Text>);
 
     // Act
     const text = screen.getByText((text, element) => {
       return (
-        element?.tagName.toLowerCase() === "p" && text === "Example of text"
+        element?.tagName.toLowerCase() === "div" && text === "Example of text"
       );
     });
 
     // Assert
     expect(text).toBeInTheDocument();
+  });
+
+  test("should renders as another element", () => {
+    // Arrange
+    render(<Text as="strong">Example of strong text</Text>);
+
+    // Act
+    const text = screen.getByText((text, element) => {
+      return (
+        element?.tagName.toLowerCase() === "strong" &&
+        text === "Example of strong text"
+      );
+    });
+
+    // Assert
+    expect(text).toBeInTheDocument();
+  });
+
+  test("should renders as secondary (dimmed)", () => {
+    // Arrange
+    render(<Text secondary>Example of text</Text>);
+
+    // Act
+    const text = screen.getByText("Example of text");
+    const result = isClassSuffixPresent(text, "secondary-true");
+
+    // Assert
+    expect(result).toBe(true);
   });
 
   describe("with size", () => {
