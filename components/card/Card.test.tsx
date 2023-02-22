@@ -1,6 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
 import { Card, CardHeader, CardBody, CardFooter } from "./Card";
-import { theme } from "../stitches.config";
 
 describe("Card", () => {
   test("should renders", () => {
@@ -60,7 +59,7 @@ describe("Card", () => {
         className.endsWith("variant-filled")
       );
 
-      // Assess
+      // Assert
       expect(isClassPresent).toBe(true);
     });
 
@@ -78,7 +77,7 @@ describe("Card", () => {
         className.endsWith("variant-filled")
       );
 
-      // Assess
+      // Assert
       expect(isClassPresent).toBe(true);
     });
 
@@ -96,7 +95,7 @@ describe("Card", () => {
         className.endsWith("variant-outlined")
       );
 
-      // Assess
+      // Assert
       expect(isClassPresent).toBe(true);
     });
 
@@ -114,7 +113,7 @@ describe("Card", () => {
         className.endsWith("variant-elevated")
       );
 
-      // Assess
+      // Assert
       expect(isClassPresent).toBe(true);
     });
   });
