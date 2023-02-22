@@ -2,7 +2,10 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "./Button";
 import { IconSun } from "@tabler/icons-react";
-import { theme } from "../stitches.config";
+
+const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+  return [...element.classList].some((className) => className.endsWith(value));
+};
 
 describe("Button", () => {
   test("should renders", () => {
@@ -61,27 +64,34 @@ describe("Button", () => {
 
       //Act
       const button = screen.getByRole("button");
-      const isClassPresent = [...button.classList].some((className) =>
-        className.endsWith("variant-filled")
-      );
+      const result = isClassSuffixPresent(button, "variant-filled");
 
-      // Assess
-      expect(isClassPresent).toBe(true);
+      // Assert
+      expect(result).toBe(true);
     });
 
-    test("should renders with provided variant", () => {
-      // Arrange
-      render(<Button variant="outlined">Outlined button</Button>);
+    type VarianType = "filled" | "tinted" | "outlined" | "text";
+    type VariantTestData = [variant: VarianType, value: string];
+    const variantsToTest: VariantTestData[] = [
+      ["filled", "variant-filled"],
+      ["tinted", "variant-tinted"],
+      ["outlined", "variant-outlined"],
+      ["text", "variant-text"],
+    ];
+    test.each(variantsToTest)(
+      "should renders with %s variant",
+      (variant, expected) => {
+        // Arrange
+        render(<Button variant={variant}>{variant} variant</Button>);
 
-      //Act
-      const button = screen.getByRole("button");
-      const isClassPresent = [...button.classList].some((className) =>
-        className.endsWith("variant-outlined")
-      );
+        //Act
+        const button = screen.getByRole("button");
+        const result = isClassSuffixPresent(button, expected);
 
-      // Assess
-      expect(isClassPresent).toBe(true);
-    });
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
   });
 
   describe("with size", () => {
@@ -91,30 +101,30 @@ describe("Button", () => {
 
       //Act
       const button = screen.getByRole("button");
-      const isClassPresent = [...button.classList].some((className) =>
-        className.endsWith("size-sm")
-      );
+      const result = isClassSuffixPresent(button, "size-sm");
 
-      // Assess
-      expect(isClassPresent).toBe(true);
+      // Assert
+      expect(result).toBe(true);
     });
 
-    const themeSizes = theme.sizes;
-    Object.keys(themeSizes).map((size) => {
-      const label = themeSizes[size as keyof typeof themeSizes].token;
+    type SizeType = "xs" | "sm" | "md" | "lg";
+    type SizeTestData = [size: SizeType, value: string];
+    const sizesToTest: SizeTestData[] = [
+      ["xs", "size-xs"],
+      ["sm", "size-sm"],
+      ["md", "size-md"],
+      ["lg", "size-lg"],
+    ];
+    test.each(sizesToTest)("should renders with %s size", (size, expected) => {
+      // Arrange
+      render(<Button size={size}>{size} size</Button>);
 
-      test(`should renders in ${label} size`, () => {
-        // Arrange
-        render(<Button size={label}>{label} size</Button>);
+      //Act
+      const button = screen.getByRole("button");
+      const result = isClassSuffixPresent(button, expected);
 
-        //Act
-        const button = screen.getByRole("button");
-
-        // Assess
-        expect(button).toHaveStyle(
-          `height: ${themeSizes[label]}, min-width: ${themeSizes[label]}`
-        );
-      });
+      // Assert
+      expect(result).toBe(true);
     });
   });
 
@@ -125,27 +135,32 @@ describe("Button", () => {
 
       //Act
       const button = screen.getByRole("button");
-      const isClassPresent = [...button.classList].some((className) =>
-        className.endsWith("color-red")
-      );
+      const result = isClassSuffixPresent(button, "color-red");
 
-      // Assess
-      expect(isClassPresent).toBe(true);
+      // Assert
+      expect(result).toBe(true);
     });
 
-    test("should renders with provided color", () => {
-      // Arrange
-      render(<Button color="blue">Blue button</Button>);
+    type ColorType = "red" | "blue";
+    type ColorTestData = [color: ColorType, value: string];
+    const colorsToTest: ColorTestData[] = [
+      ["red", "color-red"],
+      ["blue", "color-blue"],
+    ];
+    test.each(colorsToTest)(
+      "should renders with %s color",
+      (color, expected) => {
+        // Arrange
+        render(<Button color={color}>{color} color</Button>);
 
-      //Act
-      const button = screen.getByRole("button");
-      const isClassPresent = [...button.classList].some((className) =>
-        className.endsWith("color-blue")
-      );
+        //Act
+        const button = screen.getByRole("button");
+        const result = isClassSuffixPresent(button, expected);
 
-      // Assess
-      expect(isClassPresent).toBe(true);
-    });
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
   });
 
   describe("with icon", () => {

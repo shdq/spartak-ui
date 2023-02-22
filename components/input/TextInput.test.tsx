@@ -1,8 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TextInput } from "./TextInput";
-import { theme } from "../stitches.config";
 import { IconSearch, IconMicrophone } from "@tabler/icons-react";
+
+const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+  return [...element.classList].some((className) => className.endsWith(value));
+};
 
 describe("TextInput", () => {
   test("should renders", () => {
@@ -154,13 +157,11 @@ describe("TextInput", () => {
       // Act
       const error = screen.getByText("Invalid value");
       const input = screen.getByRole("textbox");
-      const isClassPresent = [...input.classList].some((className) =>
-        className.endsWith("isInvalid-true")
-      );
+      const result = isClassSuffixPresent(input, "isInvalid-true");
 
-      // Assess
+      // Assert
       expect(error).toBeInTheDocument();
-      expect(isClassPresent).toBe(true);
+      expect(result).toBe(true);
     });
 
     test("should show error not description", () => {
@@ -184,27 +185,32 @@ describe("TextInput", () => {
 
       //Act
       const input = screen.getByRole("textbox");
-      const isClassPresent = [...input.classList].some((className) =>
-        className.endsWith("variant-filled")
-      );
+      const result = isClassSuffixPresent(input, "variant-filled");
 
-      // Assess
-      expect(isClassPresent).toBe(true);
+      // Assert
+      expect(result).toBe(true);
     });
 
-    test("should renders with provided variant", () => {
-      // Arrange
-      render(<TextInput variant="outlined" />);
+    type VarianType = "filled" | "outlined";
+    type VariantTestData = [variant: VarianType, value: string];
+    const variantsToTest: VariantTestData[] = [
+      ["filled", "variant-filled"],
+      ["outlined", "variant-outlined"],
+    ];
+    test.each(variantsToTest)(
+      "should renders with %s variant",
+      (variant, expected) => {
+        // Arrange
+        render(<TextInput variant={variant} />);
 
-      //Act
-      const input = screen.getByRole("textbox");
-      const isClassPresent = [...input.classList].some((className) =>
-        className.endsWith("variant-outlined")
-      );
+        //Act
+        const input = screen.getByRole("textbox");
+        const result = isClassSuffixPresent(input, expected);
 
-      // Assess
-      expect(isClassPresent).toBe(true);
-    });
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
   });
 
   describe("with size", () => {
@@ -214,34 +220,30 @@ describe("TextInput", () => {
 
       //Act
       const input = screen.getByRole("textbox");
-      const isClassPresent = [...input.classList].some((className) =>
-        className.endsWith("size-sm")
-      );
+      const result = isClassSuffixPresent(input, "size-sm");
 
-      // Assess
-      expect(isClassPresent).toBe(true);
+      // Assert
+      expect(result).toBe(true);
     });
 
-    const themeSizes = theme.sizes;
-    const themeSpaces = theme.space;
-    Object.keys(themeSizes).map((size) => {
-      const label = themeSizes[size as keyof typeof themeSizes].token;
-      const paddingLabel =
-        themeSpaces[`padding${label.toUpperCase()}` as keyof typeof themeSpaces]
-          .token;
+    type SizeType = "xs" | "sm" | "md" | "lg";
+    type SizeTestData = [size: SizeType, value: string];
+    const sizesToTest: SizeTestData[] = [
+      ["xs", "size-xs"],
+      ["sm", "size-sm"],
+      ["md", "size-md"],
+      ["lg", "size-lg"],
+    ];
+    test.each(sizesToTest)("should renders with %s size", (size, expected) => {
+      // Arrange
+      render(<TextInput size={size} />);
 
-      test(`should renders in ${label} size`, () => {
-        // Arrange
-        render(<TextInput size={label} />);
+      //Act
+      const input = screen.getByRole("textbox");
+      const result = isClassSuffixPresent(input, expected);
 
-        //Act
-        const input = screen.getByRole("textbox");
-
-        // Assess
-        expect(input).toHaveStyle(
-          `height: ${themeSizes[label]}, padding: 0 ${themeSpaces[paddingLabel]}`
-        );
-      });
+      // Assert
+      expect(result).toBe(true);
     });
   });
 
