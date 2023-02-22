@@ -24,8 +24,7 @@ const ButtonComponent = styled("button", {
     transition: "200ms",
   },
   "&:enabled:active": {
-    opacity: 0.8,
-    transition: "200ms",
+    transform: "scale(0.98)",
   },
   "&:disabled": {
     cursor: "not-allowed",
