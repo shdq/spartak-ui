@@ -1,12 +1,15 @@
 # Spartak UI
 
-A React Components Library
+A React Components Library.
+
+Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of components.
 
 ## Components
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
 - [Card](https://github.com/shdq/spartak-ui/tree/main/components/card#card)
 - [Input](https://github.com/shdq/spartak-ui/tree/main/components/input#textinput)
+- [Text](https://github.com/shdq/spartak-ui/tree/main/components/text#text)
 
 ## Examples built with Spartak UI
 
