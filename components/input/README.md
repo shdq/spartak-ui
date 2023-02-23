@@ -23,7 +23,7 @@ There are two different styles of `TextInput`:
 - `filled` (default)
 - `outlined`
 
-If you don't specify `variant` prop, default variant will be used.
+If you don't specify `variant` prop, the default variant will be used.
 
 ### Usage
 
@@ -49,7 +49,7 @@ There are four different sizes of `TextInput`:
 - `md` – medium
 - `lg` – large
 
-If you don't specify `size` prop, default size will be used.
+If you don't specify `size` prop, the default size will be used.
 
 ### Usage
 
@@ -87,7 +87,7 @@ function App() {
 
 ## Icons
 
-There are `icon` and `endIcon` properties to place icon at start or end of `TextInput`.
+There are `icon` and `endIcon` properties to place icons at the start and the end of `TextInput`.
 
 **NB:** You can use both properties to add both icons to `TextInput`
 
@@ -110,7 +110,7 @@ function App() {
 
 ## Label
 
-With `label` property `TextInput` renders with proper label. There is optional `required` property, which adds <sup>`*`</sup> to the `label`.
+With `label` property `TextInput` renders with the proper label. There is optional `required` property, which adds <sup>`*`</sup> to the `label`. You don't need to provide `id` or `for`, they will be generated for underneath HTML `input` and `label` elements automatically.
 
 **NB:** If you don't use `label` property, you should add `aria-label` to `TextInput` for accessibility purpose.
 
@@ -153,7 +153,7 @@ function App() {
 
 ## Error
 
-When you validate you form input, you can provide `error` property to add error message to the `TextInput`. It will highlight the input and replace description text with the error message.
+When you validate your form input, you can provide `error` property to add an error message to the `TextInput`. It will highlight the input and replace the description text with the error message.
 
 ### Usage
 
@@ -174,7 +174,7 @@ function App() {
 
 ## Controlled
 
-An example of controlled `TextInput` below.
+An example of controlled `TextInput`.
 
 ```jsx
 import { TextInput } from "spartak-ui";

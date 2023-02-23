@@ -1,6 +1,6 @@
 # Text
 
-`Text` displays text, links and other text information.
+`Text` displays text, links, and other text information.
 
 ### Usage
 
@@ -26,13 +26,13 @@ This example renders in HTML as `div`
 
 There are five different sizes of `Text`:
 
-- `xs` – extra small sized text
+- `xs` – extra small-sized text
 - `sm` – small sized text
 - `md` – medium sized text
 - `lg` – large sized text
-- `xl` – extra large size text
+- `xl` – extra large sized text
 
-**NB**: By default font size is `inherited`. So you should specify size of the outer `Text` component.
+**NB**: By default font size is `inherited`. So you should specify the size of the outer `Text` component.
 
 ### Usage
 
@@ -69,13 +69,13 @@ function App() {
 }
 ```
 
-It is usefull if you need to render a link and color it. See example below.
+It is useful if you need to render a link and color it. See the example below.
 
 ## Text as another element
 
 `Text` renders as `<div>` by default, if you need `<span>`, `<p>` or `a` provide HTML element name to `as` property.
 
-Some of HTML elements to render `Text` to:
+Some of the HTML elements to render `Text` to:
 
 - `strong` – **bold**
 - `em` – *italic*
@@ -107,7 +107,7 @@ function App() {
 }
 ```
 
-This example renders in HTML as a medium-sized paragraph with the red underlined link inside:
+This example renders in HTML as a medium-sized paragraph with the red, underlined link inside:
 
 ```html
 <p>Text with <a href="https://example.com">link</a></p>
@@ -115,7 +115,7 @@ This example renders in HTML as a medium-sized paragraph with the red underlined
 
 ## Secondary text
 
-If you want text to be dimmed, provide `secondary` boolean  property to `Text`.
+If you want the text to be dimmed, provide `secondary` boolean property to `Text`.
 
 ### Usage
 

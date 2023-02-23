@@ -2,7 +2,7 @@
 
 `Card` contains content on a single subject.
 
-It has `CardHeader`, `CardBody`, and `CardFooter` components to structure content inside card.
+It has `CardHeader`, `CardBody`, and `CardFooter` components to structure the content inside the card.
 
 ### Usage
 
@@ -28,7 +28,7 @@ There are three different styles of `Card`:
 - `outlined`
 - `elevated`
 
-If you don't specify `variant` prop, default variant will be used.
+If you don't specify `variant` prop, the default variant will be used.
 
 ### Usage
 
@@ -48,7 +48,7 @@ function App() {
 
 ## Card with full structure
 
-`CardFooter` is stick to the bottom of `Card`.
+`CardFooter` is sticky to the bottom of `Card`.
 
 ### Usage
 
