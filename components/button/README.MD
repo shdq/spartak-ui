@@ -69,7 +69,7 @@ There are four different sizes of `Button`:
 - `xs` – extra small sized button
 - `sm` (default) – small sized button
 - `md` – medium sized button
-- `lg` – large size button
+- `lg` – large sized button
 
 If you don't specify `size` prop, default size will be used.
 

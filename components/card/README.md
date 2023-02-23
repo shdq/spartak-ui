@@ -53,7 +53,13 @@ function App() {
 ### Usage
 
 ```jsx
-import { Card, CardHeader, CardBody, CardFooter } from from "spartak-ui";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text
+} from from "spartak-ui";
 
 function App() {
   return (
@@ -62,10 +68,10 @@ function App() {
         <h2>Header</h2>
       </CardHeader>
       <CardBody>
-        <p>Body</p>
+        <Text>Body</Text>
       </CardBody>
       <CardFooter>
-        <p>Footer</p>
+        <Text>Footer</Text>
       </CardFooter>
     </Card>
   );
