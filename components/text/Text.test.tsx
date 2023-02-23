@@ -60,8 +60,59 @@ describe("Text", () => {
     expect(result).toBe(true);
   });
 
+  test("should renders as link", () => {
+    // Arrange
+    render(
+      <Text as="a" href="https://example.com">
+        Hyperlink
+      </Text>
+    );
+
+    // Act
+    const link = screen.getByRole("link");
+
+    // Assert
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "https://example.com");
+  });
+
+  describe("with color", () => {
+    test("should renders without default color", () => {
+      // Arrange
+      render(<Text>Example of text</Text>);
+
+      //Act
+      const text = screen.getByText("Example of text");
+      const result = isClassSuffixPresent(text, "color-red");
+
+      // Assert
+      expect(result).toBe(false);
+    });
+
+    type ColorType = "red" | "blue";
+    type ColorTestData = [color: ColorType, value: string];
+    const colorsToTest: ColorTestData[] = [
+      ["red", "color-red"],
+      ["blue", "color-blue"],
+    ];
+    test.each(colorsToTest)(
+      "should renders with %s color",
+      (color, expected) => {
+        // Arrange
+        render(<Text color={color}>Example of text</Text>);
+
+        //Act
+        const text = screen.getByText("Example of text");
+        const result = isClassSuffixPresent(text, expected);
+
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
+  });
+
   describe("with size", () => {
-    test("should renders with default size when size isn't present", () => {
+    test("should renders without default size", () => {
       // Arrange
       render(<Text>Example of text</Text>);
 
@@ -70,7 +121,7 @@ describe("Text", () => {
       const result = isClassSuffixPresent(text, "size-sm");
 
       // Assert
-      expect(result).toBe(true);
+      expect(result).toBe(false);
     });
 
     type SizeType = "xs" | "sm" | "md" | "lg" | "xl";

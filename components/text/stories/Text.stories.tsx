@@ -44,6 +44,26 @@ Sizes.args = {
   ),
 };
 
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Default.args,
+  children: "Secondary text",
+  secondary: true,
+};
+
+export const AsLink = Template.bind({});
+AsLink.args = {
+  ...Default.args,
+  children: (
+    <>
+      Text with{" "}
+      <Text color="red" as="a" href="https://example.com">
+        hyperlink
+      </Text>
+    </>
+  ),
+};
+
 export const AsOtherElements = Template.bind({});
 AsOtherElements.args = {
   ...Default.args,
@@ -77,11 +97,4 @@ AsOtherElements.args = {
       </Text>
     </>
   ),
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  ...Default.args,
-  children: "Secondary text",
-  secondary: true,
 };
