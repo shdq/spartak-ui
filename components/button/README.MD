@@ -23,7 +23,7 @@ There are four different styles of `Button`:
 - `outlined`
 - `text`
 
-If you don't specify `variant` prop, default variant will be used.
+If you don't specify `variant` prop, the default variant will be used.
 
 ### Usage
 
@@ -46,7 +46,7 @@ There are several built-in `color` palettes available for `Button`:
 - `red` (default)
 - `blue`
 
-If you don't specify `color` prop, default variant will be used.
+If you don't specify `color` prop, the default variant will be used.
 
 ### Usage
 
@@ -69,9 +69,9 @@ There are four different sizes of `Button`:
 - `xs` – extra small sized button
 - `sm` (default) – small sized button
 - `md` – medium sized button
-- `lg` – large size button
+- `lg` – large sized button
 
-If you don't specify `size` prop, default size will be used.
+If you don't specify `size` prop, the default size will be used.
 
 ### Usage
 
@@ -89,7 +89,7 @@ function App() {
 
 ## Icons
 
-There are `icon` and `endIcon` properties to place icon before and after `Button` label.
+There are `icon` and `endIcon` properties to place icons before and after `Button` label.
 
 **NB:** `icon` property has a priority, if you use both properties, only one icon from `icon` will be rendered.
 
@@ -142,7 +142,7 @@ function App() {
 
 ## Button as a link
 
-Provide HTML element name `a` to `as` property and `href` with path or URL to render `Button` component as a link. If you provider only `href` it will be ignored.
+Provide HTML element name `a` to `as` property and `href` with path or URL to render `Button` component as a link. If you provide only `href` it will be ignored.
 
 ### Usage
 
@@ -164,7 +164,7 @@ function App() {
 
 ## Combined style
 
-You can combine variants. Example below will render blue tinted button.
+You can combine variants. The example below will render a blue, tinted button.
 
 ### Usage
 

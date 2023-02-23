@@ -2,7 +2,7 @@
 
 `Card` contains content on a single subject.
 
-It has `CardHeader`, `CardBody`, and `CardFooter` components to structure content inside card.
+It has `CardHeader`, `CardBody`, and `CardFooter` components to structure the content inside the card.
 
 ### Usage
 
@@ -28,7 +28,7 @@ There are three different styles of `Card`:
 - `outlined`
 - `elevated`
 
-If you don't specify `variant` prop, default variant will be used.
+If you don't specify `variant` prop, the default variant will be used.
 
 ### Usage
 
@@ -48,12 +48,18 @@ function App() {
 
 ## Card with full structure
 
-`CardFooter` is stick to the bottom of `Card`.
+`CardFooter` is sticky to the bottom of `Card`.
 
 ### Usage
 
 ```jsx
-import { Card, CardHeader, CardBody, CardFooter } from from "spartak-ui";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text
+} from from "spartak-ui";
 
 function App() {
   return (
@@ -62,10 +68,10 @@ function App() {
         <h2>Header</h2>
       </CardHeader>
       <CardBody>
-        <p>Body</p>
+        <Text>Body</Text>
       </CardBody>
       <CardFooter>
-        <p>Footer</p>
+        <Text>Footer</Text>
       </CardFooter>
     </Card>
   );
