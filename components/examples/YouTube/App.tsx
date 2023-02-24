@@ -1,10 +1,8 @@
 import { useState } from "react";
-
 import { useTheme, ThemeProvider } from "../../index";
+import { Switch } from "../../provider/Switch";
 import { Button } from "../../index";
 import {
-  IconSun,
-  IconMoon,
   IconMenu2,
   IconHome,
   IconStack2,
@@ -16,25 +14,7 @@ import {
 } from "@tabler/icons-react";
 
 type Sizes = "xs" | "sm" | "md" | "lg";
-type Colors = "red" | "blue";
-
-type SwitchProps = {
-  color: Colors;
-};
-
-const Switch = ({ color }: SwitchProps) => {
-  const { theme, setTheme } = useTheme();
-  const isThemeDark = theme === "dark";
-  return (
-    <Button
-      color={color}
-      onClick={() => setTheme(isThemeDark ? "light" : "dark")}
-      icon={isThemeDark ? <IconSun /> : <IconMoon />}
-      variant="text"
-      size="md"
-    />
-  );
-};
+type Colors = "red" | "blue" | "green";
 
 type HeaderProps = {
   color: Colors;
