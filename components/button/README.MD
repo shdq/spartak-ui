@@ -45,6 +45,7 @@ There are several built-in `color` palettes available for `Button`:
 
 - `red` (default)
 - `blue`
+- `green`
 
 If you don't specify `color` prop, the default variant will be used.
 
