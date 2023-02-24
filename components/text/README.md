@@ -54,6 +54,7 @@ There are several built-in `color` palettes available for `Text`:
 
 - `red`
 - `blue`
+- `green`
 
 ### Usage
 

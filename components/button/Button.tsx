@@ -52,6 +52,13 @@ const ButtonComponent = styled("button", {
         $$color500: "$colors$blue500",
         $$color600: "$colors$blue600",
       },
+      green: {
+        $$color000: "$colors$green000",
+        $$color100: "$colors$green100",
+        $$color400: "$colors$green400",
+        $$color500: "$colors$green500",
+        $$color600: "$colors$green600",
+      },
     },
 
     variant: {
@@ -76,28 +83,24 @@ const ButtonComponent = styled("button", {
         },
       },
       outlined: {
-        color: "$$color600",
-        borderColor: "$$color600",
+        color: "$$color400",
+        borderColor: "$$color400",
         backgroundColor: "transparent",
         "&:hover": {
-          color: "$$color400",
           backgroundColor: "$$color000",
         },
         "&:disabled": {
-          color: "$$color600",
           backgroundColor: "transparent",
         },
       },
       text: {
-        color: "$$color600",
+        color: "$$color400",
         borderColor: "transparent",
         backgroundColor: "transparent",
         "&:hover": {
-          color: "$$color400",
           backgroundColor: "$$color000",
         },
         "&:disabled": {
-          color: "$$color600",
           backgroundColor: "transparent",
         },
       },

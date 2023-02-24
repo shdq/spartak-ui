@@ -2,14 +2,14 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import App from "../YouTube/App";
 
 export default {
-  title: "Examples",
+  title: "UI Showcase",
   argTypes: {
     size: {
       options: ["xs", "sm", "md", "lg"],
       control: { type: "radio" },
     },
     color: {
-      options: ["red", "blue"],
+      options: ["red", "blue", "green"],
       control: { type: "radio" },
     },
   },
@@ -19,8 +19,8 @@ export default {
 const Template: ComponentStory<typeof App> = (args) => (
   <App {...args} />
 );
-export const Youtube = Template.bind({});
-Youtube.args = {
+export const YoutubeMenu = Template.bind({});
+YoutubeMenu.args = {
   color: "red",
   size: "md"
 }

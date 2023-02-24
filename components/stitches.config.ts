@@ -30,9 +30,9 @@ const red = {
   // tinted text color
   red400: "#C72424",
   // common primary color between light and dark
-  red500: "#DE4D4D",
+  red500: "#D93333",
   // common hovered primary color between light and dark
-  red600: "#D93333",
+  red600: "#CF2626",
 };
 
 const redDark = {
@@ -41,11 +41,11 @@ const redDark = {
   // tinted hover background
   red100: "#570F0F",
   // text color for tinted and hovered text variant
-  red400: "#E36464",
+  red400: "#FF3131",
   // common primary color between light and dark
-  red500: "#DE4D4D",
+  red500: "#D93333",
   // common hovered primary color between light and dark
-  red600: "#D93333",
+  red600: "#CF2626",
 };
 
 const blue = {
@@ -54,23 +54,50 @@ const blue = {
   // tinted hover background
   blue100: "#C2D6FF",
   // tinted text color and hovered text variant
-  blue400: "#0A5CFF",
-  // common colors between light and dark
-  blue500: "#3377FF",
-  blue600: "#1F69FF",
+  blue400: "#355CEA",
+  // common primary color between light and dark
+  blue500: "#1F69FF",
+  // common hovered primary color between light and dark
+  blue600: "#0A5CFF",
 };
 
 const blueDark = {
   // tinted background
-  blue000: "#112B5F",
+  blue000: "#0C1F46",
   // tinted hover background
-  blue100: "#14326D",
+  blue100: "#0F2757",
   // color for tinted and hovered text variant
-  blue400: "#5C92FF",
+  blue400: "#4089FF",
   // common primary color between light and dark
-  blue500: "#3377FF",
+  blue500: "#1F69FF",
   // common hovered primary color between light and dark
-  blue600: "#1F69FF",
+  blue600: "#0A5CFF",
+};
+
+const green = {
+  // tinted background
+  green000: "#D8FFE0",
+  // tinted hover background
+  green100: "#ADFFBE",
+  // tinted text color and hovered text variant
+  green400: "#008F37",
+  // common primary color between light and dark
+  green500: "#00A33F",
+  // common hovered primary color between light and dark
+  green600: "#008F37",
+};
+
+const greenDark = {
+  // tinted background
+  green000: "#0D4A1A",
+  // tinted hover background
+  green100: "#0F5711",
+  // color for tinted and hovered text variant
+  green400: "#00CC4E",
+  // common colors between light and dark
+  green500: "#00A33F",
+  // common hovered primary color between light and dark
+  green600: "#008F37",
 };
 
 export const { theme, styled, globalCss } = createStitches({
@@ -78,6 +105,7 @@ export const { theme, styled, globalCss } = createStitches({
     colors: {
       ...red,
       ...blue,
+      ...green,
       ...grey,
       white: "#ffffff",
       focus: "#53B7DF",
@@ -137,6 +165,7 @@ export const darkTheme = createTheme({
   colors: {
     ...redDark,
     ...blueDark,
+    ...greenDark,
     ...greyDark,
     focus: "#70C4E5",
     background: "#232425",
