@@ -42,7 +42,7 @@ export default {
       control: { type: "radio" },
     },
     color: {
-      options: ["red", "blue"],
+      options: ["red", "blue", "green"],
       control: { type: "radio" },
     },
     icon: {
