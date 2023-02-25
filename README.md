@@ -20,13 +20,13 @@ Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the
 
 ## Dark theme
 
-There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component into `ThemeProvider`.
+There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component in `ThemeProvider`.
 
 ### Usage
 
 #### `ThemeProvider` wrapper
 
-```typescript
+```jsx
 import { ThemeProvider } from "spartak-ui";
 
 function Example() {
@@ -42,7 +42,7 @@ For switching themes let's add a component that utilizes `useTheme` hook.
 
 #### `Switch` component
 
-```typescript
+```jsx
 import { useTheme, Button } from "spartak-ui";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 
@@ -67,6 +67,7 @@ const Switch = () => {
   );
 };
 ```
+
 Import and add `Switch` component into your `<App />` and that's it.
 
 ## Author
