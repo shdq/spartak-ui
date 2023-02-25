@@ -1,8 +1,8 @@
+![SpartakUI-horizontal](https://user-images.githubusercontent.com/1219618/221339447-230fd4c0-3e3f-4f7c-8c86-e8fef2968930.png)
+
 # Spartak UI
 
-A React Components Library.
-
-Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of components.
+A collection of React components
 
 ## Components
 
@@ -10,6 +10,8 @@ Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of com
 - [Card](https://github.com/shdq/spartak-ui/tree/main/components/card#card)
 - [Input](https://github.com/shdq/spartak-ui/tree/main/components/input#textinput)
 - [Text](https://github.com/shdq/spartak-ui/tree/main/components/text#text)
+
+Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the components.
 
 ## Examples built with Spartak UI
 
@@ -66,3 +68,16 @@ const Switch = () => {
 };
 ```
 Import and add `Switch` component into your `<App />` and that's it.
+
+## Author
+
+Sergei Cherniaev ([@shdq](https://twitter.com/shdq))
+
+## Credits
+
+- Logo icon designed by [Sam Smith](https://samsmith.name/)
+- Font designed by [Omnibus-Type](https://www.omnibus-type.com)
+
+## License
+
+[MIT License](https://github.com/shdq/spartak-ui/blob/main/LICENSE) 
