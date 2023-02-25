@@ -1,8 +1,8 @@
+![SpartakUI-horizontal](https://user-images.githubusercontent.com/1219618/221339447-230fd4c0-3e3f-4f7c-8c86-e8fef2968930.png)
+
 # Spartak UI
 
-A React Components Library.
-
-Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of components.
+A collection of React components
 
 ## Components
 
@@ -11,6 +11,8 @@ Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of com
 - [Input](https://github.com/shdq/spartak-ui/tree/main/components/input#textinput)
 - [Text](https://github.com/shdq/spartak-ui/tree/main/components/text#text)
 
+Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the components.
+
 ## Examples built with Spartak UI
 
 - [Spotify Playlists](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--spotify-playlists) with `Button`, `Card`, and `Text` components
@@ -18,13 +20,13 @@ Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of com
 
 ## Dark theme
 
-There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component into `ThemeProvider`.
+There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component in `ThemeProvider`.
 
 ### Usage
 
 #### `ThemeProvider` wrapper
 
-```typescript
+```jsx
 import { ThemeProvider } from "spartak-ui";
 
 function Example() {
@@ -40,7 +42,7 @@ For switching themes let's add a component that utilizes `useTheme` hook.
 
 #### `Switch` component
 
-```typescript
+```jsx
 import { useTheme, Button } from "spartak-ui";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 
@@ -65,4 +67,18 @@ const Switch = () => {
   );
 };
 ```
+
 Import and add `Switch` component into your `<App />` and that's it.
+
+## Author
+
+Sergei Cherniaev ([@shdq](https://twitter.com/shdq))
+
+## Credits
+
+- Logo icon designed by [Sam Smith](https://samsmith.name/)
+- Font designed by [Omnibus-Type](https://www.omnibus-type.com)
+
+## License
+
+[MIT License](https://github.com/shdq/spartak-ui/blob/main/LICENSE) 
