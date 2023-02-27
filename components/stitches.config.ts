@@ -129,6 +129,13 @@ export const { theme, styled, globalCss } = createStitches({
       md: "16px",
       lg: "18px",
       xl: "20px",
+
+      headingXS: "16px",
+      headingSM: "18px",
+      headingMD: "22px",
+      headingLG: "26px",
+      headingXL: "30px",
+      headingXXL: "40px",
     },
     fonts: {
       system:
@@ -136,6 +143,7 @@ export const { theme, styled, globalCss } = createStitches({
     },
     fontWeights: {
       normal: 400,
+      bold: 600,
     },
     lineHeights: {},
     letterSpacings: {},

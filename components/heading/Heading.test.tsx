@@ -31,4 +31,40 @@ describe("Heading", () => {
     // Assert
     expect(heading).toBeInTheDocument();
   });
+
+  describe("with size", () => {
+    test("should renders in default size", () => {
+      // Arrange
+      render(<Heading>Example of heading</Heading>);
+
+      //Act
+      const heading = screen.getByText("Example of heading");
+      const result = isClassSuffixPresent(heading, "size-sm");
+
+      // Assert
+      expect(result).toBe(true);
+    });
+
+    type SizeType = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+    type SizeTestData = [size: SizeType, value: string];
+    const sizesToTest: SizeTestData[] = [
+      ["xs", "size-xs"],
+      ["sm", "size-sm"],
+      ["md", "size-md"],
+      ["lg", "size-lg"],
+      ["xl", "size-xl"],
+      ["xxl", "size-xxl"],
+    ];
+    test.each(sizesToTest)("should renders with %s size", (size, expected) => {
+      // Arrange
+      render(<Heading size={size}>Example of heading</Heading>);
+
+      //Act
+      const heading = screen.getByText("Example of heading");
+      const result = isClassSuffixPresent(heading, expected);
+
+      // Assert
+      expect(result).toBe(true);
+    });
+  });
 });
