@@ -1,7 +1,7 @@
 import { ThemeProvider } from "../../index";
 import { styled } from "../../stitches.config";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import { Button, Text } from "../../index";
+import { Button, Heading, Text } from "../../index";
 import { Card, CardHeader, CardBody } from "../../index";
 import { Switch } from "../../provider/Switch";
 
@@ -85,9 +85,9 @@ const App = ({ color, variant }: AppProps) => {
             color={color}
             icon={<IconPlayerPlayFilled size={22} />}
           />
-          <Text as="h2" size="md" css={{ paddingTop: "8px", fontWeight: 500 }}>
+          <Heading size="xs" css={{ paddingTop: "8px" }}>
             {title}
-          </Text>
+          </Heading>
         </CardHeader>
         <CardBody
           css={{
