@@ -25,8 +25,8 @@ const Template: ComponentStory<typeof Heading> = ({ children, ...args }) => (
   <Heading {...args}>{children}</Heading>
 );
 
-export const Basic = Template.bind({});
-Basic.args = {
+const Default = Template.bind({});
+Default.args = {
   children: "Hello world",
   size: "sm",
 };
@@ -43,4 +43,31 @@ Sizes.args = {
       <Heading size="xs">Title of the page in XS size</Heading>
     </>
   ),
+};
+
+export const WithSupportingText = Template.bind({});
+WithSupportingText.args = {
+  children: (
+    <>
+      Awesome title.{" "}
+      <Text as="span" secondary>
+        I support it.
+      </Text>
+    </>
+  ),
+  size: "xl",
+};
+
+export const WithLink = Template.bind({});
+WithLink.args = {
+  children: (
+    <>
+      Title with{" "}
+      <Text color="red" as="a" href="https://example.com">
+        hyperlink
+      </Text>{" "}
+      in it
+    </>
+  ),
+  size: "xl",
 };
