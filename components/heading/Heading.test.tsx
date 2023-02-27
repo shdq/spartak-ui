@@ -32,6 +32,21 @@ describe("Heading", () => {
     expect(heading).toBeInTheDocument();
   });
 
+  test("should renders as another level element", () => {
+    // Arrange
+    render(<Heading as="h1">Level 1 heading</Heading>);
+
+    // Act
+    const heading = screen.getByText((text, element) => {
+      return (
+        element?.tagName.toLowerCase() === "h1" && text === "Level 1 heading"
+      );
+    });
+
+    // Assert
+    expect(heading).toBeInTheDocument();
+  });
+
   describe("with size", () => {
     test("should renders in default size", () => {
       // Arrange
