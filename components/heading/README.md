@@ -19,7 +19,7 @@ function App() {
 This example renders in HTML as `h2` by default
 
 ```html
-<h2>Example of text</h2>
+<h2>Hello world!</h2>
 ```
 
 ## Heading levels
