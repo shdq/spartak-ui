@@ -31,6 +31,12 @@ export const Text = styled("div", {
           color: "$blue600",
         },
       },
+      green: {
+        color: "$green500",
+        "&[href]:hover": {
+          color: "$green600",
+        },
+      },
     },
     size: {
       xs: {
