@@ -6,16 +6,25 @@ A collection of React components
 
 ## Components
 
+**Forms**
+
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
-- [Card](https://github.com/shdq/spartak-ui/tree/main/components/card#card)
 - [Input](https://github.com/shdq/spartak-ui/tree/main/components/input#textinput)
+
+**Typography**
+
+- [Heading](https://github.com/shdq/spartak-ui/tree/main/components/heading#heading)
 - [Text](https://github.com/shdq/spartak-ui/tree/main/components/text#text)
+
+**Display content**
+
+- [Card](https://github.com/shdq/spartak-ui/tree/main/components/card#card)
 
 Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the components.
 
 ## Examples built with Spartak UI
 
-- [Spotify Playlists](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--spotify-playlists) with `Button`, `Card`, and `Text` components
+- [Spotify Playlists](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--spotify-playlists) with `Button`, `Card`, `Heading` and `Text` components
 - [YouTube Side Menu](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--youtube-menu) with `Button` component
 
 ## Dark theme
