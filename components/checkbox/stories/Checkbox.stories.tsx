@@ -47,3 +47,10 @@ WithRequiredLabel.args = {
   label: "I agree to the terms and conditions",
   required: true,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Default.args,
+  label: "I agree to the terms and conditions",
+  disabled: true,
+};

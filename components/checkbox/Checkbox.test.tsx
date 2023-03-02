@@ -37,6 +37,31 @@ describe("Checkbox", () => {
     expect(checkbox).toBeChecked();
   });
 
+  test("should be disabled", () => {
+    // Arrange
+    render(<Checkbox disabled />);
+
+    // Act
+    const checkbox = screen.getByRole("checkbox");
+    checkbox.focus();
+
+    // Assert
+    expect(checkbox).toBeDisabled();
+    expect(checkbox).not.toHaveFocus();
+  });
+
+  test("should be unchecked after the click on disabled", async () => {
+    // Arrange
+    const user = userEvent.setup();
+    render(<Checkbox disabled />);
+    const checkbox = screen.getByRole("checkbox");
+
+    // Act & Assert
+    expect(checkbox).not.toBeChecked();
+    await user.click(checkbox);
+    expect(checkbox).not.toBeChecked();
+  });
+
   describe("with size", () => {
     test("should renders with default size when size isn't present", () => {
       // Arrange
@@ -117,18 +142,18 @@ describe("Checkbox", () => {
       );
     });
 
-    test("should be in focus after click on label", async () => {
+    test("should be checked after click on label", async () => {
       // Arrange
       const user = userEvent.setup();
       render(<Checkbox label="My label" />);
 
       // Act
       const label = screen.getByText("My label");
-      const input = screen.getByLabelText("My label");
+      const checkbox = screen.getByLabelText("My label");
       await user.click(label);
 
       // Assert
-      expect(input).toHaveFocus();
+      expect(checkbox).toBeChecked();
     });
 
     test("should have required label", () => {

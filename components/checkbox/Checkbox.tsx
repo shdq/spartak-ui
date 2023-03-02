@@ -13,8 +13,12 @@ const CheckboxComponent = styled("input", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-
   cursor: "pointer",
+
+  "&:disabled": {
+    cursor: "not-allowed",
+    opacity: 0.6,
+  },
 
   "&:checked": {
     fontWeight: "$bold",
@@ -92,6 +96,14 @@ const Label = styled("label", {
   cursor: "pointer",
   userSelect: "none",
   margin: 0,
+  variants: {
+    disabled: {
+      true: {
+        cursor: "not-allowed",
+        opacity: 0.6,
+      },
+    },
+  },
 });
 
 const AsteriskContainer = styled("span", {
@@ -112,14 +124,21 @@ export const Checkbox = ({
   label,
   size,
   required,
+  disabled,
   ...props
 }: CheckboxProps) => {
   const id = useId();
   return (
     <CheckboxWrapper size={size}>
-      <CheckboxComponent id={id} size={size} type="checkbox" {...props} />
+      <CheckboxComponent
+        id={id}
+        size={size}
+        type="checkbox"
+        disabled={disabled}
+        {...props}
+      />
       {label && (
-        <Label htmlFor={id}>
+        <Label disabled={disabled} htmlFor={id}>
           {label}
           {required && <Asterisk />}
         </Label>
