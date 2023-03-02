@@ -13,7 +13,12 @@ export default {
       </div>
     ),
   ],
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "radio" },
+    },
+  },
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = ({ children, ...args }) => (
@@ -26,4 +31,10 @@ Default.args = {};
 export const Basic = Template.bind({});
 Basic.args = {
   ...Default.args,
+};
+
+export const DefaultChecked = Template.bind({});
+DefaultChecked.args = {
+  ...Default.args,
+  defaultChecked: true,
 };
