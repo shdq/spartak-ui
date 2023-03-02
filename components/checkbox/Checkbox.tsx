@@ -94,17 +94,36 @@ const Label = styled("label", {
   margin: 0,
 });
 
+const AsteriskContainer = styled("span", {
+  color: "$red500",
+  userSelect: "none",
+});
+const Asterisk = () => {
+  return <AsteriskContainer>&nbsp;*</AsteriskContainer>;
+};
+
 export interface CheckboxProps
   extends React.ComponentProps<typeof CheckboxComponent> {
   label?: string;
+  required?: boolean;
 }
 
-export const Checkbox = ({ label, size, ...props }: CheckboxProps) => {
+export const Checkbox = ({
+  label,
+  size,
+  required,
+  ...props
+}: CheckboxProps) => {
   const id = useId();
   return (
     <CheckboxWrapper size={size}>
       <CheckboxComponent id={id} size={size} type="checkbox" {...props} />
-      {label && <Label htmlFor={id}>{label}</Label>}
+      {label && (
+        <Label htmlFor={id}>
+          {label}
+          {required && <Asterisk />}
+        </Label>
+      )}
     </CheckboxWrapper>
   );
 };

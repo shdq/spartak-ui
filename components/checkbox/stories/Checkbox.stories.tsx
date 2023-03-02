@@ -41,8 +41,9 @@ CheckedByDefault.args = {
   defaultChecked: true,
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
+export const WithRequiredLabel = Template.bind({});
+WithRequiredLabel.args = {
   ...Default.args,
-  label: "I agree to terms & conditions",
+  label: "I agree to the terms and conditions",
+  required: true,
 };

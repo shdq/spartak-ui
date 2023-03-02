@@ -92,5 +92,29 @@ describe("Checkbox", () => {
       // Assert
       expect(input).toHaveFocus();
     });
+
+    test("should have required label", () => {
+      // Arrange
+      render(<Checkbox label="My label" required />);
+
+      // Act
+      const label = screen.getByText("My label");
+      const asterisk = screen.getByText("*");
+
+      // Assert
+      expect(label).toBeInTheDocument();
+      expect(asterisk).toBeInTheDocument();
+    });
+
+    test("should have ignore required prop is label is not present", () => {
+      // Arrange
+      render(<Checkbox required />);
+
+      // Act
+      const asterisk = screen.queryByText("*");
+
+      // Assert
+      expect(asterisk).toBeNull();
+    });
   });
 });
