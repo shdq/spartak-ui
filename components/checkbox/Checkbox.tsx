@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { styled } from "../stitches.config";
 
 const CheckboxComponent = styled("input", {
@@ -12,6 +13,8 @@ const CheckboxComponent = styled("input", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+
+  cursor: "pointer",
 
   "&:checked": {
     fontWeight: "$bold",
@@ -56,9 +59,52 @@ const CheckboxComponent = styled("input", {
   },
 });
 
-export interface CheckboxProps
-  extends React.ComponentProps<typeof CheckboxComponent> {}
+const CheckboxWrapper = styled("div", {
+  fontFamily: "$system",
+  fontWeight: "$normal",
+  textAlign: "left",
+  color: "$grey700",
+  display: "flex",
+  alignItems: "center",
+  gap: "5px",
 
-export const Checkbox = (props: CheckboxProps) => {
-  return <CheckboxComponent type="checkbox" {...props} />;
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xs",
+      },
+      sm: {
+        fontSize: "$sm",
+      },
+      md: {
+        fontSize: "$md",
+      },
+      lg: {
+        fontSize: "$lg",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "sm",
+  },
+});
+const Label = styled("label", {
+  cursor: "pointer",
+  userSelect: "none",
+  margin: 0,
+});
+
+export interface CheckboxProps
+  extends React.ComponentProps<typeof CheckboxComponent> {
+  label?: string;
+}
+
+export const Checkbox = ({ label, size, ...props }: CheckboxProps) => {
+  const id = useId();
+  return (
+    <CheckboxWrapper size={size}>
+      <CheckboxComponent id={id} size={size} type="checkbox" {...props} />
+      {label && <Label htmlFor={id}>{label}</Label>}
+    </CheckboxWrapper>
+  );
 };

@@ -26,15 +26,23 @@ const Template: ComponentStory<typeof Checkbox> = ({ children, ...args }) => (
 );
 
 const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  size: "sm",
+};
 
 export const Basic = Template.bind({});
 Basic.args = {
   ...Default.args,
 };
 
-export const DefaultChecked = Template.bind({});
-DefaultChecked.args = {
+export const CheckedByDefault = Template.bind({});
+CheckedByDefault.args = {
   ...Default.args,
   defaultChecked: true,
+};
+
+export const WithLabel = Template.bind({});
+WithLabel.args = {
+  ...Default.args,
+  label: "I agree to terms & conditions",
 };
