@@ -2,6 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Checkbox } from "../index";
 
+const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+  return [...element.classList].some((className) => className.endsWith(value));
+};
+
 describe("Checkbox", () => {
   test("should renders", () => {
     // Arrange
@@ -31,6 +35,40 @@ describe("Checkbox", () => {
     expect(checkbox).not.toBeChecked();
     await user.click(checkbox);
     expect(checkbox).toBeChecked();
+  });
+
+  describe("with size", () => {
+    test("should renders with default size when size isn't present", () => {
+      // Arrange
+      render(<Checkbox />);
+
+      //Act
+      const checkbox = screen.getByRole("checkbox");
+      const result = isClassSuffixPresent(checkbox, "size-sm");
+
+      // Assert
+      expect(result).toBe(true);
+    });
+
+    type SizeType = "xs" | "sm" | "md" | "lg";
+    type SizeTestData = [size: SizeType, value: string];
+    const sizesToTest: SizeTestData[] = [
+      ["xs", "size-xs"],
+      ["sm", "size-sm"],
+      ["md", "size-md"],
+      ["lg", "size-lg"],
+    ];
+    test.each(sizesToTest)("should renders with %s size", (size, expected) => {
+      // Arrange
+      render(<Checkbox size={size} />);
+
+      //Act
+      const checkbox = screen.getByRole("checkbox");
+      const result = isClassSuffixPresent(checkbox, expected);
+
+      // Assert
+      expect(result).toBe(true);
+    });
   });
 
   describe("with label", () => {
