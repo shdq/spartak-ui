@@ -89,10 +89,11 @@ describe("Text", () => {
       expect(result).toBe(false);
     });
 
-    type ColorType = "red" | "blue";
+    type ColorType = "red" | "green" | "blue";
     type ColorTestData = [color: ColorType, value: string];
     const colorsToTest: ColorTestData[] = [
       ["red", "color-red"],
+      ["green", "color-green"],
       ["blue", "color-blue"],
     ];
     test.each(colorsToTest)(
