@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
-import { Code } from "../Code";
+import { Code } from "../../index";
 
 export default {
   title: "Components/Typography/Code",
@@ -22,10 +22,10 @@ const Template: ComponentStory<typeof Code> = ({ children, ...args }) => (
 
 const Default = Template.bind({});
 Default.args = {
-  children: "nums[i]",
+  children: "const sum = nums.reduce((acc, val) => acc + val);",
 };
 
-export const Basic = Template.bind({});
-Basic.args = {
-  ...Default.args
+export const ArrayReduce = Template.bind({});
+ArrayReduce.args = {
+  ...Default.args,
 };
