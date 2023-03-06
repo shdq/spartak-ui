@@ -13,7 +13,12 @@ export default {
     ),
   ],
   component: Code,
-  argTypes: {},
+  argTypes: {
+    color: {
+      options: ["red", "blue", "green"],
+      control: { type: "radio" },
+    },
+  },
 } as ComponentMeta<typeof Code>;
 
 const Template: ComponentStory<typeof Code> = ({ children, ...args }) => (
@@ -22,10 +27,16 @@ const Template: ComponentStory<typeof Code> = ({ children, ...args }) => (
 
 const Default = Template.bind({});
 Default.args = {
-  children: "const sum = nums.reduce((acc, val) => acc + val);",
+  children: 'console.log("Hello World");',
 };
 
-export const ArrayReduce = Template.bind({});
-ArrayReduce.args = {
+export const Example = Template.bind({});
+Example.args = {
   ...Default.args,
+};
+
+export const Colors = Template.bind({});
+Colors.args = {
+  ...Default.args,
+  color: "red",
 };
