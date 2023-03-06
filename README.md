@@ -13,6 +13,7 @@ A collection of React components
 
 **Typography**
 
+- [Code](https://github.com/shdq/spartak-ui/tree/main/components/code#code)
 - [Heading](https://github.com/shdq/spartak-ui/tree/main/components/heading#heading)
 - [Text](https://github.com/shdq/spartak-ui/tree/main/components/text#text)
 
