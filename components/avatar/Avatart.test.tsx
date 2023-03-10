@@ -109,6 +109,19 @@ describe("Avatar", () => {
     });
   });
 
+  describe("with status", () => {
+    test("should renders with status badge", () => {
+      // Arrange
+      render(<Avatar status={"online"} data-testid="avatar" />);
+
+      //Act
+      const badge = screen.getByTestId("status-badge");
+
+      // Assert
+      expect(badge).toBeInTheDocument();
+    });
+  });
+
   describe("with size", () => {
     test("should renders with default size when size isn't present", () => {
       // Arrange

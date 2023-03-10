@@ -21,6 +21,11 @@ export default {
     },
     round: {
       options: [true, false],
+      control: { type: "radio" },
+    },
+    status: {
+      options: ["online", "offline", "unread", undefined],
+      control: { type: "radio" },
     },
   },
 } as ComponentMeta<typeof Avatar>;
@@ -72,4 +77,11 @@ export const Icon = Template.bind({});
 Icon.args = {
   ...Default.args,
   icon: <IconUser stroke={2} size="80%" />,
+};
+
+export const Status = Template.bind({});
+Status.args = {
+  ...Default.args,
+  children: "SC",
+  status: "online",
 };

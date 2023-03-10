@@ -1,11 +1,10 @@
 import { styled } from "../stitches.config";
 
 const AvatarComponent = styled("div", {
+  position: "relative",
   borderRadius: "$3",
   fontFamily: "$system",
   fontWeight: "$bold",
-  overflow: "hidden",
-
   color: "$grey700",
   backgroundColor: "$grey400",
 
@@ -15,29 +14,45 @@ const AvatarComponent = styled("div", {
         borderRadius: "9999px",
       },
     },
+    status: {
+      online: {
+        $$badgeColor: "$colors$green500",
+      },
+      offline: {
+        $$badgeColor: "$colors$red500",
+      },
+      unread: {
+        $$badgeColor: "$colors$blue500",
+      },
+    },
     size: {
       xs: {
         fontSize: "12px",
         width: "24px",
         height: "24px",
+        $$borderWidth: "$borderWidths$1",
       },
       sm: {
         fontSize: "16px",
         width: "32px",
         height: "32px",
+        $$borderWidth: "$borderWidths$2",
       },
       md: {
         fontSize: "24px",
         width: "48px",
         height: "48px",
+        $$borderWidth: "$borderWidths$2",
       },
       lg: {
         fontSize: "32px",
         width: "64px",
         height: "64px",
+        $$borderWidth: "$borderWidths$3",
       },
     },
   },
+
   defaultVariants: {
     size: "sm",
   },
@@ -63,44 +78,58 @@ const Wrapper = styled("div", {
   justifyContent: "center",
   alignItems: "center",
   userSelect: "none",
+  overflow: "hidden",
+  borderRadius: "inherit",
+});
+
+const Badge = styled("div", {
+  position: "absolute",
+  bottom: "-0.25em",
+  right: "-0.25em",
+  backgroundColor: "$$badgeColor",
+  width: "0.6em",
+  height: "0.6em",
+  border: "$$borderWidth solid $colors$background",
+  borderRadius: "9999px",
+  variants: {
+    round: {
+      true: {
+        bottom: "-$$borderWidth",
+        right: "-$$borderWidth",
+      },
+    },
+  },
 });
 
 export const Avatar = ({
   src,
   alt,
   icon,
+  status,
+  round,
   size = "sm",
   children,
   ...props
 }: AvatarProps) => {
-  if (src) {
-    const label = size as keyof typeof sizes;
-    return (
-      <AvatarComponent size={size} {...props}>
-        <Wrapper>
+  const label = size as keyof typeof sizes;
+  return (
+    <AvatarComponent status={status} round={round} size={size} {...props}>
+      <Wrapper>
+        {src ? (
           <img
             alt={alt}
             draggable={false}
             width={sizes[label]}
             height={sizes[label]}
             src={src}
-          ></img>
-        </Wrapper>
-      </AvatarComponent>
-    );
-  }
-
-  if (icon) {
-    return (
-      <AvatarComponent size={size} {...props}>
-        <Wrapper>{icon}</Wrapper>
-      </AvatarComponent>
-    );
-  }
-
-  return (
-    <AvatarComponent size={size} {...props}>
-      <Wrapper>{children}</Wrapper>
+          />
+        ) : icon ? (
+          icon
+        ) : (
+          children
+        )}
+        {status && <Badge data-testid="status-badge" round={round} />}
+      </Wrapper>
     </AvatarComponent>
   );
 };
