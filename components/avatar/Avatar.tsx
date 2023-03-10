@@ -18,8 +18,11 @@ const AvatarComponent = styled("div", {
       online: {
         $$badgeColor: "$colors$green500",
       },
-      offline: {
+      busy: {
         $$badgeColor: "$colors$red500",
+      },
+      offline: {
+        $$badgeColor: "$colors$grey500",
       },
       unread: {
         $$badgeColor: "$colors$blue500",
@@ -128,7 +131,13 @@ export const Avatar = ({
         ) : (
           children
         )}
-        {status && <Badge data-testid="status-badge" round={round} />}
+        {status && (
+          <Badge
+            data-testid="status-badge"
+            title={status.toString()}
+            round={round}
+          />
+        )}
       </Wrapper>
     </AvatarComponent>
   );

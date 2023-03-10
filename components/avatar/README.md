@@ -104,7 +104,8 @@ function App() {
 `status` prop will render a badge with status for `Avatar`. There are three different statuses:
 
 - `online` – `green` badge, to show that user is online
-- `offline` – `red` badge, to show that user is offline
+- `busy` – `red` badge, to show that user is busy (do not disturb)
+- `offline` – `grey` badge, to show that user is offline
 - `unread` – `blue` badge, to show that user has unread notifications or messages
 
 ### Usage

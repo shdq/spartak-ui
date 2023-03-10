@@ -24,7 +24,7 @@ export default {
       control: { type: "radio" },
     },
     status: {
-      options: ["online", "offline", "unread", undefined],
+      options: ["online", "busy", "offline", "unread", undefined],
       control: { type: "radio" },
     },
   },

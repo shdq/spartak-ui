@@ -119,6 +119,7 @@ describe("Avatar", () => {
 
       // Assert
       expect(badge).toBeInTheDocument();
+      expect(badge).toHaveAttribute("title", "online");
     });
   });
 
