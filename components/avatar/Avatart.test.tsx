@@ -123,6 +123,43 @@ describe("Avatar", () => {
     });
   });
 
+  describe("with color", () => {
+    test("should renders with default color when color isn't present", () => {
+      // Arrange
+      render(<Avatar data-testid="avatar">SC</Avatar>);
+
+      //Act
+      const avatar = screen.getByTestId("avatar");
+      const result = isClassSuffixPresent(avatar, "color-grey");
+
+      // Assert
+      expect(result).toBe(true);
+    });
+
+    type ColorType = "grey" | "red" | "green" | "blue";
+    type ColorTestData = [color: ColorType, value: string];
+    const colorsToTest: ColorTestData[] = [
+      ["grey", "color-grey"],
+      ["red", "color-red"],
+      ["green", "color-green"],
+      ["blue", "color-blue"],
+    ];
+    test.each(colorsToTest)(
+      "should renders with %s color",
+      (color, expected) => {
+        // Arrange
+        render(<Avatar color={color} data-testid="avatar">SC</Avatar>);
+
+        //Act
+        const avatar = screen.getByTestId("avatar");
+        const result = isClassSuffixPresent(avatar, expected);
+
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
+  });
+
   describe("with size", () => {
     test("should renders with default size when size isn't present", () => {
       // Arrange

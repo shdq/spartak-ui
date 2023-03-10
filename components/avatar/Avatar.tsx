@@ -5,13 +5,29 @@ const AvatarComponent = styled("div", {
   borderRadius: "$3",
   fontFamily: "$system",
   fontWeight: "$bold",
-  color: "$grey700",
-  backgroundColor: "$grey400",
 
   variants: {
     round: {
       true: {
         borderRadius: "9999px",
+      },
+    },
+    color: {
+      grey: {
+        color: "$grey700",
+        backgroundColor: "$grey400",
+      },
+      red: {
+        color: "$red400",
+        backgroundColor: "$red000",
+      },
+      green: {
+        color: "$green400",
+        backgroundColor: "$green000",
+      },
+      blue: {
+        color: "$blue400",
+        backgroundColor: "$blue000",
       },
     },
     status: {
@@ -58,6 +74,7 @@ const AvatarComponent = styled("div", {
 
   defaultVariants: {
     size: "sm",
+    color: "grey",
   },
 });
 

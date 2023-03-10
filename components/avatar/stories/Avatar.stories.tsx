@@ -23,6 +23,10 @@ export default {
       options: [true, false],
       control: { type: "radio" },
     },
+    color: {
+      options: ["grey", "red", "blue", "green"],
+      control: { type: "radio" },
+    },
     status: {
       options: ["online", "busy", "offline", "unread", undefined],
       control: { type: "radio" },
@@ -38,16 +42,20 @@ const Default = Template.bind({});
 Default.args = {
   size: "sm",
   round: false,
-};
-
-export const Empty = Template.bind({});
-Empty.args = {
-  ...Default.args,
+  color: "grey",
 };
 
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   ...Default.args,
+  children: "SC",
+};
+
+
+export const Colors = Template.bind({});
+Colors.args = {
+  ...Default.args,
+  color: "green",
   children: "SC",
 };
 

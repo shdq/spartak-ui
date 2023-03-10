@@ -32,7 +32,7 @@ import { IconUser } from "@tabler/icons-react";
 
 function App() {
   return (
-    <Avatar icon={<IconUser />} />
+    <Avatar icon={<IconUser size="80%" />} />
   );
 }
 ```
@@ -70,6 +70,29 @@ import { Avatar } from "spartak-ui";
 function App() {
   return (
     <Avatar round>SC</Avatar>;
+  );
+}
+```
+
+## Colors
+
+There are several built-in `color` palettes available for `Avatar`:
+
+- `grey` (default)
+- `red`
+- `blue`
+- `green`
+
+If you don't specify `color` prop, the default variant will be used.
+
+### Usage
+
+```jsx
+import { Avatar } from "spartak-ui";
+
+function App() {
+  return (
+    <Avatar color="green">SC</Avatar>;
   );
 }
 ```
