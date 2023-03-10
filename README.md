@@ -19,6 +19,7 @@ A collection of React components
 
 **Display content**
 
+- [Avatar](https://github.com/shdq/spartak-ui/tree/main/components/avatar#avatar)
 - [Card](https://github.com/shdq/spartak-ui/tree/main/components/card#card)
 
 Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the components.
