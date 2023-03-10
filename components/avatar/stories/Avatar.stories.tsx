@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Avatar } from "../Avatar";
+import { IconUser } from "@tabler/icons-react";
 
 export default {
   title: "Components/Avatar",
@@ -18,6 +19,9 @@ export default {
       options: ["xs", "sm", "md", "lg"],
       control: { type: "radio" },
     },
+    round: {
+      options: [true, false],
+    },
   },
 } as ComponentMeta<typeof Avatar>;
 
@@ -28,6 +32,7 @@ const Template: ComponentStory<typeof Avatar> = ({ children, ...props }) => (
 const Default = Template.bind({});
 Default.args = {
   size: "sm",
+  round: false,
 };
 
 export const Empty = Template.bind({});
@@ -61,4 +66,10 @@ RoundWithImage.args = {
   round: true,
   src: "https://avatars.githubusercontent.com/u/1219618",
   alt: "Sergei Cherniaev",
+};
+
+export const Icon = Template.bind({});
+Icon.args = {
+  ...Default.args,
+  icon: <IconUser stroke={2} size="80%" />,
 };

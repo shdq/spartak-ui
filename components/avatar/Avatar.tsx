@@ -6,7 +6,7 @@ const AvatarComponent = styled("div", {
   fontWeight: "$bold",
   overflow: "hidden",
 
-  color: "$foreground",
+  color: "$grey700",
   backgroundColor: "$grey400",
 
   variants: {
@@ -46,6 +46,7 @@ const AvatarComponent = styled("div", {
 export type AvatarProps = React.ComponentProps<typeof AvatarComponent> & {
   src?: string;
   alt?: string;
+  icon?: React.ReactNode;
 };
 
 const sizes = {
@@ -85,6 +86,14 @@ export const Avatar = ({
             src={src}
           ></img>
         </Wrapper>
+      </AvatarComponent>
+    );
+  }
+
+  if (icon) {
+    return (
+      <AvatarComponent size={size} {...props}>
+        <Wrapper>{icon}</Wrapper>
       </AvatarComponent>
     );
   }

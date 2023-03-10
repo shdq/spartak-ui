@@ -1,5 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { Avatar } from "./Avatar";
+import { IconUser } from "@tabler/icons-react";
 
 const isClassSuffixPresent = (element: HTMLElement, value: string) => {
   return [...element.classList].some((className) => className.endsWith(value));
@@ -63,6 +64,48 @@ describe("Avatar", () => {
 
       // Assert
       expect(img).toHaveAttribute("alt", "userpic");
+    });
+  });
+
+  describe("with icon", () => {
+    test("should renders with icon", () => {
+      // Arrange
+      render(
+        <Avatar
+          icon={<IconUser data-testid="svg-icon" />}
+          data-testid="avatar"
+        />
+      );
+
+      //Act
+      const avatar = screen.getByTestId("avatar");
+      const icon = within(avatar).getByTestId("svg-icon");
+
+      // Assert
+      expect(icon).toBeInTheDocument();
+    });
+
+    test("should ignore icon if src is present", () => {
+      // Arrange
+      render(
+        <Avatar
+          src="user.png"
+          alt="userpic"
+          icon={<IconUser data-testid="svg-icon" />}
+          data-testid="avatar"
+        />
+      );
+
+      // Act
+      const avatar = screen.getByTestId("avatar");
+      const img = within(avatar).getByRole("img");
+      // queryBy doesn't throw error, and returns null
+      const icon = within(avatar).queryByTestId("svg-icon");
+
+      // Assert
+      expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute("alt", "userpic");
+      expect(icon).toBeNull();
     });
   });
 
