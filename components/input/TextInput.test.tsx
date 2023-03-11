@@ -183,7 +183,7 @@ describe("TextInput", () => {
       // Arrange
       render(<TextInput />);
 
-      //Act
+      // Act
       const input = screen.getByRole("textbox");
       const result = isClassSuffixPresent(input, "variant-filled");
 
@@ -203,7 +203,7 @@ describe("TextInput", () => {
         // Arrange
         render(<TextInput variant={variant} />);
 
-        //Act
+        // Act
         const input = screen.getByRole("textbox");
         const result = isClassSuffixPresent(input, expected);
 
@@ -218,7 +218,7 @@ describe("TextInput", () => {
       // Arrange
       render(<TextInput />);
 
-      //Act
+      // Act
       const input = screen.getByRole("textbox");
       const result = isClassSuffixPresent(input, "size-sm");
 
@@ -238,7 +238,7 @@ describe("TextInput", () => {
       // Arrange
       render(<TextInput size={size} />);
 
-      //Act
+      // Act
       const input = screen.getByRole("textbox");
       const result = isClassSuffixPresent(input, expected);
 

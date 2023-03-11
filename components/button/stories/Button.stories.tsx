@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type PropsWithChildren } from "react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Button } from "../Button";

@@ -3,15 +3,19 @@ import {
   useEffect,
   createContext,
   useContext,
-  PropsWithChildren,
+  type PropsWithChildren,
 } from "react";
-import { theme as lightTheme, darkTheme, GlobalStyles } from "../stitches.config";
+import {
+  theme as lightTheme,
+  darkTheme,
+  GlobalStyles,
+} from "../stitches.config";
 
 type Theme = "light" | "dark";
-type ThemeContextType = {
+interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme, isSystemCall?: boolean) => void;
-};
+}
 
 const themeClasses = {
   light: lightTheme.className,

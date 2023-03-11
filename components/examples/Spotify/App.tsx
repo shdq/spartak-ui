@@ -1,16 +1,22 @@
-import { ThemeProvider } from "../../index";
+import {
+  ThemeProvider,
+  Button,
+  Heading,
+  Text,
+  Card,
+  CardHeader,
+  CardBody,
+} from "../../index";
 import { styled } from "../../stitches.config";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import { Button, Heading, Text } from "../../index";
-import { Card, CardHeader, CardBody } from "../../index";
 import { Switch } from "../../provider/Switch";
 
 type Colors = "red" | "blue" | "green";
 type Variants = "filled" | "outlined" | "elevated";
-type AppProps = {
+export interface AppProps {
   variant: Variants;
   color: Colors;
-};
+}
 
 const App = ({ color, variant }: AppProps) => {
   const playlists = [

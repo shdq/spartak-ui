@@ -52,7 +52,7 @@ describe("Heading", () => {
       // Arrange
       render(<Heading>Example of heading</Heading>);
 
-      //Act
+      // Act
       const heading = screen.getByText("Example of heading");
       const result = isClassSuffixPresent(heading, "size-sm");
 
@@ -74,7 +74,7 @@ describe("Heading", () => {
       // Arrange
       render(<Heading size={size}>Example of heading</Heading>);
 
-      //Act
+      // Act
       const heading = screen.getByText("Example of heading");
       const result = isClassSuffixPresent(heading, expected);
 

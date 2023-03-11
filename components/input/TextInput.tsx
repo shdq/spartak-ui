@@ -272,7 +272,7 @@ export const TextInput = ({
       )}
       {(description || error) && (
         <SupportingText variant={error ? "error" : "description"} size={size}>
-          {error ? error : description}
+          {error || description}
         </SupportingText>
       )}
     </InputWrapper>

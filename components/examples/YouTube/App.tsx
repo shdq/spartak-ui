@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useTheme, ThemeProvider } from "../../index";
+import { useTheme, ThemeProvider, Button } from "../../index";
 import { Switch } from "../../provider/Switch";
-import { Button } from "../../index";
 import {
   IconMenu2,
   IconHome,
@@ -16,9 +15,9 @@ import {
 type Sizes = "xs" | "sm" | "md" | "lg";
 type Colors = "red" | "blue" | "green";
 
-type HeaderProps = {
+interface HeaderProps {
   color: Colors;
-};
+}
 
 const Header = ({ color }: HeaderProps) => {
   const { theme } = useTheme();
@@ -81,10 +80,10 @@ const menuItems = [
   { title: "Liked videos", icon: <IconThumbUp size={18} /> },
 ];
 
-type SideMenuProps = {
+interface SideMenuProps {
   color: Colors;
   size: Sizes;
-};
+}
 
 const SideMenu = ({ color, size }: SideMenuProps) => {
   const [active, setActive] = useState("Home");
@@ -129,10 +128,10 @@ const SideMenu = ({ color, size }: SideMenuProps) => {
   );
 };
 
-type AppProps = {
+export interface AppProps {
   color: Colors;
   size: Sizes;
-};
+}
 
 const App = ({ color, size }: AppProps) => {
   return (

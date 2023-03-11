@@ -81,7 +81,7 @@ describe("Text", () => {
       // Arrange
       render(<Text>Example of text</Text>);
 
-      //Act
+      // Act
       const text = screen.getByText("Example of text");
       const result = isClassSuffixPresent(text, "color-red");
 
@@ -102,7 +102,7 @@ describe("Text", () => {
         // Arrange
         render(<Text color={color}>Example of text</Text>);
 
-        //Act
+        // Act
         const text = screen.getByText("Example of text");
         const result = isClassSuffixPresent(text, expected);
 
@@ -117,7 +117,7 @@ describe("Text", () => {
       // Arrange
       render(<Text>Example of text</Text>);
 
-      //Act
+      // Act
       const text = screen.getByText("Example of text");
       const result = isClassSuffixPresent(text, "size-sm");
 
@@ -138,7 +138,7 @@ describe("Text", () => {
       // Arrange
       render(<Text size={size}>Example of text</Text>);
 
-      //Act
+      // Act
       const text = screen.getByText("Example of text");
       const result = isClassSuffixPresent(text, expected);
 

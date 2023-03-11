@@ -35,7 +35,7 @@ describe("Code", () => {
       // Arrange
       render(<Code>nums[i]</Code>);
 
-      //Act
+      // Act
       const code = screen.getByText("nums[i]");
       const result = isClassSuffixPresent(code, "color-red");
 
@@ -56,7 +56,7 @@ describe("Code", () => {
         // Arrange
         render(<Code color={color}>nums[i]</Code>);
 
-        //Act
+        // Act
         const code = screen.getByText("nums[i]");
         const result = isClassSuffixPresent(code, expected);
 

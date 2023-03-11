@@ -33,7 +33,7 @@ describe("Avatar", () => {
       </Avatar>
     );
 
-    //Act
+    // Act
     const avatar = screen.getByTestId("avatar");
     const result = isClassSuffixPresent(avatar, "round-true");
 
@@ -46,7 +46,7 @@ describe("Avatar", () => {
       // Arrange
       render(<Avatar src="user.png" data-testid="avatar" />);
 
-      //Act
+      // Act
       const avatar = screen.getByTestId("avatar");
       const img = within(avatar).getByRole("img");
 
@@ -58,7 +58,7 @@ describe("Avatar", () => {
       // Arrange
       render(<Avatar alt="userpic" src="user.png" data-testid="avatar" />);
 
-      //Act
+      // Act
       const avatar = screen.getByTestId("avatar");
       const img = within(avatar).getByRole("img");
 
@@ -77,7 +77,7 @@ describe("Avatar", () => {
         />
       );
 
-      //Act
+      // Act
       const avatar = screen.getByTestId("avatar");
       const icon = within(avatar).getByTestId("svg-icon");
 
@@ -114,7 +114,7 @@ describe("Avatar", () => {
       // Arrange
       render(<Avatar status={"online"} data-testid="avatar" />);
 
-      //Act
+      // Act
       const badge = screen.getByTestId("status-badge");
 
       // Assert
@@ -128,7 +128,7 @@ describe("Avatar", () => {
       // Arrange
       render(<Avatar data-testid="avatar">SC</Avatar>);
 
-      //Act
+      // Act
       const avatar = screen.getByTestId("avatar");
       const result = isClassSuffixPresent(avatar, "color-grey");
 
@@ -148,9 +148,13 @@ describe("Avatar", () => {
       "should renders with %s color",
       (color, expected) => {
         // Arrange
-        render(<Avatar color={color} data-testid="avatar">SC</Avatar>);
+        render(
+          <Avatar color={color} data-testid="avatar">
+            SC
+          </Avatar>
+        );
 
-        //Act
+        // Act
         const avatar = screen.getByTestId("avatar");
         const result = isClassSuffixPresent(avatar, expected);
 
@@ -165,7 +169,7 @@ describe("Avatar", () => {
       // Arrange
       render(<Avatar data-testid="avatar">SC</Avatar>);
 
-      //Act
+      // Act
       const avatar = screen.getByTestId("avatar");
       const result = isClassSuffixPresent(avatar, "size-sm");
 
@@ -189,7 +193,7 @@ describe("Avatar", () => {
         </Avatar>
       );
 
-      //Act
+      // Act
       const avatar = screen.getByTestId("avatar");
       const result = isClassSuffixPresent(avatar, expected);
 

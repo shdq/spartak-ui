@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Avatar } from "../Avatar";
@@ -50,7 +50,6 @@ Placeholder.args = {
   ...Default.args,
   children: "SC",
 };
-
 
 export const Colors = Template.bind({});
 Colors.args = {

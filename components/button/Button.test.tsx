@@ -62,7 +62,7 @@ describe("Button", () => {
       // Arrange
       render(<Button>Default variant</Button>);
 
-      //Act
+      // Act
       const button = screen.getByRole("button");
       const result = isClassSuffixPresent(button, "variant-filled");
 
@@ -84,7 +84,7 @@ describe("Button", () => {
         // Arrange
         render(<Button variant={variant}>{variant} variant</Button>);
 
-        //Act
+        // Act
         const button = screen.getByRole("button");
         const result = isClassSuffixPresent(button, expected);
 
@@ -99,7 +99,7 @@ describe("Button", () => {
       // Arrange
       render(<Button>Default size</Button>);
 
-      //Act
+      // Act
       const button = screen.getByRole("button");
       const result = isClassSuffixPresent(button, "size-sm");
 
@@ -119,7 +119,7 @@ describe("Button", () => {
       // Arrange
       render(<Button size={size}>{size} size</Button>);
 
-      //Act
+      // Act
       const button = screen.getByRole("button");
       const result = isClassSuffixPresent(button, expected);
 
@@ -133,7 +133,7 @@ describe("Button", () => {
       // Arrange
       render(<Button>Default color</Button>);
 
-      //Act
+      // Act
       const button = screen.getByRole("button");
       const result = isClassSuffixPresent(button, "color-red");
 
@@ -141,7 +141,7 @@ describe("Button", () => {
       expect(result).toBe(true);
     });
 
-    type ColorType = "red"| "green" | "blue";
+    type ColorType = "red" | "green" | "blue";
     type ColorTestData = [color: ColorType, value: string];
     const colorsToTest: ColorTestData[] = [
       ["red", "color-red"],
@@ -154,7 +154,7 @@ describe("Button", () => {
         // Arrange
         render(<Button color={color}>{color} color</Button>);
 
-        //Act
+        // Act
         const button = screen.getByRole("button");
         const result = isClassSuffixPresent(button, expected);
 

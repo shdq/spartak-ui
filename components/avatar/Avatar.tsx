@@ -143,10 +143,8 @@ export const Avatar = ({
             height={sizes[label]}
             src={src}
           />
-        ) : icon ? (
-          icon
         ) : (
-          children
+          icon || children
         )}
         {status && (
           <Badge
