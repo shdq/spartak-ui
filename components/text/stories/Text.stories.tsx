@@ -1,9 +1,10 @@
+import { type PropsWithChildren } from "react";
 import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Text } from "../Text";
 
-export default {
+const TextMeta: ComponentMeta<typeof Text> = {
   title: "Components/Typography/Text",
   decorators: [
     (Story) => (
@@ -19,11 +20,12 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Text>;
+};
 
-const Template: ComponentStory<typeof Text> = ({ children, ...args }) => (
-  <Text {...args}>{children}</Text>
-);
+const Template: ComponentStory<typeof Text> = ({
+  children,
+  ...args
+}: PropsWithChildren) => <Text {...args}>{children}</Text>;
 
 const Default = Template.bind({});
 Default.args = {
@@ -98,3 +100,5 @@ AsOtherElements.args = {
     </>
   ),
 };
+
+export default TextMeta;
