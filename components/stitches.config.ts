@@ -175,6 +175,7 @@ export const { theme, styled, globalCss } = createStitches({
     borderWidths: {
       1: "1px",
       2: "2px",
+      3: "3px",
     },
     borderStyles: {},
     radii: {
