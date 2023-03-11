@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { Avatar } from "./Avatar";
 import { IconUser } from "@tabler/icons-react";
 
-const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+const isClassSuffixPresent = (element: HTMLElement, value: string): boolean => {
   return [...element.classList].some((className) => className.endsWith(value));
 };
 

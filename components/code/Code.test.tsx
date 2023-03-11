@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Code } from "./Code";
 
-const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+const isClassSuffixPresent = (element: HTMLElement, value: string): boolean => {
   return [...element.classList].some((className) => className.endsWith(value));
 };
 

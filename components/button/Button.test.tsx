@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Button } from "./Button";
 import { IconSun } from "@tabler/icons-react";
 
-const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+const isClassSuffixPresent = (element: HTMLElement, value: string): boolean => {
   return [...element.classList].some((className) => className.endsWith(value));
 };
 
