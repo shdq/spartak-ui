@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import App from "../Spotify/App";
 
-export default {
+const SpotifyMeta: ComponentMeta<typeof App> = {
   title: "UI Showcase",
   argTypes: {
     variant: {
@@ -10,7 +10,7 @@ export default {
     },
   },
   component: App,
-} as ComponentMeta<typeof App>;
+};
 
 const Template: ComponentStory<typeof App> = (args) => <App {...args} />;
 export const SpotifyPlaylists = Template.bind({});
@@ -18,3 +18,5 @@ SpotifyPlaylists.args = {
   variant: "filled",
   color: "green",
 };
+
+export default SpotifyMeta;

@@ -1,7 +1,7 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import App from "../YouTube/App";
 
-export default {
+const YouTubeMeta: ComponentMeta<typeof App> = {
   title: "UI Showcase",
   argTypes: {
     size: {
@@ -14,13 +14,13 @@ export default {
     },
   },
   component: App,
-} as ComponentMeta<typeof App>;
+};
 
-const Template: ComponentStory<typeof App> = (args) => (
-  <App {...args} />
-);
+const Template: ComponentStory<typeof App> = (args) => <App {...args} />;
 export const YoutubeMenu = Template.bind({});
 YoutubeMenu.args = {
   color: "red",
-  size: "md"
-}
+  size: "md",
+};
+
+export default YouTubeMeta;

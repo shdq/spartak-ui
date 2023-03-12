@@ -3,15 +3,19 @@ import {
   useEffect,
   createContext,
   useContext,
-  PropsWithChildren,
+  type PropsWithChildren,
 } from "react";
-import { theme as lightTheme, darkTheme, GlobalStyles } from "../stitches.config";
+import {
+  theme as lightTheme,
+  darkTheme,
+  GlobalStyles,
+} from "../stitches.config";
 
 type Theme = "light" | "dark";
-type ThemeContextType = {
+interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme, isSystemCall?: boolean) => void;
-};
+}
 
 const themeClasses = {
   light: lightTheme.className,
@@ -20,17 +24,17 @@ const themeClasses = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export const ThemeProvider = ({ children }: PropsWithChildren) => {
+export const ThemeProvider = ({ children }: PropsWithChildren): JSX.Element => {
   const [themeMode, setThemeMode] = useState<Theme>("light");
   const html = document.documentElement;
 
   useEffect(() => {
-    const defaultTheme = localStorage["spartak-ui-theme"]
-      ? localStorage.getItem("spartak-ui-theme")
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-
+    const defaultTheme =
+      localStorage["spartak-ui-theme"] !== undefined
+        ? localStorage.getItem("spartak-ui-theme")
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
     if (themeMode !== defaultTheme) {
       changeTheme(defaultTheme as Theme, true);
     }
@@ -38,7 +42,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     GlobalStyles();
   }, []);
 
-  const changeTheme = (theme: Theme, isSystemCall = false) => {
+  const changeTheme = (theme: Theme, isSystemCall = false): void => {
     html.classList.remove(themeClasses[themeMode]);
     html.classList.add(themeClasses[theme]);
     html.style.colorScheme = theme;
@@ -53,4 +57,5 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
   );
 };
 
-export const useTheme = () => useContext(ThemeContext) as ThemeContextType;
+export const useTheme = (): ThemeContextType =>
+  useContext(ThemeContext) as ThemeContextType;

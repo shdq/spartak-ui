@@ -1,11 +1,11 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { IconSearch, IconMicrophone, IconEye } from "@tabler/icons-react";
 import { darkTheme } from "../../stitches.config";
 import { TextInput } from "../TextInput";
 
-export default {
-  title: "Components/Input",
+const TextInputMeta: ComponentMeta<typeof TextInput> = {
+  title: "Components/TextInput",
   component: TextInput,
   decorators: [
     (Story) => (
@@ -28,7 +28,7 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof TextInput>;
+};
 
 const Template: ComponentStory<typeof TextInput> = (args) => (
   <TextInput {...args} />
@@ -65,7 +65,7 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   ...Default.args,
   icon: <IconSearch size={18} />,
-  placeholder: "Search"
+  placeholder: "Search",
 };
 
 export const WithEndIcon = Template.bind({});
@@ -81,7 +81,7 @@ WithBothIcon.args = {
   ...Default.args,
   icon: <IconSearch size={18} />,
   endIcon: <IconMicrophone size={18} />,
-  placeholder: "Search"
+  placeholder: "Search",
 };
 
 export const WithLabel = Template.bind({});
@@ -125,3 +125,5 @@ RequiredLabelWithErrorAndDescription.args = {
   error: "Error message",
   required: true,
 };
+
+export default TextInputMeta;

@@ -9,7 +9,7 @@ A collection of React components
 **Forms**
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
-- [Input](https://github.com/shdq/spartak-ui/tree/main/components/input#textinput)
+- [TextInput](https://github.com/shdq/spartak-ui/tree/main/components/text-input#textinput)
 
 **Typography**
 

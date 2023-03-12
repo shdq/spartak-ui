@@ -152,31 +152,46 @@ export interface ButtonProps
   endIcon?: React.ReactNode;
 }
 
-export const Button = ({ icon, endIcon, children, ...props }: ButtonProps) => {
+type ButtonTypeAttributes = "submit" | "reset" | "button" | undefined;
+
+export const Button = ({
+  icon,
+  endIcon,
+  children,
+  as,
+  type,
+  href,
+  ...props
+}: ButtonProps): JSX.Element => {
   const Wrapper = styled("span", {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     gap: "$$iconGap",
-    paddingLeft: children ? "$$wrapperPadding" : 0,
-    paddingRight: children ? "$$wrapperPadding" : 0,
+    paddingLeft: children !== undefined ? "$$wrapperPadding" : 0,
+    paddingRight: children !== undefined ? "$$wrapperPadding" : 0,
   });
 
-  // it's button when "as" and "href"
-  const buttonType =
-    (props?.as && props?.href) || props?.type || props?.as ? null : "button";
+  /** 1. By default button has type="button"
+   *  2. if type provided explicitly, type=("submit" | "reset" | "button")
+   *  3. When "as" or both "as" and "href" provided, type attribute isn't set
+   **/
+  let buttonType: ButtonTypeAttributes = "button";
+  if (type !== undefined) buttonType = type;
+  if (as !== undefined || (as !== undefined && href !== undefined))
+    buttonType = undefined;
 
   // ignore href prop if "as" element isn't present
-  if (!props?.as && props?.href) {
-    props.href = undefined;
+  if (as === undefined && href !== undefined) {
+    href = undefined;
   }
 
   return (
-    <ButtonComponent type={buttonType} href={props.href} {...props}>
+    <ButtonComponent type={buttonType} as={as} href={href} {...props}>
       <Wrapper>
         {icon}
         {children}
-        {!icon && endIcon}
+        {icon === undefined && endIcon}
       </Wrapper>
     </ButtonComponent>
   );

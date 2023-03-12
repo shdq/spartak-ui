@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Code } from "./Code";
 
-const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+const isClassSuffixPresent = (element: HTMLElement, value: string): boolean => {
   return [...element.classList].some((className) => className.endsWith(value));
 };
 
@@ -35,7 +35,7 @@ describe("Code", () => {
       // Arrange
       render(<Code>nums[i]</Code>);
 
-      //Act
+      // Act
       const code = screen.getByText("nums[i]");
       const result = isClassSuffixPresent(code, "color-red");
 
@@ -56,7 +56,7 @@ describe("Code", () => {
         // Arrange
         render(<Code color={color}>nums[i]</Code>);
 
-        //Act
+        // Act
         const code = screen.getByText("nums[i]");
         const result = isClassSuffixPresent(code, expected);
 

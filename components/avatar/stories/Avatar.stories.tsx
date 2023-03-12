@@ -1,10 +1,11 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type PropsWithChildren } from "react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Avatar } from "../Avatar";
 import { IconUser } from "@tabler/icons-react";
 
-export default {
+const AvatarMeta: ComponentMeta<typeof Avatar> = {
   title: "Components/Avatar",
   decorators: [
     (Story) => (
@@ -32,11 +33,12 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Avatar>;
+};
 
-const Template: ComponentStory<typeof Avatar> = ({ children, ...props }) => (
-  <Avatar {...props}>{children}</Avatar>
-);
+const Template: ComponentStory<typeof Avatar> = ({
+  children,
+  ...props
+}: PropsWithChildren) => <Avatar {...props}>{children}</Avatar>;
 
 const Default = Template.bind({});
 Default.args = {
@@ -50,7 +52,6 @@ Placeholder.args = {
   ...Default.args,
   children: "SC",
 };
-
 
 export const Colors = Template.bind({});
 Colors.args = {
@@ -93,3 +94,5 @@ Status.args = {
   children: "SC",
   status: "online",
 };
+
+export default AvatarMeta;

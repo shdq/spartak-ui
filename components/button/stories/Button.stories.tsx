@@ -1,5 +1,5 @@
-import { PropsWithChildren } from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type PropsWithChildren } from "react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Button } from "../Button";
@@ -22,7 +22,7 @@ const icons = {
   "Arrow right": <IconArrowRight size={18} />,
 };
 
-export default {
+const ButtonMeta: ComponentMeta<typeof Button> = {
   title: "Components/Button",
   decorators: [
     (Story) => (
@@ -60,11 +60,12 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>;
+};
 
-const Template: ComponentStory<typeof Button> = ({ children, ...args }) => (
-  <Button {...args}>{children}</Button>
-);
+const Template: ComponentStory<typeof Button> = ({
+  children,
+  ...args
+}: PropsWithChildren) => <Button {...args}>{children}</Button>;
 
 const Default = Template.bind({});
 
@@ -110,7 +111,7 @@ IconButton.args = {
   variant: "filled",
 };
 
-export const SquareIconButtons = (args: PropsWithChildren) => {
+export const SquareIconButtons = (args: PropsWithChildren): JSX.Element => {
   const styles: React.CSSProperties = {
     display: "flex",
     gap: 4,
@@ -122,6 +123,7 @@ export const SquareIconButtons = (args: PropsWithChildren) => {
     </div>
   );
 };
+
 SquareIconButtons.args = {
   ...Default.args,
   variant: "tinted",
@@ -136,3 +138,5 @@ LinkButton.args = {
   href: "https://example.com",
   as: "a",
 };
+
+export default ButtonMeta;

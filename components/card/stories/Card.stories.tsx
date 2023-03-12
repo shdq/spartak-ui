@@ -1,10 +1,11 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type PropsWithChildren } from "react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Button, TextInput } from "../../index";
 import { Card, CardHeader, CardBody, CardFooter } from "../Card";
 
-export default {
+const CardMeta: ComponentMeta<typeof Card> = {
   title: "Components/Card",
   component: Card,
   decorators: [
@@ -20,11 +21,12 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Card>;
+};
 
-const Template: ComponentStory<typeof Card> = ({ children, ...args }) => (
-  <Card {...args}>{children}</Card>
-);
+const Template: ComponentStory<typeof Card> = ({
+  children,
+  ...args
+}: PropsWithChildren) => <Card {...args}>{children}</Card>;
 
 const Default = Template.bind({});
 Default.args = {
@@ -88,3 +90,5 @@ CardWithForm.args = {
   variant: "elevated",
   css: { width: "280px" },
 };
+
+export default CardMeta;

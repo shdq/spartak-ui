@@ -53,7 +53,7 @@ describe("Card", () => {
         </Card>
       );
 
-      //Act
+      // Act
       const card = screen.getByTestId("card");
       const isClassPresent = [...card.classList].some((className) =>
         className.endsWith("variant-filled")
@@ -71,7 +71,7 @@ describe("Card", () => {
         </Card>
       );
 
-      //Act
+      // Act
       const card = screen.getByTestId("card");
       const isClassPresent = [...card.classList].some((className) =>
         className.endsWith("variant-filled")
@@ -89,7 +89,7 @@ describe("Card", () => {
         </Card>
       );
 
-      //Act
+      // Act
       const card = screen.getByTestId("card");
       const isClassPresent = [...card.classList].some((className) =>
         className.endsWith("variant-outlined")
@@ -107,7 +107,7 @@ describe("Card", () => {
         </Card>
       );
 
-      //Act
+      // Act
       const card = screen.getByTestId("card");
       const isClassPresent = [...card.classList].some((className) =>
         className.endsWith("variant-elevated")

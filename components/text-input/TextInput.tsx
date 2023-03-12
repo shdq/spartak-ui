@@ -172,7 +172,7 @@ const AsteriskContainer = styled("span", {
   color: "$red500",
   userSelect: "none",
 });
-const Asterisk = () => {
+const Asterisk = (): JSX.Element => {
   return <AsteriskContainer>&nbsp;*</AsteriskContainer>;
 };
 
@@ -240,19 +240,19 @@ export const TextInput = ({
   required,
   size,
   ...props
-}: TextInputProps) => {
+}: TextInputProps): JSX.Element => {
   const id = useId();
-  const isInvalid = !!error; // if error change border color
-  const withIcon = !!icon; // change left padding to icon container size
+  const isInvalid = error !== undefined; // if error change border color
+  const withIcon = icon !== undefined; // change left padding to icon container size
   return (
     <InputWrapper size={size}>
-      {label && (
+      {label !== undefined && (
         <Label htmlFor={id}>
           {label}
-          {required && <Asterisk />}
+          {required !== undefined && <Asterisk />}
         </Label>
       )}
-      {icon && (
+      {withIcon && (
         <IconWrapper position="start" size={size}>
           {icon}
         </IconWrapper>
@@ -265,14 +265,17 @@ export const TextInput = ({
         size={size}
         {...props}
       />
-      {endIcon && (
+      {endIcon !== undefined && (
         <IconWrapper position="end" size={size}>
           {endIcon}
         </IconWrapper>
       )}
-      {(description || error) && (
-        <SupportingText variant={error ? "error" : "description"} size={size}>
-          {error ? error : description}
+      {(description !== undefined || isInvalid) && (
+        <SupportingText
+          variant={isInvalid ? "error" : "description"}
+          size={size}
+        >
+          {isInvalid ? error : description}
         </SupportingText>
       )}
     </InputWrapper>

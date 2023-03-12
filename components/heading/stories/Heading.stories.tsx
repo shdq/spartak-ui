@@ -1,9 +1,10 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type PropsWithChildren } from "react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Heading, Text } from "../../index";
 
-export default {
+const HeadingMeta: ComponentMeta<typeof Heading> = {
   title: "Components/Typography/Heading",
   decorators: [
     (Story) => (
@@ -19,11 +20,12 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Heading>;
+};
 
-const Template: ComponentStory<typeof Heading> = ({ children, ...args }) => (
-  <Heading {...args}>{children}</Heading>
-);
+const Template: ComponentStory<typeof Heading> = ({
+  children,
+  ...args
+}: PropsWithChildren) => <Heading {...args}>{children}</Heading>;
 
 const Default = Template.bind({});
 Default.args = {
@@ -71,3 +73,5 @@ WithLink.args = {
   ),
   size: "xl",
 };
+
+export default HeadingMeta;

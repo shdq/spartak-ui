@@ -1,18 +1,24 @@
-import { ThemeProvider } from "../../index";
+import {
+  ThemeProvider,
+  Button,
+  Heading,
+  Text,
+  Card,
+  CardHeader,
+  CardBody,
+} from "../../index";
 import { styled } from "../../stitches.config";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import { Button, Heading, Text } from "../../index";
-import { Card, CardHeader, CardBody } from "../../index";
 import { Switch } from "../../provider/Switch";
 
 type Colors = "red" | "blue" | "green";
 type Variants = "filled" | "outlined" | "elevated";
-type AppProps = {
+export interface AppProps {
   variant: Variants;
   color: Colors;
-};
+}
 
-const App = ({ color, variant }: AppProps) => {
+const App = ({ color, variant }: AppProps): JSX.Element => {
   const playlists = [
     {
       title: "Focus",
@@ -66,6 +72,7 @@ const App = ({ color, variant }: AppProps) => {
         css={{
           minWidth: "300",
           cursor: "pointer",
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
           [`&:hover ${PlayButton}`]: {
             opacity: 1,
             bottom: "41px",
@@ -73,6 +80,7 @@ const App = ({ color, variant }: AppProps) => {
           },
         }}
         variant={variant}
+        key={title}
       >
         <CardHeader
           css={{
