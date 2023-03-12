@@ -7,7 +7,7 @@ export interface SwitchProps {
   color?: Colors;
 }
 
-export const Switch = ({ color }: SwitchProps) => {
+export const Switch = ({ color }: SwitchProps): JSX.Element => {
   const { theme, setTheme } = useTheme();
   const isThemeDark = theme === "dark";
   return (

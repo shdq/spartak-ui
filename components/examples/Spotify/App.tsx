@@ -18,7 +18,7 @@ export interface AppProps {
   color: Colors;
 }
 
-const App = ({ color, variant }: AppProps) => {
+const App = ({ color, variant }: AppProps): JSX.Element => {
   const playlists = [
     {
       title: "Focus",
@@ -72,6 +72,7 @@ const App = ({ color, variant }: AppProps) => {
         css={{
           minWidth: "300",
           cursor: "pointer",
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
           [`&:hover ${PlayButton}`]: {
             opacity: 1,
             bottom: "41px",
@@ -79,6 +80,7 @@ const App = ({ color, variant }: AppProps) => {
           },
         }}
         variant={variant}
+        key={title}
       >
         <CardHeader
           css={{
