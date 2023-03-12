@@ -130,12 +130,12 @@ export const Avatar = ({
   size = "sm",
   children,
   ...props
-}: AvatarProps) => {
+}: AvatarProps): JSX.Element => {
   const label = size as keyof typeof sizes;
   return (
     <AvatarComponent status={status} round={round} size={size} {...props}>
       <Wrapper>
-        {src ? (
+        {src !== undefined ? (
           <img
             alt={alt}
             draggable={false}
@@ -144,12 +144,12 @@ export const Avatar = ({
             src={src}
           />
         ) : (
-          icon || children
+          icon ?? children
         )}
-        {status && (
+        {status !== undefined && (
           <Badge
             data-testid="status-badge"
-            title={status.toString()}
+            title={status as string}
             round={round}
           />
         )}
