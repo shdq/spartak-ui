@@ -1,4 +1,4 @@
-name: 'Run unit tests for components'
+name: 'Run linter checks and unit tests on components'
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  run-linter-and-unit-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,5 +22,7 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm install
+      - name: Run linter checks
+        run: npm run lint
       - name: Run unit tests
         run: npm run test
