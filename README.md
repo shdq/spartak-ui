@@ -27,7 +27,7 @@ Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the
 ## Examples built with Spartak UI
 
 - [Spotify Playlists](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--spotify-playlists) with `Button`, `Card`, `Heading` and `Text` components
-- [Twitter Card](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--twitter-card) with `Avatar`, `Button`, `Card` and typography components
+- [Twitter Card](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--twitter-card) with `Avatar`, `Button`, `Card`, and typography components
 - [YouTube Side Menu](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--youtube-menu) with `Button` component
 
 ## Dark theme
