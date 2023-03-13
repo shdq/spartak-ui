@@ -1,6 +1,6 @@
-# TextInput
+# Text Input
 
-A React component, intended to get user input
+`TextInput` is intended to get user input
 
 ### Usage
 
