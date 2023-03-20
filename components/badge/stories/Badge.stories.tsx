@@ -19,6 +19,10 @@ const BadgeMeta: ComponentMeta<typeof Badge> = {
       options: ["grey", "red", "blue", "green"],
       control: { type: "radio" },
     },
+    size: {
+      options: ["xs", "sm", "md", "lg"],
+      control: { type: "radio" },
+    },
   },
 };
 
@@ -31,6 +35,7 @@ const Default = Template.bind({});
 Default.args = {
   children: "good first issue",
   color: "grey",
+  size: "sm",
 };
 
 export const Example = Template.bind({});
@@ -43,6 +48,15 @@ Number.args = {
   ...Default.args,
   color: "blue",
   children: 42,
+};
+
+export const TextOverflow = Template.bind({});
+TextOverflow.args = {
+  ...Default.args,
+  color: "red",
+  size: "xs",
+  css: { width: "100px" },
+  children: "Change badge size",
 };
 
 export default BadgeMeta;

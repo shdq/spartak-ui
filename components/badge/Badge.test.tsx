@@ -84,4 +84,38 @@ describe("Badge", () => {
       }
     );
   });
+
+  describe("with size", () => {
+    test("should renders with default size", () => {
+      // Arrange
+      render(<Badge>Tests</Badge>);
+
+      // Act
+      const badge = screen.getByText("Tests");
+      const result = isClassSuffixPresent(badge, "size-sm");
+
+      // Assert
+      expect(result).toBe(true);
+    });
+
+    type SizeType = "xs" | "sm" | "md" | "lg";
+    type SizeTestData = [size: SizeType, value: string];
+    const sizesToTest: SizeTestData[] = [
+      ["xs", "size-xs"],
+      ["sm", "size-sm"],
+      ["md", "size-md"],
+      ["lg", "size-lg"],
+    ];
+    test.each(sizesToTest)("should renders with %s size", (size, expected) => {
+      // Arrange
+      render(<Badge size={size}>Tests</Badge>);
+
+      // Act
+      const badge = screen.getByText("Tests");
+      const result = isClassSuffixPresent(badge, expected);
+
+      // Assert
+      expect(result).toBe(true);
+    });
+  });
 });

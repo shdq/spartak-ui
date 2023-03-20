@@ -3,13 +3,14 @@ import { styled } from "../stitches.config";
 export const Badge = styled("span", {
   fontFamily: "$system",
   border: "$borderWidths$1 solid transparent",
-  borderRadius: "2em",
-  fontSize: "0.8em",
-  padding: ".2em .5em",
-  userSelect: "none",
-  display: "inline-flex",
-  alignItems: "center",
+  borderRadius: "$round",
+  padding: ".2em .4em",
+  display: "inline-block",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
   whiteSpace: "nowrap",
+  textAlign: "center",
+  userSelect: "none",
   textDecoration: "none",
 
   variants: {
@@ -35,8 +36,23 @@ export const Badge = styled("span", {
         borderColor: "$$blue400",
       },
     },
+    size: {
+      xs: {
+        fontSize: "$xxs",
+      },
+      sm: {
+        fontSize: "$xs",
+      },
+      md: {
+        fontSize: "$sm",
+      },
+      lg: {
+        fontSize: "$md",
+      },
+    },
   },
   defaultVariants: {
     color: "grey",
+    size: "sm",
   },
 });
