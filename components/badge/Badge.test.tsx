@@ -48,6 +48,42 @@ describe("Badge", () => {
     expect(badge).toHaveAttribute("href", "https://example.com");
   });
 
+  describe("with variant", () => {
+    test("should renders with default variant when variant isn't present", () => {
+      // Arrange
+      render(<Badge>Tests</Badge>);
+
+      // Act
+      const badge = screen.getByText("Tests");
+      const result = isClassSuffixPresent(badge, "variant-filled");
+
+      // Assert
+      expect(result).toBe(true);
+    });
+
+    type VarianType = "filled" | "tinted" | "outlined";
+    type VariantTestData = [variant: VarianType, value: string];
+    const variantsToTest: VariantTestData[] = [
+      ["filled", "variant-filled"],
+      ["tinted", "variant-tinted"],
+      ["outlined", "variant-outlined"],
+    ];
+    test.each(variantsToTest)(
+      "should renders with %s variant",
+      (variant, expected) => {
+        // Arrange
+        render(<Badge variant={variant}>Tests</Badge>);
+
+        // Act
+        const badge = screen.getByText("Tests");
+        const result = isClassSuffixPresent(badge, expected);
+
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
+  });
+
   describe("with color", () => {
     test("should renders with default color", () => {
       // Arrange
@@ -55,16 +91,15 @@ describe("Badge", () => {
 
       // Act
       const badge = screen.getByText("Tests");
-      const result = isClassSuffixPresent(badge, "color-grey");
+      const result = isClassSuffixPresent(badge, "color-red");
 
       // Assert
       expect(result).toBe(true);
     });
 
-    type ColorType = "grey" | "red" | "green" | "blue";
+    type ColorType = "red" | "green" | "blue";
     type ColorTestData = [color: ColorType, value: string];
     const colorsToTest: ColorTestData[] = [
-      ["grey", "color-grey"],
       ["red", "color-red"],
       ["green", "color-green"],
       ["blue", "color-blue"],

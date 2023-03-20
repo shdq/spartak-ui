@@ -17,25 +17,41 @@ export const Badge = styled("span", {
 
   variants: {
     color: {
-      grey: {
-        color: "$grey700",
-        backgroundColor: "$grey400",
-        borderColor: "$$grey700",
-      },
       red: {
-        color: "$red400",
-        backgroundColor: "$red000",
-        borderColor: "$$red400",
-      },
-      green: {
-        color: "$green400",
-        backgroundColor: "$green000",
-        borderColor: "$$green400",
+        $$color000: "$colors$red000",
+        $$color100: "$colors$red100",
+        $$color400: "$colors$red400",
+        $$color500: "$colors$red500",
+        $$color600: "$colors$red600",
       },
       blue: {
-        color: "$blue400",
-        backgroundColor: "$blue000",
-        borderColor: "$$blue400",
+        $$color000: "$colors$blue000",
+        $$color100: "$colors$blue100",
+        $$color400: "$colors$blue400",
+        $$color500: "$colors$blue500",
+        $$color600: "$colors$blue600",
+      },
+      green: {
+        $$color000: "$colors$green000",
+        $$color100: "$colors$green100",
+        $$color400: "$colors$green400",
+        $$color500: "$colors$green500",
+        $$color600: "$colors$green600",
+      },
+    },
+    variant: {
+      filled: {
+        color: "$white",
+        backgroundColor: "$$color500",
+      },
+      tinted: {
+        color: "$$color400",
+        backgroundColor: "$$color000",
+        borderColor: "$$color400",
+      },
+      outlined: {
+        color: "$$color400",
+        borderColor: "$$color400",
       },
     },
     size: {
@@ -54,7 +70,8 @@ export const Badge = styled("span", {
     },
   },
   defaultVariants: {
-    color: "grey",
+    variant: "filled",
+    color: "red",
     size: "sm",
   },
 });

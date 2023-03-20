@@ -2,7 +2,7 @@ import { type PropsWithChildren } from "react";
 import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
-import { Text } from "../Text";
+import { Badge, Text } from "../../index";
 
 const TextMeta: ComponentMeta<typeof Text> = {
   title: "Components/Typography/Text",
@@ -97,6 +97,20 @@ AsOtherElements.args = {
         </Text>
         O
       </Text>
+    </>
+  ),
+};
+
+export const WithBadge = Template.bind({});
+WithBadge.args = {
+  ...Default.args,
+  size: "sm",
+  children: (
+    <>
+      Messages{" "}
+      <Badge color="blue" size="xs">
+        99+
+      </Badge>
     </>
   ),
 };

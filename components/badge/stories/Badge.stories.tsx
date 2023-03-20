@@ -15,8 +15,12 @@ const BadgeMeta: ComponentMeta<typeof Badge> = {
   ],
   component: Badge,
   argTypes: {
+    variant: {
+      options: ["filled", "tinted", "outlined"],
+      control: { type: "radio" },
+    },
     color: {
-      options: ["grey", "red", "blue", "green"],
+      options: ["red", "blue", "green"],
       control: { type: "radio" },
     },
     size: {
@@ -33,27 +37,36 @@ const Template: ComponentStory<typeof Badge> = ({
 
 const Default = Template.bind({});
 Default.args = {
-  children: "good first issue",
-  color: "grey",
+  children: 42,
+  variant: "filled",
+  color: "red",
   size: "sm",
 };
 
-export const Example = Template.bind({});
-Example.args = {
+export const Colors = Template.bind({});
+Colors.args = {
   ...Default.args,
 };
 
-export const Number = Template.bind({});
-Number.args = {
+export const Variants = Template.bind({});
+Variants.args = {
   ...Default.args,
-  color: "blue",
-  children: 42,
+  variant: "tinted",
+  color: "green",
+  children: "good first issue",
+};
+
+export const Sizes = Template.bind({});
+Sizes.args = {
+  ...Default.args,
+  size: "lg",
+  children: "WARNING",
 };
 
 export const TextOverflow = Template.bind({});
 TextOverflow.args = {
   ...Default.args,
-  color: "red",
+  color: "blue",
   size: "xs",
   css: { width: "100px" },
   children: "Change badge size",
