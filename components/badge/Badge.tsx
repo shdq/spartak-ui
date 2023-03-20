@@ -2,10 +2,12 @@ import { styled } from "../stitches.config";
 
 export const Badge = styled("span", {
   fontFamily: "$system",
+  fontWeight: "$medium",
   border: "$borderWidths$1 solid transparent",
   borderRadius: "$round",
   padding: ".2em .4em",
   display: "inline-block",
+  verticalAlign: "middle",
   overflow: "hidden",
   textOverflow: "ellipsis",
   whiteSpace: "nowrap",

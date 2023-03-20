@@ -162,6 +162,7 @@ export const { theme, styled, globalCss } = createStitches({
     },
     fontWeights: {
       normal: 400,
+      medium: 500,
       bold: 600,
     },
     lineHeights: {},
