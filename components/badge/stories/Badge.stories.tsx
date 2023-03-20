@@ -16,7 +16,7 @@ const BadgeMeta: ComponentMeta<typeof Badge> = {
   component: Badge,
   argTypes: {
     color: {
-      options: ["red", "blue", "green"],
+      options: ["grey", "red", "blue", "green"],
       control: { type: "radio" },
     },
   },
@@ -30,11 +30,19 @@ const Template: ComponentStory<typeof Badge> = ({
 const Default = Template.bind({});
 Default.args = {
   children: "good first issue",
+  color: "grey",
 };
 
 export const Example = Template.bind({});
 Example.args = {
   ...Default.args,
+};
+
+export const Number = Template.bind({});
+Number.args = {
+  ...Default.args,
+  color: "blue",
+  children: 42,
 };
 
 export default BadgeMeta;
