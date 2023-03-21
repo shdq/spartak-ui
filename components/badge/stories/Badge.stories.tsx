@@ -5,7 +5,7 @@ import { darkTheme } from "../../stitches.config";
 import { Badge } from "../../index";
 
 const BadgeMeta: ComponentMeta<typeof Badge> = {
-  title: "Components/Typography/Badge",
+  title: "Components/Badge",
   decorators: [
     (Story) => (
       <div className={useDarkMode() ? darkTheme.className : undefined}>
