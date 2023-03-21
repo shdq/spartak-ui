@@ -2,7 +2,7 @@ import { type PropsWithChildren } from "react";
 import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
-import { Heading, Text } from "../../index";
+import { Heading, Text, Badge } from "../../index";
 
 const HeadingMeta: ComponentMeta<typeof Heading> = {
   title: "Components/Typography/Heading",
@@ -72,6 +72,17 @@ WithLink.args = {
     </>
   ),
   size: "xl",
+};
+
+export const WithBadge = Template.bind({});
+WithBadge.args = {
+  ...Default.args,
+  size: "sm",
+  children: (
+    <>
+      Heading component <Badge color="green">New</Badge>
+    </>
+  ),
 };
 
 export default HeadingMeta;

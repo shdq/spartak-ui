@@ -162,6 +162,7 @@ export const { theme, styled, globalCss } = createStitches({
     },
     fontWeights: {
       normal: 400,
+      medium: 500,
       bold: 600,
     },
     lineHeights: {},
@@ -180,6 +181,7 @@ export const { theme, styled, globalCss } = createStitches({
     borderStyles: {},
     radii: {
       3: "3px",
+      round: "9999px",
     },
     shadows: {
       boxShadow: "rgba(0, 0, 0, 0.24) 0px 1px 4px",
