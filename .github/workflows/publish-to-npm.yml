@@ -1,0 +1,30 @@
+name: Publish to NPM
+on:
+  # Uncomment when release workflow will be fully covered:
+  # - package version bump
+  # - changelog generation
+  # - commit everything and attach tag with the new version
+  # So this workflow will be triggered when new release created
+
+  #  release:
+  #    types: [created]
+  workflow_dispatch:
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        run: npm install
+      - name: Build package
+        run: npm run build
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
