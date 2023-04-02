@@ -26,9 +26,9 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeProvider = ({ children }: PropsWithChildren): JSX.Element => {
   const [themeMode, setThemeMode] = useState<Theme>("light");
-  const html = document.documentElement;
-
+  let html: HTMLElement;
   useEffect(() => {
+    html = document.documentElement;
     const defaultTheme =
       localStorage["spartak-ui-theme"] !== undefined
         ? localStorage.getItem("spartak-ui-theme")
