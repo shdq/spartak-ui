@@ -59,7 +59,7 @@ For switching themes let's add a component that utilizes `useTheme` hook.
 import { useTheme, Button } from "spartak-ui";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 
-const Switch = () => {
+export const Switch = () => {
   const { theme, setTheme } = useTheme();
   const isThemeDark = theme === "dark";
   return (
