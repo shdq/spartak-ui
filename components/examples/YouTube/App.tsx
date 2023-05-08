@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useTheme, ThemeProvider, Button } from "../../index";
-import { Switch } from "../../provider/Switch";
+import { Button } from "../../index";
+import { useDarkMode } from "storybook-dark-mode";
 import {
   IconMenu2,
   IconHome,
@@ -20,13 +20,12 @@ interface HeaderProps {
 }
 
 const Header = ({ color }: HeaderProps): JSX.Element => {
-  const { theme } = useTheme();
-  const isThemeDark = theme === "dark";
+  const isThemeDark = useDarkMode();
   const logoColor = isThemeDark ? "white" : "black";
 
   const headerStyles: React.CSSProperties = {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "start",
     alignItems: "center",
     gap: "15px",
     marginBottom: "20px",
@@ -65,7 +64,6 @@ const Header = ({ color }: HeaderProps): JSX.Element => {
           </g>
         </g>
       </svg>
-      <Switch color={color} />
     </div>
   );
 };
@@ -134,11 +132,7 @@ export interface AppProps {
 }
 
 const App = ({ color, size }: AppProps): JSX.Element => {
-  return (
-    <ThemeProvider>
-      <SideMenu color={color} size={size} />
-    </ThemeProvider>
-  );
+  return <SideMenu color={color} size={size} />;
 };
 
 export default App;
