@@ -1,15 +1,6 @@
-import {
-  ThemeProvider,
-  Button,
-  Heading,
-  Text,
-  Card,
-  CardHeader,
-  CardBody,
-} from "../../index";
+import { Button, Heading, Text, Card, CardHeader, CardBody } from "../../index";
 import { styled } from "../../stitches.config";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
-import { Switch } from "../../provider/Switch";
 
 type Colors = "red" | "blue" | "green";
 type Variants = "filled" | "outlined" | "elevated";
@@ -118,12 +109,7 @@ const App = ({ color, variant }: AppProps): JSX.Element => {
     );
   });
 
-  return (
-    <ThemeProvider>
-      <Switch color={color} />
-      <Div>{cards}</Div>
-    </ThemeProvider>
-  );
+  return <Div>{cards}</Div>;
 };
 
 export default App;
