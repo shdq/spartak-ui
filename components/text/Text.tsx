@@ -1,6 +1,6 @@
 import { styled } from "../stitches.config";
 
-export const Text = styled("div", {
+const TextComponent = styled("div", {
   color: "$foreground",
   fontFamily: "$system",
   fontWeight: "$normal",
@@ -57,3 +57,31 @@ export const Text = styled("div", {
     },
   },
 });
+
+export interface TextProps extends React.ComponentProps<typeof TextComponent> {
+  as?: React.ElementType;
+  href?: string;
+}
+
+export const Text = ({
+  children,
+  as,
+  href,
+  ...props
+}: TextProps): JSX.Element => {
+  // ignore href prop if "as" element isn't present or not equal to "a" element
+  if (as !== "a" && href !== undefined) {
+    href = undefined;
+  }
+
+  return (
+    <TextComponent
+      css={as === "strong" || as === "b" ? { fontWeight: "$bold" } : undefined}
+      as={as}
+      href={href}
+      {...props}
+    >
+      {children}
+    </TextComponent>
+  );
+};
