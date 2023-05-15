@@ -31,6 +31,20 @@ Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the
 - [Twitter Card](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--twitter-card) with `Avatar`, `Button`, `Card`, and typography components
 - [YouTube Side Menu](https://shdq.github.io/spartak-ui/?path=/story/ui-showcase--youtube-menu) with `Button` component
 
+## Installation
+
+### npm
+
+```bash
+npm install spartak-ui
+```
+
+### yarn
+
+```bash
+yarn add spartak-ui
+```
+
 ## Dark theme
 
 There are `ThemeProvider` and `useTheme` hook to add dark theme to your app. Wrap your app component in `ThemeProvider`.
