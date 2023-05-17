@@ -18,7 +18,7 @@ describe("Checkbox", () => {
 
   test("should be checked by default", () => {
     // Arrange
-    render(<Checkbox defaultChecked />);
+    render(<Checkbox checked />);
     const checkbox = screen.getByRole("checkbox");
 
     // Act & Assert
