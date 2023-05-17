@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Checkbox } from "../index";
 
-const isClassSuffixPresent = (element: HTMLElement, value: string) => {
+const isClassSuffixPresent = (element: HTMLElement, value: string): boolean => {
   return [...element.classList].some((className) => className.endsWith(value));
 };
 
@@ -67,7 +67,7 @@ describe("Checkbox", () => {
       // Arrange
       render(<Checkbox />);
 
-      //Act
+      // Act
       const checkbox = screen.getByRole("checkbox");
       const result = isClassSuffixPresent(checkbox, "size-sm");
 
@@ -87,7 +87,7 @@ describe("Checkbox", () => {
       // Arrange
       render(<Checkbox size={size} />);
 
-      //Act
+      // Act
       const checkbox = screen.getByRole("checkbox");
       const result = isClassSuffixPresent(checkbox, expected);
 

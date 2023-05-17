@@ -1,9 +1,10 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { type PropsWithChildren } from "react";
+import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Checkbox } from "../index";
 
-export default {
+const CheckboxMeta: ComponentMeta<typeof Checkbox> = {
   title: "Components/Forms/Checkbox",
   component: Checkbox,
   decorators: [
@@ -19,16 +20,15 @@ export default {
       control: { type: "radio" },
     },
   },
-} as ComponentMeta<typeof Checkbox>;
+};
 
-const Template: ComponentStory<typeof Checkbox> = ({ children, ...args }) => (
-  <Checkbox {...args}>{children}</Checkbox>
-);
+const Template: ComponentStory<typeof Checkbox> = ({
+  children,
+  ...args
+}: PropsWithChildren) => <Checkbox {...args}>{children}</Checkbox>;
 
 const Default = Template.bind({});
-Default.args = {
-  size: "sm",
-};
+Default.args = {};
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -38,7 +38,20 @@ Basic.args = {
 export const CheckedByDefault = Template.bind({});
 CheckedByDefault.args = {
   ...Default.args,
-  defaultChecked: true,
+  checked: true,
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
+  ...Default.args,
+  indeterminate: true,
+};
+
+export const IndeterminateChecked = Template.bind({});
+IndeterminateChecked.args = {
+  ...Default.args,
+  indeterminate: true,
+  checked: true,
 };
 
 export const WithRequiredLabel = Template.bind({});
@@ -54,3 +67,5 @@ Disabled.args = {
   label: "I agree to the terms and conditions",
   disabled: true,
 };
+
+export default CheckboxMeta;

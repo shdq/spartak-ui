@@ -2,7 +2,7 @@ import { type PropsWithChildren } from "react";
 import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
-import { Button, TextInput } from "../../index";
+import { Button, TextInput, Checkbox, Text } from "../../index";
 import { Card, CardHeader, CardBody, CardFooter } from "../Card";
 
 const CardMeta: ComponentMeta<typeof Card> = {
@@ -73,12 +73,19 @@ const loginForm = (
         type="password"
         placeholder="Enter your password"
       />
+      <Checkbox label="Remember me" />
       <Button>Continue</Button>
     </CardBody>
     <CardFooter css={{ textAlign: "center" }}>
-      <Button as="a" href="https://example.com" variant="text">
+      <Text
+        size="sm"
+        color="red"
+        as="a"
+        href="https://example.com"
+        target="_blank"
+      >
         Forgot your password?
-      </Button>
+      </Text>
     </CardFooter>
   </>
 );

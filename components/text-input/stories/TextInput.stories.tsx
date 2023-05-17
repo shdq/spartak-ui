@@ -97,6 +97,13 @@ WithRequiredLabel.args = {
   required: true,
 };
 
+export const WithLabelDisabled = Template.bind({});
+WithLabelDisabled.args = {
+  ...Default.args,
+  disabled: true,
+  label: "Label text",
+};
+
 export const WithDescription = Template.bind({});
 WithDescription.args = {
   ...Default.args,

@@ -207,3 +207,10 @@ export const GlobalStyles = globalCss({
     color: "$foreground",
   },
 });
+
+export const checkboxIconSizes = {
+  xs: 13,
+  sm: 16,
+  md: 20,
+  lg: 24,
+};

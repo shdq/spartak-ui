@@ -53,6 +53,20 @@ describe("TextInput", () => {
     expect(input).not.toHaveFocus();
   });
 
+  test("should be unfocused after the click on disabled", async () => {
+    // Arrange
+    const user = userEvent.setup();
+    render(<TextInput disabled />);
+
+    const input = screen.getByRole("textbox");
+    await user.click(input);
+
+    // Act & Assert
+    expect(input).not.toBeChecked();
+    await user.click(input);
+    expect(input).not.toBeChecked();
+  });
+
   test("should have a description", () => {
     // Arrange
     render(<TextInput description="My description" />);
@@ -146,6 +160,21 @@ describe("TextInput", () => {
 
       // Assert
       expect(input).toHaveFocus();
+    });
+
+    test("should be unfocused after the click on disabled", async () => {
+      // Arrange
+      const user = userEvent.setup();
+      render(<TextInput disabled label="My label" />);
+
+      const label = screen.getByText("My label");
+      const input = screen.getByLabelText("My label");
+      await user.click(label);
+
+      // Act & Assert
+      expect(input).not.toBeChecked();
+      await user.click(label);
+      expect(input).not.toBeChecked();
     });
   });
 
