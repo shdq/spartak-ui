@@ -96,6 +96,42 @@ describe("Checkbox", () => {
     });
   });
 
+  describe("with color", () => {
+    test("should renders with default color when color isn't present", () => {
+      // Arrange
+      render(<Checkbox label="My label" />);
+
+      // Act
+      const checkbox = screen.getByRole("checkbox");
+      const result = isClassSuffixPresent(checkbox, "color-red");
+
+      // Assert
+      expect(result).toBe(true);
+    });
+
+    type ColorType = "red" | "green" | "blue";
+    type ColorTestData = [color: ColorType, value: string];
+    const colorsToTest: ColorTestData[] = [
+      ["red", "color-red"],
+      ["green", "color-green"],
+      ["blue", "color-blue"],
+    ];
+    test.each(colorsToTest)(
+      "should renders with %s color",
+      (color, expected) => {
+        // Arrange
+        render(<Checkbox color={color} label="My label" />);
+
+        // Act
+        const checkbox = screen.getByRole("checkbox");
+        const result = isClassSuffixPresent(checkbox, expected);
+
+        // Assert
+        expect(result).toBe(true);
+      }
+    );
+  });
+
   describe("with label", () => {
     test("should have label associated with checkbox", () => {
       // Arrange

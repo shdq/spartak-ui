@@ -19,6 +19,10 @@ const CheckboxMeta: ComponentMeta<typeof Checkbox> = {
       options: ["xs", "sm", "md", "lg"],
       control: { type: "radio" },
     },
+    color: {
+      options: ["red", "blue", "green"],
+      control: { type: "radio" },
+    },
   },
 };
 
@@ -28,7 +32,10 @@ const Template: ComponentStory<typeof Checkbox> = ({
 }: PropsWithChildren) => <Checkbox {...args}>{children}</Checkbox>;
 
 const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  color: "red",
+  size: "sm",
+};
 
 export const Basic = Template.bind({});
 Basic.args = {
