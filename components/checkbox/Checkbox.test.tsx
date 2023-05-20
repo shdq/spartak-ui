@@ -205,7 +205,7 @@ describe("Checkbox", () => {
       expect(asterisk).toBeInTheDocument();
     });
 
-    test("should have ignore required prop is label is not present", () => {
+    test("should have ignore required prop if label is not present", () => {
       // Arrange
       render(<Checkbox required />);
 
@@ -214,6 +214,76 @@ describe("Checkbox", () => {
 
       // Assert
       expect(asterisk).toBeNull();
+    });
+
+    describe("with description", () => {
+      test("should have a description", () => {
+        // Arrange
+        render(<Checkbox label="My label" description="My description" />);
+
+        // Act
+        const description = screen.getByText("My description");
+
+        // Assert
+        expect(description).toBeInTheDocument();
+      });
+
+      test("should have ignore description prop if label is not present", () => {
+        // Arrange
+        render(<Checkbox description="My description" />);
+
+        // Act
+        const description = screen.queryByText("My description");
+
+        // Assert
+        expect(description).toBeNull();
+      });
+    });
+
+    describe("with error", () => {
+      test("should be invalid with error message", () => {
+        // Arrange
+        render(<Checkbox label="My label" error="Invalid value" />);
+
+        // Act
+        const error = screen.getByText("Invalid value");
+        const checkbox = screen.getByLabelText(/^My label/);
+        const result = isClassSuffixPresent(checkbox, "isInvalid-true");
+
+        // Assert
+        expect(error).toBeInTheDocument();
+        expect(result).toBe(true);
+      });
+
+      test("should show error not description", () => {
+        // Arrange
+        render(
+          <Checkbox
+            label="My label"
+            description="My description"
+            error="Invalid value"
+          />
+        );
+
+        // Act
+        const description = screen.queryByText("My description");
+        const error = screen.getByText("Invalid value");
+
+        // Assert
+        expect(error).toBeInTheDocument();
+        expect(description).toBeNull();
+      });
+
+      test("should have ignore error prop if label is not present", () => {
+        // Arrange
+        render(<Checkbox error="Invalid value" />);
+
+        // Act
+        const error = screen.queryByText("Invalid value");
+
+        // Assert
+        expect(error).toBeNull();
+      });
     });
   });
 });

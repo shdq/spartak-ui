@@ -3,6 +3,7 @@ import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
 import { Checkbox } from "../index";
+import { Text } from "../../index";
 
 const CheckboxMeta: ComponentMeta<typeof Checkbox> = {
   title: "Components/Forms/Checkbox",
@@ -54,11 +55,17 @@ Indeterminate.args = {
   indeterminate: true,
 };
 
-export const IndeterminateChecked = Template.bind({});
-IndeterminateChecked.args = {
+export const WithLabel = Template.bind({});
+WithLabel.args = {
   ...Default.args,
-  indeterminate: true,
-  checked: true,
+  label: "I agree to the terms and conditions",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Default.args,
+  label: "I agree to the terms and conditions",
+  disabled: true,
 };
 
 export const WithRequiredLabel = Template.bind({});
@@ -68,11 +75,34 @@ WithRequiredLabel.args = {
   required: true,
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
+export const WithDescription = Template.bind({});
+WithDescription.args = {
   ...Default.args,
   label: "I agree to the terms and conditions",
-  disabled: true,
+  description: "Description of the checkbox",
+};
+
+export const WithError = Template.bind({});
+WithError.args = {
+  ...Default.args,
+  label: "I agree to the terms and conditions",
+  description: "Description of the checkbox",
+  required: true,
+  error: "This field is required",
+};
+
+export const LabelWithLink = Template.bind({});
+LabelWithLink.args = {
+  ...Default.args,
+  label: (
+    <>
+      I agree to{" "}
+      <Text color="red" as="a" target="_blank" href="https://example.com">
+        the terms and conditions
+      </Text>
+    </>
+  ),
+  checked: true,
 };
 
 export default CheckboxMeta;

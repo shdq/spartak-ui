@@ -5,7 +5,7 @@ import { darkTheme } from "../../stitches.config";
 import { TextInput } from "../TextInput";
 
 const TextInputMeta: ComponentMeta<typeof TextInput> = {
-  title: "Components/TextInput",
+  title: "Components/Forms/TextInput",
   component: TextInput,
   decorators: [
     (Story) => (
