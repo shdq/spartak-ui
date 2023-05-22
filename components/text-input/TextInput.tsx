@@ -135,9 +135,17 @@ const InputWrapper = styled("div", {
   },
 });
 const Label = styled("label", {
-  display: "block",
+  display: "inline-block",
   marginBottom: "3px",
   userSelect: "none",
+  variants: {
+    disabled: {
+      true: {
+        cursor: "not-allowed",
+        opacity: 0.6,
+      },
+    },
+  },
 });
 const SupportingText = styled("span", {
   variants: {
@@ -232,6 +240,7 @@ export interface TextInputProps
 
 export const TextInput = ({
   children,
+  disabled,
   description,
   error,
   endIcon,
@@ -258,6 +267,7 @@ export const TextInput = ({
         </IconWrapper>
       )}
       <InputComponent
+        disabled={disabled}
         withIcon={withIcon}
         isInvalid={isInvalid}
         aria-invalid={isInvalid}

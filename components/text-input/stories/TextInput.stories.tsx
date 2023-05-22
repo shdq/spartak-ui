@@ -5,7 +5,7 @@ import { darkTheme } from "../../stitches.config";
 import { TextInput } from "../TextInput";
 
 const TextInputMeta: ComponentMeta<typeof TextInput> = {
-  title: "Components/TextInput",
+  title: "Components/Forms/TextInput",
   component: TextInput,
   decorators: [
     (Story) => (
@@ -95,6 +95,13 @@ WithRequiredLabel.args = {
   ...Default.args,
   label: "Label text",
   required: true,
+};
+
+export const WithLabelDisabled = Template.bind({});
+WithLabelDisabled.args = {
+  ...Default.args,
+  disabled: true,
+  label: "Label text",
 };
 
 export const WithDescription = Template.bind({});

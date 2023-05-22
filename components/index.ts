@@ -2,6 +2,7 @@ export * from "./avatar";
 export * from "./badge";
 export * from "./button";
 export * from "./card";
+export * from "./checkbox";
 export * from "./code";
 export * from "./heading";
 export * from "./provider";
