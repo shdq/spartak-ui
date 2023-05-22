@@ -49,16 +49,17 @@ CheckedByDefault.args = {
   checked: true,
 };
 
-export const Indeterminate = Template.bind({});
-Indeterminate.args = {
-  ...Default.args,
-  indeterminate: true,
-};
-
 export const WithLabel = Template.bind({});
 WithLabel.args = {
   ...Default.args,
   label: "I agree to the terms and conditions",
+};
+
+export const WithRequiredLabel = Template.bind({});
+WithRequiredLabel.args = {
+  ...Default.args,
+  label: "I agree to the terms and conditions",
+  required: true,
 };
 
 export const Disabled = Template.bind({});
@@ -68,11 +69,10 @@ Disabled.args = {
   disabled: true,
 };
 
-export const WithRequiredLabel = Template.bind({});
-WithRequiredLabel.args = {
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
   ...Default.args,
-  label: "I agree to the terms and conditions",
-  required: true,
+  indeterminate: true,
 };
 
 export const WithDescription = Template.bind({});

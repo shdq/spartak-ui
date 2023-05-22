@@ -177,21 +177,22 @@ function App() {
 An example of controlled `TextInput`.
 
 ```jsx
-import { TextInput } from "spartak-ui";
+import React from "react";
+import { Text, TextInput } from "spartak-ui";
 
 function App() {
-const [value, setValue] = React.useState('')
-  const handleChange = (event) => setValue(event.target.value)
+  const [value, setValue] = React.useState("");
+  const handleChange = (event) => setValue(event.target.value);
 
   return (
     <>
-      <Text mb='8px'>Value: {value}</Text>
-      <Input
+      <TextInput
         value={value}
         onChange={handleChange}
-        placeholder='Here is a sample placeholder'
-        size='sm'
+        placeholder="Enter something"
       />
+      <Text>Value: {value}</Text>
     </>
-  )
+  );
+}
 ```
