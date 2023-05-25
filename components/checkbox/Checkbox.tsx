@@ -1,6 +1,6 @@
 import { useId, useState, useEffect, useRef } from "react";
 import { styled, checkboxIconSizes } from "../stitches.config";
-import { Text } from "../index";
+import { Text } from "../text/index";
 
 const CheckboxComponent = styled("input", {
   all: "unset",

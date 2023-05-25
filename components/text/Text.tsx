@@ -61,6 +61,7 @@ const TextComponent = styled("div", {
 export interface TextProps extends React.ComponentProps<typeof TextComponent> {
   as?: React.ElementType;
   href?: string;
+  target?: React.HTMLAttributeAnchorTarget;
 }
 
 export const Text = ({
