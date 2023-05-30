@@ -2,7 +2,7 @@ import { type PropsWithChildren } from "react";
 import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
 import { darkTheme } from "../../stitches.config";
-import { Button, TextInput, Checkbox, Text } from "../../index";
+import { Button, TextInput, Checkbox, Text, Separator } from "../../index";
 import { Card, CardHeader, CardBody, CardFooter } from "../Card";
 
 const CardMeta: ComponentMeta<typeof Card> = {
@@ -51,6 +51,30 @@ Elevated.args = {
   ...Default.args,
   children: <CardBody>Elevated card</CardBody>,
   variant: "elevated",
+};
+
+export const WithSeparator = Template.bind({});
+WithSeparator.args = {
+  ...Default.args,
+  children: (
+    <CardBody>
+      Top content
+      <Separator />
+      Bottom content
+    </CardBody>
+  ),
+};
+
+export const VerticalSeparatorInFlexContainer = Template.bind({});
+VerticalSeparatorInFlexContainer.args = {
+  ...Default.args,
+  children: (
+    <CardBody css={{ display: "flex", alignItems: "center" }}>
+      <Text size="md">Left content</Text>
+      <Separator orientation="vertical" flexItem />
+      <Text size="md">Right content</Text>
+    </CardBody>
+  ),
 };
 
 const loginForm = (

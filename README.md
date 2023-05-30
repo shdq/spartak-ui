@@ -9,6 +9,7 @@ A collection of React components
 **Forms**
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
+- [Checkbox](https://github.com/shdq/spartak-ui/tree/main/components/checkbox#checkbox)
 - [Text Input](https://github.com/shdq/spartak-ui/tree/main/components/text-input#text-input)
 
 **Typography**
@@ -22,6 +23,7 @@ A collection of React components
 - [Avatar](https://github.com/shdq/spartak-ui/tree/main/components/avatar#avatar)
 - [Badge](https://github.com/shdq/spartak-ui/tree/main/components/badge#badge)
 - [Card](https://github.com/shdq/spartak-ui/tree/main/components/card#card)
+- [Separator](https://github.com/shdq/spartak-ui/tree/main/components/separator#separator)
 
 Check out [Storybook](https://shdq.github.io/spartak-ui/) for visual look of the components.
 
