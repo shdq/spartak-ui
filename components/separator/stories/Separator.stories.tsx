@@ -24,10 +24,16 @@ const SeparatorMeta: ComponentMeta<typeof Separator> = {
 
 const Template: ComponentStory<typeof Separator> = ({
   ...args
-}: PropsWithChildren) => <Separator {...args} />;
+}: PropsWithChildren) => (
+  <div style={{ height: "20px" }}>
+    <Separator {...args} />
+  </div>
+);
 
 const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  orientation: "horizontal",
+};
 
 export const Horizontal = Template.bind({});
 Horizontal.args = {
@@ -37,7 +43,7 @@ Horizontal.args = {
 export const Vertical = Template.bind({});
 Vertical.args = {
   ...Default.args,
-  orientation: "horizontal",
+  orientation: "vertical",
 };
 
 export default SeparatorMeta;
