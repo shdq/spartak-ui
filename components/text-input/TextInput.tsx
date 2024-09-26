@@ -186,7 +186,6 @@ const Asterisk = (): JSX.Element => {
 
 const IconWrapper = styled("div", {
   position: "absolute",
-  top: 0,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -256,7 +255,7 @@ export const TextInput = ({
   return (
     <InputWrapper size={size}>
       {label !== undefined && (
-        <Label htmlFor={id}>
+        <Label htmlFor={id} disabled={disabled}>
           {label}
           {required !== undefined && <Asterisk />}
         </Label>
@@ -264,6 +263,11 @@ export const TextInput = ({
       {withIcon && (
         <IconWrapper position="start" size={size}>
           {icon}
+        </IconWrapper>
+      )}
+      {endIcon !== undefined && (
+        <IconWrapper position="end" size={size}>
+          {endIcon}
         </IconWrapper>
       )}
       <InputComponent
@@ -275,11 +279,6 @@ export const TextInput = ({
         size={size}
         {...props}
       />
-      {endIcon !== undefined && (
-        <IconWrapper position="end" size={size}>
-          {endIcon}
-        </IconWrapper>
-      )}
       {(description !== undefined || isInvalid) && (
         <SupportingText
           variant={isInvalid ? "error" : "description"}
