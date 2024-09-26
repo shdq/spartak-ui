@@ -104,6 +104,15 @@ WithLabelDisabled.args = {
   label: "Label text",
 };
 
+export const WithLabelWithIconsWithDescription = Template.bind({});
+WithLabelWithIconsWithDescription.args = {
+  ...Default.args,
+  icon: <IconSearch size={18} />,
+  endIcon: <IconMicrophone size={18} />,
+  label: "Label text",
+  description: "Description",
+};
+
 export const WithDescription = Template.bind({});
 WithDescription.args = {
   ...Default.args,
