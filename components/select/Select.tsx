@@ -8,7 +8,7 @@ import {
   SupportingText,
 } from "../shared-components";
 
-const DefaulSvgIconContainer = styled("svg", {
+const DefaultSvgIconContainer = styled("svg", {
   variants: {
     size: {
       xs: {
@@ -192,9 +192,9 @@ export const Select = ({
           {icon}
         </IconWrapper>
       )}
-      {endIcon === undefined && ( // when end icon isn't specified, we use defaul icon
-        <IconWrapper position="end" size={size}>
-          <DefaulSvgIconContainer
+      <IconWrapper position="end" size={size}>
+        {endIcon === undefined ? ( // when endIcon isn't specified, we use default icon
+          <DefaultSvgIconContainer
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none" // Change this to 'none' for line-based stroke
@@ -206,14 +206,11 @@ export const Select = ({
             size={size}
           >
             <path d="M7 10L12 15L17 10" />
-          </DefaulSvgIconContainer>
-        </IconWrapper>
-      )}
-      {endIcon !== undefined && (
-        <IconWrapper position="end" size={size}>
-          {endIcon}
-        </IconWrapper>
-      )}
+          </DefaultSvgIconContainer>
+        ) : (
+          endIcon
+        )}
+      </IconWrapper>
       <SelectComponent
         disabled={disabled}
         withIcon={withIcon}

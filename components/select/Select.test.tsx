@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Select } from "./Select"; // Adjust import path accordingly
+import { Select } from "./Select";
 
 const isClassSuffixPresent = (element: HTMLElement, value: string): boolean => {
   return [...element.classList].some((className) => className.endsWith(value));
@@ -237,7 +237,7 @@ describe("Select", () => {
         options={options}
       />
     );
-    const defaultIcon = screen.queryByRole("img"); // Assuming the default icon is an SVG (role="img")
+    const defaultIcon = screen.queryByRole("img"); // the default icon is an SVG (role="img")
 
     // Act & Assert
     expect(defaultIcon).not.toBeInTheDocument();
@@ -283,7 +283,7 @@ describe("Select", () => {
 
     // Act & Assert
     expect(select).toHaveStyle({
-      fontSize: "var(--sizes-lg)", // Adjust this based on your size configuration
+      fontSize: "var(--sizes-lg)",
     });
   });
 });

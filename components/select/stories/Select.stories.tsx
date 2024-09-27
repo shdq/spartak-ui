@@ -1,6 +1,6 @@
 import { type ComponentStory, type ComponentMeta } from "@storybook/react";
 import { useDarkMode } from "storybook-dark-mode";
-import { IconUser } from "@tabler/icons-react";
+import { IconUser, IconArrowDown } from "@tabler/icons-react";
 import { darkTheme } from "../../stitches.config";
 import { Select } from "../Select";
 
@@ -66,6 +66,13 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   ...Default.args,
   icon: <IconUser size={18} />,
+  placeholder: "Select an option",
+};
+
+export const WithCustomEndIcon = Template.bind({});
+WithCustomEndIcon.args = {
+  ...Default.args,
+  endIcon: <IconArrowDown size={18} />,
   placeholder: "Select an option",
 };
 
