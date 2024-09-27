@@ -1,7 +1,14 @@
 import { useId } from "react";
 import { styled } from "../stitches.config";
+import {
+  Asterisk,
+  FormComponentWrapper,
+  IconWrapper,
+  Label,
+  SupportingText,
+} from "../shared-components";
 
-const DefaultIconContainer = styled("svg", {
+const DefaulSvgIconContainer = styled("svg", {
   variants: {
     size: {
       xs: {
@@ -35,33 +42,6 @@ const DefaultIconContainer = styled("svg", {
   defaultVariants: {
     size: "sm",
     disabled: false,
-  },
-});
-
-const SelectWrapper = styled("div", {
-  position: "relative",
-  fontFamily: "$system",
-  fontWeight: "$normal",
-  textAlign: "left",
-  color: "$grey700",
-  variants: {
-    size: {
-      xs: {
-        fontSize: "$xs",
-      },
-      sm: {
-        fontSize: "$sm",
-      },
-      md: {
-        fontSize: "$md",
-      },
-      lg: {
-        fontSize: "$lg",
-      },
-    },
-  },
-  defaultVariants: {
-    size: "sm",
   },
 });
 
@@ -172,101 +152,6 @@ const SelectComponent = styled("select", {
   },
 });
 
-const Label = styled("label", {
-  display: "inline-block",
-  marginBottom: "3px",
-  userSelect: "none",
-  variants: {
-    disabled: {
-      true: {
-        cursor: "not-allowed",
-        opacity: 0.6,
-      },
-    },
-  },
-});
-
-const SupportingText = styled("span", {
-  variants: {
-    variant: {
-      error: {
-        color: "$red500",
-      },
-      description: {
-        color: "$grey500",
-      },
-    },
-    size: {
-      xs: {
-        fontSize: "$xxs",
-      },
-      sm: {
-        fontSize: "$xs",
-      },
-      md: {
-        fontSize: "$sm",
-      },
-      lg: {
-        fontSize: "$md",
-      },
-    },
-  },
-  defaultVariants: {
-    size: "sm",
-  },
-});
-
-const AsteriskContainer = styled("span", {
-  color: "$red500",
-  userSelect: "none",
-});
-
-const Asterisk = (): JSX.Element => {
-  return <AsteriskContainer>&nbsp;*</AsteriskContainer>;
-};
-
-const IconWrapper = styled("div", {
-  position: "absolute",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  color: "$grey500",
-  pointerEvents: "none",
-
-  variants: {
-    position: {
-      start: {
-        left: 0,
-      },
-      end: {
-        right: 0,
-      },
-    },
-    size: {
-      xs: {
-        height: "$sizes$xs",
-        width: "$sizes$xs",
-      },
-      sm: {
-        height: "$sizes$sm",
-        width: "$sizes$sm",
-      },
-      md: {
-        height: "$sizes$md",
-        width: "$sizes$md",
-      },
-      lg: {
-        height: "$sizes$lg",
-        width: "$sizes$lg",
-      },
-    },
-  },
-  defaultVariants: {
-    position: "start",
-    size: "sm",
-  },
-});
-
 export interface SelectProps
   extends React.ComponentProps<typeof SelectComponent> {
   options: Array<{ value: string; label: string }>;
@@ -295,7 +180,7 @@ export const Select = ({
   const withIcon = icon !== undefined;
 
   return (
-    <SelectWrapper size={size}>
+    <FormComponentWrapper size={size}>
       {label !== undefined && (
         <Label htmlFor={id} disabled={disabled}>
           {label}
@@ -309,7 +194,7 @@ export const Select = ({
       )}
       {endIcon === undefined && ( // when end icon isn't specified, we use defaul icon
         <IconWrapper position="end" size={size}>
-          <DefaultIconContainer
+          <DefaulSvgIconContainer
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none" // Change this to 'none' for line-based stroke
@@ -321,7 +206,7 @@ export const Select = ({
             size={size}
           >
             <path d="M7 10L12 15L17 10" />
-          </DefaultIconContainer>
+          </DefaulSvgIconContainer>
         </IconWrapper>
       )}
       {endIcon !== undefined && (
@@ -352,6 +237,6 @@ export const Select = ({
           {isInvalid ? error : description}
         </SupportingText>
       )}
-    </SelectWrapper>
+    </FormComponentWrapper>
   );
 };
