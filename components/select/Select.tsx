@@ -2,10 +2,25 @@ import { useId } from "react";
 import { styled } from "../stitches.config";
 
 const DefaultIconContainer = styled("svg", {
-  position: "relative",
-  top: "5%",
-
   variants: {
+    size: {
+      xs: {
+        width: "$sizes$xs",
+        height: "$sizes$xs",
+      },
+      sm: {
+        width: "$sizes$sm",
+        height: "$sizes$sm",
+      },
+      md: {
+        width: "$sizes$md",
+        height: "$sizes$md",
+      },
+      lg: {
+        width: "$sizes$lg",
+        height: "$sizes$lg",
+      },
+    },
     disabled: {
       true: {
         opacity: 0.6,
@@ -18,6 +33,7 @@ const DefaultIconContainer = styled("svg", {
     },
   },
   defaultVariants: {
+    size: "sm",
     disabled: false,
   },
 });
@@ -51,6 +67,8 @@ const SelectWrapper = styled("div", {
 
 const SelectComponent = styled("select", {
   all: "unset",
+  display: "flex",
+  alignItems: "center",
   cursor: "pointer",
   border: "$borderWidths$1 solid transparent",
   borderRadius: "$3",
@@ -212,7 +230,6 @@ const IconWrapper = styled("div", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  zIndex: "1",
   color: "$grey500",
   pointerEvents: "none",
 
@@ -301,10 +318,9 @@ export const Select = ({
             strokeLinecap="round" // Makes the line ends rounded
             strokeLinejoin="round" // Makes the corners smooth
             disabled={disabled}
+            size={size}
           >
-            <path
-              d="M7.41 8.59L12 13.17l4.59-4.58" // Caret down path with stroke
-            />
+            <path d="M7 10L12 15L17 10" />
           </DefaultIconContainer>
         </IconWrapper>
       )}
