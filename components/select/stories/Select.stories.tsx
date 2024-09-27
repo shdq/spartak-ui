@@ -29,9 +29,7 @@ const SelectMeta: ComponentMeta<typeof Select> = {
   },
 };
 
-const Template: ComponentStory<typeof Select> = (args) => (
-  <Select {...args} />
-);
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 const Default = Template.bind({});
 Default.args = {
@@ -125,7 +123,7 @@ WithLabelWithIconWithDesc.args = {
   ...Default.args,
   icon: <IconUser size={18} />,
   label: "Label text",
-  description: "Description"
+  description: "Description",
 };
 
 export default SelectMeta;

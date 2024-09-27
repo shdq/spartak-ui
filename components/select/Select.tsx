@@ -252,7 +252,7 @@ const IconWrapper = styled("div", {
 
 export interface SelectProps
   extends React.ComponentProps<typeof SelectComponent> {
-  options: { value: string; label: string }[];
+  options: Array<{ value: string; label: string }>;
   description?: string;
   error?: string;
   endIcon?: React.ReactNode;
@@ -279,10 +279,10 @@ export const Select = ({
 
   return (
     <SelectWrapper size={size}>
-      {label && (
+      {label !== undefined && (
         <Label htmlFor={id} disabled={disabled}>
           {label}
-          {required && <Asterisk />}
+          {required !== undefined && <Asterisk />}
         </Label>
       )}
       {withIcon && (
@@ -290,7 +290,7 @@ export const Select = ({
           {icon}
         </IconWrapper>
       )}
-      {!endIcon && ( // when end icon isn't specified, we use defaul icon
+      {endIcon === undefined && ( // when end icon isn't specified, we use defaul icon
         <IconWrapper position="end" size={size}>
           <DefaultIconContainer
             xmlns="http://www.w3.org/2000/svg"
@@ -308,7 +308,7 @@ export const Select = ({
           </DefaultIconContainer>
         </IconWrapper>
       )}
-      {endIcon && (
+      {endIcon !== undefined && (
         <IconWrapper position="end" size={size}>
           {endIcon}
         </IconWrapper>
@@ -328,7 +328,7 @@ export const Select = ({
           </option>
         ))}
       </SelectComponent>
-      {(description || isInvalid) && (
+      {(description !== undefined || isInvalid) && (
         <SupportingText
           variant={isInvalid ? "error" : "description"}
           size={size}
