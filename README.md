@@ -10,6 +10,7 @@ A collection of React components
 
 - [Button](https://github.com/shdq/spartak-ui/tree/main/components/button#button)
 - [Checkbox](https://github.com/shdq/spartak-ui/tree/main/components/checkbox#checkbox)
+- [Select](https://github.com/shdq/spartak-ui/tree/main/components/select#select)
 - [Text Input](https://github.com/shdq/spartak-ui/tree/main/components/text-input#text-input)
 
 **Typography**

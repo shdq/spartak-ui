@@ -6,6 +6,7 @@ export * from "./checkbox";
 export * from "./code";
 export * from "./heading";
 export * from "./provider";
+export * from "./select";
 export * from "./separator";
 export * from "./text";
 export * from "./text-input";

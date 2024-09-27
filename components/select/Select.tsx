@@ -8,9 +8,48 @@ import {
   SupportingText,
 } from "../shared-components";
 
-const InputComponent = styled("input", {
+const DefaultSvgIconContainer = styled("svg", {
+  variants: {
+    size: {
+      xs: {
+        width: "$sizes$xs",
+        height: "$sizes$xs",
+      },
+      sm: {
+        width: "$sizes$sm",
+        height: "$sizes$sm",
+      },
+      md: {
+        width: "$sizes$md",
+        height: "$sizes$md",
+      },
+      lg: {
+        width: "$sizes$lg",
+        height: "$sizes$lg",
+      },
+    },
+    disabled: {
+      true: {
+        opacity: 0.6,
+        cursor: "not-allowed",
+      },
+      false: {
+        opacity: 1,
+        cursor: "pointer",
+      },
+    },
+  },
+  defaultVariants: {
+    size: "sm",
+    disabled: false,
+  },
+});
+
+const SelectComponent = styled("select", {
   all: "unset",
-  cursor: "text",
+  display: "flex",
+  alignItems: "center",
+  cursor: "pointer",
   border: "$borderWidths$1 solid transparent",
   borderRadius: "$3",
   fontFamily: "$system",
@@ -19,13 +58,11 @@ const InputComponent = styled("input", {
   color: "$grey700",
   width: "100%",
   boxSizing: "border-box",
+  appearance: "none",
+  userSelect: "none",
 
   "&:disabled": {
     cursor: "not-allowed",
-    opacity: 0.6,
-  },
-  "&::placeholder": {
-    color: "$grey500",
     opacity: 0.6,
   },
   "&:focus-visible": {
@@ -115,8 +152,9 @@ const InputComponent = styled("input", {
   },
 });
 
-export interface TextInputProps
-  extends React.ComponentProps<typeof InputComponent> {
+export interface SelectProps
+  extends React.ComponentProps<typeof SelectComponent> {
+  options: Array<{ value: string; label: string }>;
   description?: string;
   error?: string;
   endIcon?: React.ReactNode;
@@ -125,10 +163,10 @@ export interface TextInputProps
   required?: boolean;
 }
 
-export const TextInput = ({
-  children,
-  disabled,
+export const Select = ({
+  options,
   description,
+  disabled,
   error,
   endIcon,
   icon,
@@ -136,10 +174,11 @@ export const TextInput = ({
   required,
   size,
   ...props
-}: TextInputProps): JSX.Element => {
+}: SelectProps): JSX.Element => {
   const id = useId();
-  const isInvalid = error !== undefined; // if error change border color
-  const withIcon = icon !== undefined; // change left padding to icon container size
+  const isInvalid = error !== undefined;
+  const withIcon = icon !== undefined;
+
   return (
     <FormComponentWrapper size={size}>
       {label !== undefined && (
@@ -153,12 +192,26 @@ export const TextInput = ({
           {icon}
         </IconWrapper>
       )}
-      {endIcon !== undefined && (
-        <IconWrapper position="end" size={size}>
-          {endIcon}
-        </IconWrapper>
-      )}
-      <InputComponent
+      <IconWrapper position="end" size={size}>
+        {endIcon === undefined ? ( // when endIcon isn't specified, we use default icon
+          <DefaultSvgIconContainer
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none" // Change this to 'none' for line-based stroke
+            stroke="currentColor" // Use stroke instead of fill
+            strokeWidth="1.2" // Adjust stroke width to make the lines thinner
+            strokeLinecap="round" // Makes the line ends rounded
+            strokeLinejoin="round" // Makes the corners smooth
+            disabled={disabled}
+            size={size}
+          >
+            <path d="M7 10L12 15L17 10" />
+          </DefaultSvgIconContainer>
+        ) : (
+          endIcon
+        )}
+      </IconWrapper>
+      <SelectComponent
         disabled={disabled}
         withIcon={withIcon}
         isInvalid={isInvalid}
@@ -166,7 +219,13 @@ export const TextInput = ({
         id={id}
         size={size}
         {...props}
-      />
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </SelectComponent>
       {(description !== undefined || isInvalid) && (
         <SupportingText
           variant={isInvalid ? "error" : "description"}
